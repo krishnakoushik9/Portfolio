@@ -130,8 +130,8 @@ document.addEventListener('DOMContentLoaded', function() {
         popup.style.top = '50%';
         popup.style.left = '50%';
         popup.style.transform = 'translate(-50%, -50%)';
-        popup.style.width = '500px';
-        popup.style.maxWidth = '90%';
+        popup.style.width = '800px'; // Wider to accommodate ad
+        popup.style.maxWidth = '95%';
         popup.style.padding = '30px';
         popup.style.borderRadius = '15px';
         popup.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
@@ -150,6 +150,21 @@ document.addEventListener('DOMContentLoaded', function() {
         popup.style.fontSize = '18px';
         popup.style.fontWeight = 'bold';
         popup.style.textShadow = '0 2px 4px rgba(0, 0, 0, 0.5)';
+        
+        // Create content container for flex layout
+        const contentContainer = document.createElement('div');
+        contentContainer.style.display = 'flex';
+        contentContainer.style.flexDirection = 'row';
+        contentContainer.style.flexWrap = 'wrap';
+        contentContainer.style.justifyContent = 'center';
+        contentContainer.style.gap = '20px';
+        contentContainer.style.width = '100%';
+        contentContainer.style.marginBottom = '20px';
+        
+        // Left column: Meme content
+        const memeContent = document.createElement('div');
+        memeContent.style.flex = '1';
+        memeContent.style.minWidth = '300px';
         
         // Add warning image
         const image = document.createElement('img');
@@ -171,6 +186,63 @@ document.addEventListener('DOMContentLoaded', function() {
         subText.style.fontSize = '24px';
         subText.style.color = '#ff3333';
         subText.style.textShadow = '0 0 10px rgba(255, 51, 51, 0.7)';
+        
+        // Add meme content elements
+        memeContent.appendChild(image);
+        memeContent.appendChild(text);
+        memeContent.appendChild(subText);
+        
+        // Right column: Ad content
+        const adContent = document.createElement('div');
+        adContent.style.flex = '1';
+        adContent.style.minWidth = '300px';
+        adContent.style.display = 'flex';
+        adContent.style.flexDirection = 'column';
+        adContent.style.alignItems = 'center';
+        adContent.style.justifyContent = 'center';
+        
+        // Ad title
+        const adTitle = document.createElement('p');
+        adTitle.textContent = 'SPONSORED';
+        adTitle.style.fontSize = '14px';
+        adTitle.style.opacity = '0.7';
+        adTitle.style.marginBottom = '10px';
+        
+        // Ad container with glassmorphic style
+        const adContainer = document.createElement('div');
+        adContainer.style.width = '300px';
+        adContainer.style.height = '250px';
+        adContainer.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
+        adContainer.style.backdropFilter = 'blur(5px)';
+        adContainer.style.WebkitBackdropFilter = 'blur(5px)';
+        adContainer.style.borderRadius = '10px';
+        adContainer.style.border = '1px solid rgba(255, 255, 255, 0.2)';
+        adContainer.style.overflow = 'hidden';
+        adContainer.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+        
+        // AdSense code
+        const adIns = document.createElement('ins');
+        adIns.className = 'adsbygoogle';
+        adIns.style.display = 'block';
+        adIns.setAttribute('data-ad-client', 'ca-pub-7515728727059624');
+        adIns.setAttribute('data-ad-slot', '1234567894'); // Using a different slot for popup
+        adIns.setAttribute('data-ad-format', 'rectangle');
+        adIns.style.width = '300px';
+        adIns.style.height = '250px';
+        
+        adContainer.appendChild(adIns);
+        
+        const adScript = document.createElement('script');
+        adScript.textContent = '(adsbygoogle = window.adsbygoogle || []).push({});';
+        
+        // Add ad elements
+        adContent.appendChild(adTitle);
+        adContent.appendChild(adContainer);
+        adContent.appendChild(adScript);
+        
+        // Add columns to content container
+        contentContainer.appendChild(memeContent);
+        contentContainer.appendChild(adContent);
         
         // Add close button
         const closeButton = document.createElement('button');
@@ -203,9 +275,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Add elements to popup
-        popup.appendChild(image);
-        popup.appendChild(text);
-        popup.appendChild(subText);
+        popup.appendChild(contentContainer);
         popup.appendChild(closeButton);
         
         // Create dark overlay
