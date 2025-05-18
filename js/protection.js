@@ -279,9 +279,10 @@ document.addEventListener('DOMContentLoaded', function() {
             return false;
         }
         
-        // Disable other shortcuts: Ctrl+C, Ctrl+X, Ctrl+V, Ctrl+A
-        if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 88 || e.keyCode === 65)) {
+        // Disable other shortcuts: Ctrl+C, Ctrl+X, Ctrl+V, Ctrl+A, Ctrl+S
+        if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 88 || e.keyCode === 65 || e.keyCode === 83)) {
             e.preventDefault();
+            showProtectionMessage();
             return false;
         }
     });
