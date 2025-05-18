@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P. Krishna | Portfolio</title>
+    <link rel="icon" href="./src/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./css/output.css">
+    <link rel="stylesheet" href="./css/enhanced-shadows.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        .skills-container {
+            position: relative;
+            height: 500px;
+            margin: 0 auto;
+        }
+        
+        .skill-item {
+            padding: 0.75rem 1.25rem;
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            z-index: 1;
+        }
+        
+        .certificate-card {
+            transition: all 0.3s ease;
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .experience-card {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: black;
+        }
+        
+        .experience-card::after {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 10px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <!-- Particles.js Background -->
+    <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.6;"></div>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full bg-secondary z-50 border-b-2 border-primary">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#home" class="text-xl font-serif font-bold">P. Krishna</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:font-bold transition-all">Home</a>
+                    <a href="#about" class="hover:font-bold transition-all">About</a>
+                    <a href="#experience" class="hover:font-bold transition-all">Experience</a>
+                    <a href="#skills" class="hover:font-bold transition-all">Skills</a>
+                    <a href="#github" class="hover:font-bold transition-all">GitHub</a>
+                    <a href="#huggingface" class="hover:font-bold transition-all">AI Work</a>
+                    <a href="#gamedev" class="hover:font-bold transition-all">Game Dev</a>
+                    <a href="#certificates" class="hover:font-bold transition-all">Certificates</a>
+                    <a href="#contact" class="hover:font-bold transition-all">Contact</a>
+                </div>
+                <button class="md:hidden" id="menu-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-secondary w-full border-t-2 border-primary" id="mobile-menu">
+            <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+                <a href="#home" class="hover:font-bold transition-all">Home</a>
+                <a href="#about" class="hover:font-bold transition-all">About</a>
+                <a href="#experience" class="hover:font-bold transition-all">Experience</a>
+                <a href="#skills" class="hover:font-bold transition-all">Skills</a>
+                <a href="#github" class="hover:font-bold transition-all">GitHub</a>
+                <a href="#huggingface" class="hover:font-bold transition-all">AI Work</a>
+                <a href="#gamedev" class="hover:font-bold transition-all">Game Dev</a>
+                <a href="#certificates" class="hover:font-bold transition-all">Certificates</a>
+                <a href="#contact" class="hover:font-bold transition-all">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+   <!-- Landing Page (Home Section) -->
+<section id="home" class="min-h-screen flex items-center justify-center w-full">
+    <div class="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between">
+      <!-- Left: Text Content -->
+      <div class="w-full md:w-1/2 flex flex-col justify-center mb-10 md:mb-0">
+        <h1 class="text-5xl sm:text-7xl md:text-8xl xl:text-9xl font-black tracking-tight leading-none mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-800 via-purple-600 to-blue-500">
+        Krishna<br class="hidden sm:block"> Koushik
+        </h1>
+        <div class="pl-2">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">CMRCET, Hyderabad</h2>
+          <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold mb-6 max-w-3xl">B.Tech - CSE (Artificial Intelligence & Machine Learning)</h3>
+          <p class="text-lg sm:text-xl md:text-2xl italic font-medium border-l-4 border-primary pl-4 py-2 max-w-2xl">"Jack of all trades, master of none, but oftentimes better than master of one."</p>
+        </div>
+      </div>
+      
+      <!-- Right: Face Image -->
+      <div class="w-full md:w-1/2 flex justify-center items-center">
+        <div class="relative">
+          <!-- Multi-gradient animated border with inline animation -->
+          <div class="absolute inset-0 rounded-full p-1 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500" style="animation: spin 8s linear infinite;">
+          </div>
+          <!-- Image container - perfect circle -->
+          <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-lg relative z-10 border-4 border-white">
+            <img src="/src/Face.jpg" alt="Face" class="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    </div>
+  </section>
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-center">About Me</h2>
+            <div class="max-w-3xl mx-auto">
+                <p class="text-lg leading-relaxed text-center">
+                    I'm a passionate technologist with a deep interest in artificial intelligence, machine learning, and game development. 
+                    Currently pursuing my B.Tech in CSE with a specialization in AI & ML at CMRCET, Hyderabad. 
+                    I enjoy exploring the intersection of technology and creativity, whether that's through coding AI models, 
+                    developing games, or building web applications. I believe in continuous learning and pushing the boundaries 
+                    of what's possible with technology.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-center">Experience</h2>
+            <div class="max-w-4xl mx-auto space-y-12">
+                <!-- Experience Card 1 -->
+                <div class="experience-card">
+                    <h3 class="text-2xl font-bold mb-2">Technical Lead</h3>
+                    <p class="text-lg font-semibold mb-1">Entrepreneur's Club CMRCET</p>
+                    <p class="text-gray-700 mb-2">Jan 2025 - Present · 5 months</p>
+                    <p class="text-gray-700 mb-4">Hyderabad, Telangana, India · Hybrid</p>
+                </div>
+                
+                <!-- Experience Card 2 -->
+                <div class="experience-card">
+                    <h3 class="text-2xl font-bold mb-2">Summer Internship</h3>
+                    <p class="text-lg font-semibold mb-1">Swecha Telangana</p>
+                    <p class="text-gray-700 mb-2">May 2024 - Jun 2024 · 2 months</p>
+                    <p class="text-gray-700 mb-4">Hyderabad, Telangana, India · Remote</p>
+                    <ul class="list-disc pl-5">
+                        <li class="mb-1">Summer AI Intern</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-center">Skills</h2>
+            <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg border-2 border-primary shadow-custom">
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <span class="text-lg font-medium">AWS SageMaker</span>
+                    <span class="text-lg font-medium">Firebase</span>
+                    <span class="text-lg font-medium">Three.js</span>
+                    <span class="text-lg font-medium">JupyterNotebook-Python</span>
+                    <span class="text-lg font-medium">LINUX</span>
+                    <span class="text-lg font-medium">AWS Educate Machine Learning</span>
+                    <span class="text-lg font-medium">Java Programming</span>
+                    <span class="text-lg font-medium">Natural Language Processing (NLP)</span>
+                    <span class="text-lg font-medium">Public Speaking</span>
+                    <span class="text-lg font-medium">Internet of Things (IoT)</span>
+                    <span class="text-lg font-medium">Arduino</span>
+                    <span class="text-lg font-medium">Artificial Intelligence (AI)</span>
+                    <span class="text-lg font-medium">Machine Learning</span>
+                    <span class="text-lg font-medium">Cybersecurity</span>
+                    <span class="text-lg font-medium">UI/UX</span>
+                    <span class="text-lg font-medium">Unreal Engine 5.3</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Projects Section -->
+    <section id="github" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-center">My GitHub Projects</h2>
+            
+            <div class="relative">
+                <!-- Navigation Arrows -->
+                <button class="absolute top-1/2 -left-4 transform -translate-y-1/2 z-10 bg-secondary rounded-full p-2 border-2 border-primary" id="github-prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button class="absolute top-1/2 -right-4 transform -translate-y-1/2 z-10 bg-secondary rounded-full p-2 border-2 border-primary" id="github-next">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+                
+                <!-- Project Cards Container -->
+                <div class="overflow-hidden">
+                    <div class="flex transition-transform duration-500 ease-in-out" id="github-projects">
+                        <!-- Project Card 1: Ayur-Verse -->
+                        <div class="w-full md:w-1/3 px-4 flex-shrink-0">
+                            <div class="card h-full p-6">
+                                <h3 class="text-xl font-bold mb-2">Ayur-Verse</h3>
+                                <p class="mb-4">An immersive 3D exploration of sacred trees combining cutting-edge technology with ancient knowledge. Features interactive 3D models and smooth user experience.</p>
+                                <a href="https://github.com/krishnakoushik9/AyurVerse" target="_blank" class="btn inline-block">Deep Dive</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Project Card 2: EMO-CARE-KAVVY -->
+                        <div class="w-full md:w-1/3 px-4 flex-shrink-0">
+                            <div class="card h-full p-6">
+                                <h3 class="text-xl font-bold mb-2">EMO-CARE Response System</h3>
+                                <p class="mb-4">An interactive AI application that responds to emotions and voice in real-time using facial recognition and speech recognition technologies.</p>
+                                <a href="https://github.com/krishnakoushik9/EMO-CARE-KAVVY" target="_blank" class="btn inline-block">Deep Dive</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Project Card 3: E-SUMMIT -->
+                        <div class="w-full md:w-1/3 px-4 flex-shrink-0">
+                            <div class="card h-full p-6">
+                                <h3 class="text-xl font-bold mb-2">CMRCET E-Summit 2025</h3>
+                                <p class="mb-4">A modern and interactive landing page featuring a countdown timer, Three.js animation, event schedule, and responsive design.</p>
+                                <a href="https://github.com/krishnakoushik9/E-SUMMIT" target="_blank" class="btn inline-block">Deep Dive</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Project Card 4: ASHBORN-SRCS -->
+                        <div class="w-full md:w-1/3 px-4 flex-shrink-0">
+                            <div class="card h-full p-6">
+                                 <h3 class="text-xl font-bold mb-2">HackIndia Spark 4 ASHBORN</h3>
+                                <p class="mb-4">A 24/7 document-based RAG AI bot designed to run continuously on a laptop, providing intelligent responses based on document context.</p>
+                                <a href="https://github.com/krishnakoushik9/HackIndia-Spark-4-2025-ASHBORN-SRCS" target="_blank" class="btn inline-block">Deep Dive</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Project Card 5: Legion-Surf-Mate -->
+                        <div class="w-full md:w-1/3 px-4 flex-shrink-0">
+                            <div class="card h-full p-6">
+                                <h3 class="text-xl font-bold mb-2">Legion-Surf-Mate</h3>
+                                <p class="mb-4">A full-stack AI chatbot web application for discovering and planning local events with AI-powered recommendations and a glassmorphic dark UI.</p>
+                                <a href="https://github.com/krishnakoushik9/legion-surf-mate/tree/main/eventmate" target="_blank" class="btn inline-block">Deep Dive</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hugging Face Projects Section -->
+    <section id="huggingface" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-center">AI Work on Hugging Face</h2>
+            
+            <div class="flex flex-wrap -mx-4">
+                <!-- HuggingFace Profile and Projects -->
+                <div class="w-full px-4 mb-8">
+                    <div class="card h-full p-8 bg-white shadow-lg rounded-lg">
+                        <!-- Profile Header -->
+                        <div class="flex flex-col md:flex-row items-start md:items-center mb-6 pb-6 border-b">
+                            <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center mr-4 mb-4 md:mb-0 overflow-hidden flex-shrink-0">
+                                <img src="https://huggingface.co/front/assets/huggingface_logo.svg" alt="Hugging Face Logo" class="w-6 h-6 object-contain">
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">LOHAMEIT</h3>
+                                <p class="text-lg text-gray-700">AI & ML interests: Large Language Models (LLMs), specifically leveraging open-source models like Meta's LLaMA for privacy-first applications.</p>
+                                <a href="https://huggingface.co/LOHAMEIT" target="_blank" class="btn bg-blue-600 text-white hover:bg-blue-700 mt-4 inline-block px-4 py-2 rounded-md">View Profile</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Projects Grid -->
+                        <h4 class="text-xl font-bold mb-4">Projects</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <!-- Project 1 -->
+                            <div class="bg-gray-50 p-5 rounded-lg shadow">
+                                <h5 class="text-lg font-bold mb-2">LOHAMEIT/BITShyd</h5>
+                                <p class="text-gray-700 mb-3">Text2Text Generation • Updated Nov 30, 2024</p>
+                                <p class="mb-4">AI-Enhanced Facial Expression & Mental Health Counseling. Fine-tuned on mental health counseling conversations dataset.</p>
+                                <a href="https://huggingface.co/LOHAMEIT/BITShyd" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium">View Project →</a>
+                            </div>
+                            
+                            <!-- Project 2 -->
+                            <div class="bg-gray-50 p-5 rounded-lg shadow">
+                                <h5 class="text-lg font-bold mb-2">LOHAMEIT/snehal-tirupati</h5>
+                                <p class="text-gray-700 mb-3">Updated Nov 17, 2024</p>
+                                <p class="mb-4">A specialized language model fine-tuned for specific domain applications with enhanced performance.</p>
+                                <a href="https://huggingface.co/LOHAMEIT/snehal-tirupati" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium">View Project →</a>
+                            </div>
+                            
+                            <!-- Project 3 -->
+                            <div class="bg-gray-50 p-5 rounded-lg shadow">
+                                <h5 class="text-lg font-bold mb-2">LOHAMEIT/lohameit-3.2</h5>
+                                <p class="text-gray-700 mb-3">Updated Oct 12, 2024</p>
+                                <p class="mb-4">Advanced language model optimized for performance and efficiency in various natural language processing tasks.</p>
+                                <a href="https://huggingface.co/LOHAMEIT/lohameit-3.2" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium">View Project →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Dev Journey Section -->
+    <section id="gamedev" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-center">My Unreal Engine Journey</h2>
+            <p class="text-lg text-center max-w-4xl mx-auto mb-12">A showcase of my game development project built with Unreal Engine 5, featuring three unique maps with distinct gameplay experiences.</p>
+            
+            <div class="flex flex-wrap -mx-4">
+                <!-- Map 1 -->
+                <div class="w-full md:w-1/3 px-4 mb-12">
+                    <div class="card h-full relative overflow-hidden group shadow-lg">
+                        <div class="h-[350px] md:h-[450px] overflow-hidden">
+                            <img src="/src/Screenshot 2025-05-16 at 19-42-29 Instagram.png" alt="Map 1 Preview" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-75 flex flex-col justify-end p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                            <h3 class="text-2xl font-bold text-white mb-4">Map 1: The Beginning</h3>
+                            <p class="text-gray-200 mb-6 text-lg">The first level introduces players to the game's core mechanics, setting the stage for the epic battles to come. Features dynamic lighting, environmental puzzles, and preliminary combat encounters.</p>
+                            <div class="flex flex-wrap gap-4">
+                                <a href="https://www.instagram.com/p/C_aVwoTviHI/?img_index=3&igsh=MXdyM3lhcG12M2RxdA==" class="btn bg-white text-black hover:bg-gray-200 text-lg px-6 py-2" target="_blank" rel="noopener noreferrer">View on Instagram</a>
+                                <a href="gamedev-details.html" class="btn bg-white text-black hover:bg-gray-200 text-lg px-6 py-2">Deep Dive</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Map 2 -->
+                <div class="w-full md:w-1/3 px-4 mb-12">
+                    <div class="card h-full relative overflow-hidden group shadow-lg">
+                        <div class="h-[350px] md:h-[450px]">
+                            <iframe class="w-full h-full youtube-video" src="https://www.youtube.com/embed/4fidA5pWAg0?si=OZ4Ekt1Jsijsrj8T&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-75 flex flex-col justify-end p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                            <h3 class="text-2xl font-bold text-white mb-4">Map 2: The Shadow Ape King</h3>
+                            <p class="text-gray-200 mb-6 text-lg">A mirror battle where players experience Wukong's strength distorted by arrogance. This challenging boss fight tests the player's mastery of combat mechanics and pattern recognition.</p>
+                            <a href="gamedev-details.html" class="btn bg-white text-black hover:bg-gray-200 text-lg px-6 py-2">Deep Dive</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Map 3 -->
+                <div class="w-full md:w-1/3 px-4 mb-12">
+                    <div class="card h-full relative overflow-hidden group shadow-lg">
+                        <div class="h-[350px] md:h-[450px]">
+                            <iframe class="w-full h-full youtube-video" src="https://www.youtube.com/embed/OQeS5noefQk?si=rjVwEl3zv0543kOA&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-75 flex flex-col justify-end p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                            <h3 class="text-2xl font-bold text-white mb-4">Map 3: Kuruomashi's Final Form</h3>
+                            <p class="text-gray-200 mb-6 text-lg">A three-stage celestial battle where Hanuman's divine form briefly aids the player. Set inside a deep old Shiva temple, this climactic confrontation features dramatic lighting, epic scale, and emotional storytelling.</p>
+                            <a href="gamedev-details.html" class="btn bg-white text-black hover:bg-gray-200 text-lg px-6 py-2">Deep Dive</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-center">Certificates</h2>
+            
+            <div class="flex flex-wrap -mx-4">
+                <!-- Certificate 1 -->
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <div class="certificate-card card h-full p-6">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold">AWS Educate Machine Learning Foundations</h3>
+                        </div>
+                        <div class="mb-4 rounded-lg overflow-hidden">
+                            <img src="https://aws.amazon.com/what-is-cloud-computing" alt="AWS Certificate" class="w-full">
+                        </div>
+                        <a href="https://www.credly.com/badges/f4ec610c-bb79-4b95-83d2-f5e006af7800/public_url" target="_blank" class="btn inline-block">View Certificate</a>
+                    </div>
+                </div>
+                
+                <!-- Certificate 2 -->
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <div class="certificate-card card h-full p-6">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold">AWS Educate Introduction to Generative AI</h3>
+                        </div>
+                        <div class="mb-4 rounded-lg overflow-hidden">
+                            <img src="https://aws.amazon.com/what-is-cloud-computing" alt="AWS Certificate" class="w-full">
+                        </div>
+                        <a href="https://www.credly.com/badges/1d6dcaec-321f-47d0-9984-5d2a89407032/linked_in_profile" target="_blank" class="btn inline-block">View Certificate</a>
+                    </div>
+                </div>
+                
+                <!-- Certificate 3 -->
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <div class="certificate-card card h-full p-6">
+                        <div class="flex items-center mb-4">
+                            <h3 class="text-xl font-bold">Python Programming Bootcamp (5 Days)</h3>
+                        </div>
+                        <p class="mb-2"><span class="font-semibold">Issued:</span> Oct 2024</p>
+                        <p class="mb-4"><span class="font-semibold">Credential ID:</span> LUEPYTSEP1241463</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Upcoming Projects Button -->
+    <div class="py-12 bg-gradient-to-r from-indigo-600 to-purple-600 text-center">
+        <div class="container mx-auto px-6">
+            <a href="./upcoming.html" class="inline-block px-8 py-4 text-xl font-bold text-black bg-transparent border-2 border-white rounded-lg hover:bg-white hover:text-indigo-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                <span class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    Upcoming and Currently in Development Projects
+                </span>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-center">Let's Connect</h2>
+            
+            <div class="flex flex-wrap justify-center gap-8">
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/legionkrsna" target="_blank" rel="noopener noreferrer" class="social-icon">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/krsna_legion/" target="_blank" rel="noopener noreferrer" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                
+                <!-- WhatsApp -->
+                <a href="https://wa.me/918019435543" target="_blank" rel="noopener noreferrer" class="social-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                
+                <!-- Twitter/X -->
+                <a href="https://x.com/Koushik1156" target="_blank" rel="noopener noreferrer" class="social-icon">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Footer -->
+    <footer class="py-8 border-t-2 border-primary">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-lg font-serif italic">"In the symphony of code and circuits, I found my purpose: to breathe consciousness into man-made machines."</p>
+            <div class="mt-4">
+                <a href="#" id="toggleParticles" class="text-sm text-gray-500 hover:text-black transition-colors">Toggle Background Effect</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/youtube-hover.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="./js/particles.js"></script>
+    <script src="./js/protection.js"></script>
+</body>
+</html>

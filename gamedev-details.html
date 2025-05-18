@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine Shiva Game | P. Krishna Koushik</title>
+    <!-- Tailwind CSS for utility classes -->
+    <link rel="stylesheet" href="./css/output.css">
+    <!-- Custom CSS for divine theme -->
+    <link rel="stylesheet" href="./css/gamedev-details.css">
+    <!-- Poppins font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Protection script -->
+    <script src="./js/protection.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: white;
+            color: black;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .divine-title {
+            font-weight: 600;
+            color: black;
+        }
+        
+        .divine-text {
+            color: black;
+        }
+        
+        .divine-quote {
+            font-style: italic;
+            color: black;
+        }
+        
+        .divine-container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            padding: 2rem;
+            background-color: white;
+            border: none;
+            box-shadow: none;
+        }
+        
+        .divine-btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: white;
+            color: black;
+            border-radius: 0;
+            border: 2px solid black;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 1rem;
+        }
+        
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border: 2px solid black;
+            margin-bottom: 2rem;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .grid-item {
+            background-color: white;
+            padding: 1.5rem;
+            border: 2px solid black;
+            border-left: 4px solid black;
+        }
+        
+        .fade-in {
+            opacity: 1;
+            transform: none;
+        }
+        
+        footer {
+            border-top: 2px solid black !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Back button -->
+    <a href="index.html" class="divine-btn back-btn">
+        <i class="fas fa-arrow-left"></i> Back to Portfolio
+    </a>
+    
+    <!-- Main content container -->
+    <div class="divine-container">
+        <!-- Header section with title and quote -->
+        <header class="text-center py-12">
+            <h1 class="text-5xl md:text-7xl divine-text divine-title mb-6 divine-animation">The Path of Shiva</h1>
+            <p class="text-2xl divine-quote mb-8">"In the cosmic dance of creation and destruction, I find my divine inspiration."</p>
+        </header>
+        
+        <!-- Main video showcase -->
+        <section class="mb-16 fade-in">
+            <div class="video-container divine-pulse">
+                <iframe src="https://www.youtube.com/embed/OQeS5noefQk?si=8pk9ZfOeREUXNgIo&autoplay=1&mute=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            
+            <h2 class="text-3xl divine-text divine-title mb-4 fade-in">Sacred Journey</h2>
+            <p class="mb-6 text-lg fade-in">
+                This divine journey represents my exploration into game development using Unreal Engine 5, 
+                inspired by the cosmic energy of Lord Shiva. What began as devotion has evolved into a 
+                sacred project where I explore the boundaries between reality and divinity through 
+                interactive storytelling and immersive environments.
+            </p>
+            
+            <!-- Three-column grid for project details -->
+            <div class="grid-container">
+                <div class="grid-item fade-in">
+                    <h3 class="text-xl divine-text divine-title mb-3">Divine Technologies</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Unreal Engine 5</li>
+                        <li>Blueprint Visual Scripting</li>
+                        <li>C++ for sacred systems</li>
+                        <li>Nanite & Lumen technologies</li>
+                        <li>Quixel Megascans for realistic environments</li>
+                        <li>Blender for custom temple assets</li>
+                    </ul>
+                </div>
+                
+                <div class="grid-item fade-in">
+                    <h3 class="text-xl divine-text divine-title mb-3">Sacred Features</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Dynamic day/night cycle with ritual timing</li>
+                        <li>Advanced devotee character controller</li>
+                        <li>Divine particle effects system</li>
+                    </ul>
+                </div>
+                
+                <div class="grid-item fade-in">
+                    <h3 class="text-xl divine-text divine-title mb-3">Future Pilgrimage</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Advanced weather systems with monsoon cycles</li>
+                        <li>Narrative-driven spiritual quests</li>
+                        <li>Procedural mantra audio generation</li>
+                        <li>Laptop platform only will try to make it accessable to MAC's soon</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Development process section -->
+        <section class="mb-16">
+            <h2 class="text-3xl divine-text divine-title mb-6 fade-in">Creation Process</h2>
+            
+            <div class="grid-container">
+                <div class="grid-item fade-in">
+                    <h3 class="text-xl divine-text divine-title mb-3">Divine Concept</h3>
+                    <p>
+                        Every sacred journey begins with a vision. My process starts with deep 
+                        meditation, research into Hindu mythology, and concept art to establish 
+                        the core aesthetic and gameplay mechanics. I focus on creating authentic 
+                        experiences that honor the divine while providing engaging gameplay.
+                    </p>
+                </div>
+                
+                <div class="grid-item fade-in">
+                    <h3 class="text-xl divine-text divine-title mb-3">Sacred Prototyping</h3>
+                    <p>
+                        Iteration is the path to perfection. I build functional prototypes 
+                        to test core mechanics, focusing on player feedback and spiritual feel 
+                        before investing in high-fidelity assets. This approach allows me to 
+                        align with the divine vision when the current path isn't working.
+                    </p>
+                </div>
+                
+                <div class="grid-item fade-in">
+                    <h3 class="text-xl divine-text divine-title mb-3">Temple Building</h3>
+                    <p>
+                        With the divine blueprint established, I move into full production, creating 
+                        detailed temple environments, deity models, sacred animations, and implementing 
+                        advanced systems like spiritual AI behavior trees, quest logic, and optimization 
+                        for various hardware configurations.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+
+        
+        <!-- Footer with quote -->
+        <footer class="text-center py-8 border-t-2 border-divine-border">
+            <p class="divine-text divine-quote">"ॐ नमः शिवाय" - Om Namah Shivaya</p>
+        </footer>
+    </div>
+    
+    <!-- Custom JavaScript for divine interactions -->
+    <script src="./js/gamedev-details.js"></script>
+</body>
+</html>
