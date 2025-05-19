@@ -10,152 +10,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <style>
-        .page-layout {
-            display: flex;
-            gap: 2%;
-            flex-wrap: wrap;
-            align-content: start;
-            min-height: 100vh;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .layout-header,
-        .layout-footer {
-            width: 100%;
-            padding: 1.5rem;
-            z-index: 10;
-            border-radius: 12px;
-            margin: 1rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        .layout-sidebar {
-            width: 25%;
-            padding: 1.5rem;
-            overflow-y: auto;
-            border-radius: 12px;
-            margin: 0 1rem 1rem 1rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            max-height: calc(90vh - 160px);
-        }
-        
-        .layout-content {
-            flex-grow: 1;
-            padding: 1.5rem;
-            overflow-y: auto;
-            border-radius: 12px;
-            margin: 0 1rem 1rem 0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            max-height: calc(90vh - 160px);
-        }
-        
-        .layout-header {
-            background-color: var(--bg-secondary);
-            position: sticky;
-            top: 0;
-            display: flex;
-            align-items: center;
-        }
-        
-        .layout-footer {
-            background-color: var(--bg-secondary);
-            margin-top: auto;
-        }
-        
-        .layout-sidebar {
-            background-color: rgba(30, 30, 30, 0.9);
-            border-right: 1px solid var(--card-border);
-        }
-        
-        .layout-content {
-            background-color: rgba(18, 18, 18, 0.9);
-        }
-        
-        .flex {
-            display: flex;
-        }
-        
-        .justify-between {
-            justify-content: space-between;
-        }
-        
-        .items-center {
-            align-items: center;
-        }
-        
-        .mt-4 {
-            margin-top: 1.5rem;
-        }
-        
-        .w-full {
-            width: 100%;
-        }
-        
-        .rounded-lg {
-            border-radius: 0.5rem;
-        }
-        
-        .mt-2 {
-            margin-top: 0.5rem;
-        }
-        
-        .glitch-container {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .gallery-preview img {
-            border: 2px solid var(--accent-primary);
-            box-shadow: 0 0 15px var(--glow-color);
-        }
-        
-        @media (max-width: 768px) {
-            .page-layout {
-                flex-direction: column;
-            }
-            
-            .layout-sidebar {
-                width: calc(100% - 2rem);
-                max-height: none;
-                margin: 0 1rem 1rem 1rem;
-            }
-            
-            .layout-content {
-                width: calc(100% - 2rem);
-                max-height: none;
-                margin: 0 1rem 1rem 1rem;
-            }
-        }
-    </style>
 </head>
 <body>
-    <div id="particles-js"></div>
-    
-    <!-- Main Layout Container -->
-    <div class="page-layout">
-        <!-- Header Section -->
-        <div class="layout-header">
-            <div class="container">
-                <div class="flex justify-between items-center">
-                    <a href="./index.html" class="nav-logo">
-                        <i class="fas fa-arrow-left"></i> Back to Portfolio
-                    </a>
-                    <div class="nav-title">APRS Legal Assistant</div>
-                    <div class="project-badge">Prototype Stage</div>
-                </div>
-            </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="./index.html" class="nav-logo">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+            <div class="nav-title">Upcoming Projects</div>
         </div>
-        
-        <!-- Sidebar Section -->
-        <div class="layout-sidebar">
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <h1 class="glitch" data-text="In Development">In Development</h1>
+            <p class="subtitle">Exploring the frontiers of technology and innovation</p>
+        </div>
+    </header>
+
+    <!-- Project Section -->
+    <section class="project-section">
+        <div class="container">
+            <div class="project-header">
+                <h2 class="project-title">APRS Legal Assistant</h2>
+                <div class="project-badge">Prototype Stage</div>
+            </div>
+            
             <div class="project-intro">
-                <h3 class="section-title">PROJECT OVERVIEW</h3>
                 <p>AI-powered legal platform designed to make legal assistance accessible to everyone.</p>
                 <p>Currently in the prototype stage of a national hackathon launched by Microsoft and Bhashini Service of Indian Government.</p>
             </div>
-            
+
             <div class="bhashini-banner">
                 <div class="bhashini-content">
                     <h3>Powered by Bhashini</h3>
@@ -166,33 +53,21 @@
                     <img src="./src/bhasha.svg" alt="Bhasha Bandhu Logo">
                 </div>
             </div>
-            
-            <div class="mt-4">
-                <h3 class="section-title">KEY FEATURES</h3>
+
+            <div class="project-overview">
+                <h3 class="section-title">PROJECT OVERVIEW</h3>
+                <p>APRS Legal Assistant is an AI-powered legal platform designed to make legal assistance accessible to everyone.</p>
+                <p>Our application combines cutting-edge AI technologies with legal expertise to provide:</p>
+                
                 <ul class="feature-list">
-                    <li> Conversational legal assistance through chat and voice interfaces</li>
-                    <li> Multilingual support with Bhashini integration for Indian languages</li>
-                    <li> Document analysis and information extraction</li>
-                    <li> Legal document generation and summarization</li>
-                    <li> Secure and private handling of sensitive legal information</li>
+                    <li>🔹 Conversational legal assistance through chat and voice interfaces</li>
+                    <li>🔹 Multilingual support with Bhashini integration for Indian languages</li>
+                    <li>🔹 Document analysis and information extraction</li>
+                    <li>🔹 Legal document generation and summarization</li>
+                    <li>🔹 Secure and private handling of sensitive legal information</li>
                 </ul>
             </div>
-            
-            <div class="mt-4">
-                <h3 class="section-title">PROJECT GALLERY</h3>
-                <div class="gallery-preview">
-                    <img src="./src/ai-1.png" alt="Project Preview" class="w-full rounded-lg mt-2">
-                </div>
-            </div>
-        </div>
-        
-        <!-- Content Section -->
-        <div class="layout-content">
-            <div class="glitch-container">
-                <h1 class="glitch" data-text="In Development">In Development</h1>
-                <p class="subtitle">Exploring the frontiers of technology and innovation</p>
-            </div>
-            
+
             <div class="features-grid">
                 <h3 class="section-title">REVOLUTIONARY FEATURES</h3>
                 
@@ -205,25 +80,24 @@
                     <ul>
                         <li>Natural language understanding for complex legal queries</li>
                         <li>Instant responses based on up-to-date legal information</li>
-                        <li>Personalized advice tailored to your specific situation</li>
-                        <li>Continuous learning from legal experts' feedback</li>
+                        <li>Personalized advice based on your specific situation</li>
                     </ul>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-microphone-alt"></i>
+                        <i class="fas fa-microphone"></i>
                     </div>
-                    <h4>Voice Interface</h4>
-                    <p>Interact with our legal assistant through natural voice conversations.</p>
+                    <h4>Voice Assistant</h4>
+                    <p>Speak naturally with our AI assistant for hands-free legal guidance on the go.</p>
                     <ul>
-                        <li>Advanced speech recognition for legal terminology</li>
-                        <li>Natural voice synthesis for clear responses</li>
+                        <li>High-accuracy speech recognition technology</li>
+                        <li>Natural-sounding voice responses with emotion</li>
                         <li>Hands-free operation for accessibility</li>
                         <li>Voice commands for navigating legal documents</li>
                     </ul>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-language"></i>
@@ -231,13 +105,13 @@
                     <h4>Multilingual Support</h4>
                     <p>Access legal assistance in multiple Indian languages through Bhashini integration.</p>
                     <ul>
-                        <li>Support for 22+ Indian languages</li>
-                        <li>Real-time translation of legal documents</li>
-                        <li>Voice recognition in multiple languages</li>
+                        <li>Support for 10+ Indian languages including Hindi, Telugu, Tamil</li>
+                        <li>Real-time translation of legal terms and concepts</li>
+                        <li>Voice input and output in regional languages</li>
                         <li>Culturally appropriate legal advice</li>
                     </ul>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-file-alt"></i>
@@ -249,12 +123,38 @@
                         <li>Plain language summaries of complex legal documents</li>
                         <li>Risk assessment and flagging of potential issues</li>
                         <li>Comparison with standard legal templates</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h4>PDF Generation</h4>
+                    <p>Generate legal summaries and documents in PDF format.</p>
+                    <ul>
+                        <li>Professional-quality document formatting</li>
+                        <li>Digital signature and authentication options</li>
+                        <li>Custom templates for different legal needs</li>
+                        <li>Secure sharing with password protection</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h4>Legal Search</h4>
+                    <p>Search across legal documents and precedents.</p>
+                    <ul>
+                        <li>Advanced semantic search beyond keywords</li>
+                        <li>Access to comprehensive legal database</li>
                         <li>Citation tracking and reference linking</li>
                         <li>Relevance ranking based on your specific case</li>
                     </ul>
                 </div>
             </div>
-            
+
             <div class="project-gallery">
                 <h3 class="section-title">PROJECT GALLERY</h3>
                 <div class="gallery-grid">
@@ -276,23 +176,32 @@
                     <div class="gallery-item">
                         <img src="./src/ai-6.png" alt="">
                     </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Footer Section -->
-        <div class="layout-footer">
-            <div class="container">
-                <div class="flex justify-between items-center">
-                    <p>&copy; 2025 P. Krishna Koushik | APRS Legal Assistant</p>
-                    <div class="footer-links">
-                        <a href="./index.html">Back to Portfolio</a>
-                        <a href="#" id="toggleParticles">Toggle Effects</a>
+                    <div class="gallery-item">
+                        <img src="./src/ai-7.png" alt="">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="./src/ai-8.png" alt="">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="./src/ai-99.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 P. Krishna Koushik | APRS Legal Assistant</p>
+            <div class="footer-links">
+                <a href="./index.html">Back to Portfolio</a>
+                <a href="#" id="toggleParticles">Toggle Effects</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="particles-js"></div>
     
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="./js/upcoming.js"></script>
