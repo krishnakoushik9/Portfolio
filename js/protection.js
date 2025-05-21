@@ -1,5 +1,42 @@
 // Content protection script
 document.addEventListener('DOMContentLoaded', function() {
+    // Request fullscreen mode on page load
+    requestFullscreen();
+    
+    // Disable scrollbars
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    
+    // Function to request fullscreen mode
+    function requestFullscreen() {
+        const docEl = document.documentElement;
+        
+        if (docEl.requestFullscreen) {
+            docEl.requestFullscreen();
+        } else if (docEl.webkitRequestFullscreen) { // Safari/Chrome
+            docEl.webkitRequestFullscreen();
+        } else if (docEl.mozRequestFullScreen) { // Firefox
+            docEl.mozRequestFullScreen();
+        } else if (docEl.msRequestFullscreen) { // IE/Edge
+            docEl.msRequestFullscreen();
+        }
+    }
+    
+    // Request fullscreen again if user exits fullscreen
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+    document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+    
+    function handleFullscreenChange() {
+        if (!document.fullscreenElement && 
+            !document.webkitFullscreenElement && 
+            !document.mozFullScreenElement && 
+            !document.msFullscreenElement) {
+            // User exited fullscreen, request it again after a short delay
+            setTimeout(requestFullscreen, 500);
+        }
+    }
     // Get Some Help meme video URL
     const getHelpURL = 'https://youtu.be/l60MnDJklnM?si=cPcK9VtHfB8x84i1';
     
