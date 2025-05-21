@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blender Space | P. Krishna</title>
+    <link rel="icon" href="./src/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./css/output.css">
+    <link rel="stylesheet" href="./css/enhanced-shadows.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* Loading screen styles */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #111114 0%, #343333 74%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease-out, visibility 0.8s;
+        }
+        
+        .loading-content {
+            text-align: center;
+        }
+        
+        .loading-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.6; transform: scale(0.98); }
+            50% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0.6; transform: scale(0.98); }
+        }
+        
+        .spinner {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Gallery styles */
+        .gallery-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 2rem auto;
+            overflow: hidden;
+        }
+        
+        .gallery-slide {
+            display: none;
+            text-align: center;
+        }
+        
+        .gallery-slide.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .gallery-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        
+        .nav-button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            font-size: 1.5rem;
+        }
+        
+        .nav-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1);
+        }
+        
+        /* Expanded image modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: #ccc;
+        }
+        
+        /* Specs box */
+        .specs-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .specs-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #000000;
+        }
+        
+        .specs-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .specs-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body class="bg-secondary text-primary">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-text">Blender Space</div>
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <!-- Particles.js Background -->
+    <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.6;"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full bg-secondary z-50 border-b-2 border-primary">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-xl font-serif font-bold">P. Krishna</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html#home" class="hover:font-bold transition-all">Home</a>
+                    <a href="index.html#about" class="hover:font-bold transition-all">About</a>
+                    <a href="index.html#experience" class="hover:font-bold transition-all">Experience</a>
+                    <a href="index.html#skills" class="hover:font-bold transition-all">Skills</a>
+                    <a href="index.html#github" class="hover:font-bold transition-all">GitHub</a>
+                    <a href="index.html#huggingface" class="hover:font-bold transition-all">AI Work</a>
+                    <a href="index.html#gamedev" class="hover:font-bold transition-all">Game Dev</a>
+                    <a href="index.html#blender-space" class="hover:font-bold transition-all">Blender</a>
+                    <a href="index.html#certificates" class="hover:font-bold transition-all">Certificates</a>
+                    <a href="index.html#contact" class="hover:font-bold transition-all">Contact</a>
+                </div>
+                <button class="md:hidden" id="menu-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-secondary w-full border-t-2 border-primary" id="mobile-menu">
+            <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+                <a href="index.html#home" class="hover:font-bold transition-all">Home</a>
+                <a href="index.html#about" class="hover:font-bold transition-all">About</a>
+                <a href="index.html#experience" class="hover:font-bold transition-all">Experience</a>
+                <a href="index.html#skills" class="hover:font-bold transition-all">Skills</a>
+                <a href="index.html#github" class="hover:font-bold transition-all">GitHub</a>
+                <a href="index.html#huggingface" class="hover:font-bold transition-all">AI Work</a>
+                <a href="index.html#gamedev" class="hover:font-bold transition-all">Game Dev</a>
+                <a href="index.html#blender-space" class="hover:font-bold transition-all">Blender</a>
+                <a href="index.html#certificates" class="hover:font-bold transition-all">Certificates</a>
+                <a href="index.html#contact" class="hover:font-bold transition-all">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-20">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl font-bold text-center mb-12">Blender Renders</h1>
+            
+            <!-- Specs Box -->
+            <div class="specs-box">
+                <h3 class="text-xl font-bold mb-4 text-white">System Specifications</h3>
+                <div class="specs-item">
+                    <p class="specs-title">Device</p>
+                    <p>Acer Swift GO 14 Oled</p>
+                </div>
+                <div class="specs-item">
+                    <p class="specs-title">Processor</p>
+                    <p>i5-13500H</p>
+                </div>
+                <div class="specs-item">
+                    <p class="specs-title">Memory</p>
+                    <p>16GB RAM</p>
+                </div>
+                <div class="specs-item">
+                    <p class="specs-title">Operating System</p>
+                    <p>Ubuntu 22.04 OS</p>
+                </div>
+                <div class="specs-item">
+                    <p class="specs-title">Swap Memory</p>
+                    <p>20GB</p>
+                </div>
+                <div class="specs-item">
+                    <p class="specs-title">Storage</p>
+                    <p>512GB SSD (220GB for Linux)</p>
+                </div>
+            </div>
+            
+            <!-- Image Gallery -->
+            <div class="gallery-container">
+                <div class="gallery-nav">
+                    <button class="nav-button prev-button">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="nav-button next-button">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="gallery-slide active">
+                    <img src="./src/blender/1.jpg" alt="Blender Render 1" class="gallery-image">
+                </div>
+                
+                <div class="gallery-slide">
+                    <img src="./src/blender/2.jpg" alt="Blender Render 2" class="gallery-image">
+                </div>
+                
+                <div class="gallery-slide">
+                    <img src="./src/blender/3.jpg" alt="Blender Render 3" class="gallery-image">
+                </div>
+                
+                <div class="gallery-slide">
+                    <img src="./src/blender/4.jpg" alt="Blender Render 4" class="gallery-image">
+                </div>
+                
+                <div class="gallery-slide">
+                    <img src="./src/blender/5.jpg" alt="Blender Render 5" class="gallery-image">
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Image Modal -->
+    <div class="modal" id="imageModal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="expandedImage">
+    </div>
+    
+    <!-- Footer -->
+    <footer class="py-8 border-t-2 border-primary">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-lg font-serif italic">"In the symphony of code and circuits, I found my purpose: to breathe consciousness into man-made machines."</p>
+            <div class="mt-4">
+                <a href="#" id="toggleParticles" class="text-sm text-gray-500 hover:text-black transition-colors">Toggle Background Effect</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Loading screen functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show loading screen for 2.5 seconds
+            setTimeout(function() {
+                const loadingScreen = document.getElementById('loadingScreen');
+                loadingScreen.style.opacity = '0';
+                setTimeout(function() {
+                    loadingScreen.style.visibility = 'hidden';
+                }, 800);
+            }, 2500);
+            
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Gallery navigation
+            const slides = document.querySelectorAll('.gallery-slide');
+            const prevButton = document.querySelector('.prev-button');
+            const nextButton = document.querySelector('.next-button');
+            let currentSlide = 0;
+            
+            function showSlide(n) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                currentSlide = (n + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+            
+            prevButton.addEventListener('click', () => showSlide(currentSlide - 1));
+            nextButton.addEventListener('click', () => showSlide(currentSlide + 1));
+            
+            // Image modal functionality
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('expandedImage');
+            const closeModal = document.querySelector('.close-modal');
+            const galleryImages = document.querySelectorAll('.gallery-image');
+            
+            galleryImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    modal.classList.add('show');
+                    modalImg.src = this.src;
+                });
+            });
+            
+            closeModal.addEventListener('click', function() {
+                modal.classList.remove('show');
+            });
+            
+            // Close modal when clicking outside the image
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('show');
+                }
+            });
+            
+            // Toggle particles background
+            const toggleParticles = document.getElementById('toggleParticles');
+            const particlesContainer = document.getElementById('particles-js');
+            
+            toggleParticles.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (particlesContainer.style.opacity === '0') {
+                    particlesContainer.style.opacity = '0.6';
+                } else {
+                    particlesContainer.style.opacity = '0';
+                }
+            });
+        });
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="./js/particles.js"></script>
+    <script src="./js/protection.js"></script>
+</body>
+</html>
