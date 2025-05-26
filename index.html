@@ -507,6 +507,43 @@
                     <i class="fab fa-twitter"></i>
                 </a>
             </div>
+            
+            <div class="mt-8 text-center">
+                <!-- Written by me button with visible text -->
+                <a id="book-btn" class="inline-block px-4 py-2 bg-gray-200 text-black rounded-md hover:bg-gray-300 transition-colors duration-300 cursor-pointer">
+                    <i class="fas fa-book mr-2"></i> My Book Project
+                </a>
+            </div>
+            
+            <!-- Book Popup -->
+            <div id="book-popup" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+                <div class="absolute inset-0 bg-black opacity-75" id="popup-overlay"></div>
+                <div class="relative bg-white text-black p-8 rounded-lg shadow-2xl max-w-lg mx-4 transform transition-all duration-300 scale-95 opacity-0" id="popup-content">
+                    <button id="close-popup" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                    
+                    <h3 class="text-3xl font-bold mb-6 text-gray-900">My Secret Book Project</h3>
+                    
+                    <p class="mb-4">Since February 2023 (<span id="years-writing" class="font-bold"></span> years ago), I've been working on a deeply personal book project that explores the darkest corners of human consciousness through my dreams.</p>
+                    
+                    <p class="mb-4">This compilation weaves together vivid nightmares into a narrative that pushes beyond what conventional horror offers. Think of works like <span class="font-semibold">American Psycho</span> or <span class="font-semibold">Blood Meridian</span>, but derived from actual dream experiences rather than fiction.</p>
+                    
+                    <p class="mb-4">Each chapter documents dreams where the familiar becomes horrifying in ways that challenge our understanding of reality. The imagery is intense and visceral, exploring themes that most authors would avoid.</p>
+                    
+                    <p class="mb-4">The complete manuscript won't be published until after 2030, as I continue to document these experiences and connect them into a cohesive narrative. The final work will include illustrations to capture what words alone cannot describe.</p>
+                    
+                    <div class="p-4 bg-gray-100 rounded-lg mb-4">
+                        <p class="font-bold text-center">You'll have to wait approximately <span id="years-until" class="font-bold"></span> more years to read this collection of nightmares.</p>
+                    </div>
+                    
+                    <div class="text-xs text-gray-500 mt-4 text-right">
+                        *This project contains graphic content and is intended for mature audiences only.
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     

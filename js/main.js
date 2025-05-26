@@ -1,5 +1,58 @@
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Book popup functionality
+    const bookBtn = document.getElementById('book-btn');
+    const bookPopup = document.getElementById('book-popup');
+    const popupContent = document.getElementById('popup-content');
+    const popupOverlay = document.getElementById('popup-overlay');
+    const closePopup = document.getElementById('close-popup');
+    const yearsWritingSpan = document.getElementById('years-writing');
+    const yearsUntilSpan = document.getElementById('years-until');
+    
+    if (bookBtn && bookPopup) {
+        // Calculate years since February 2023
+        function updateYears() {
+            const startDate = new Date(2023, 1, 1); // February 1, 2023
+            const releaseDate = new Date(2030, 0, 1); // January 1, 2030
+            const currentDate = new Date();
+            
+            // Calculate years writing (with one decimal place)
+            const yearsWriting = (currentDate - startDate) / (1000 * 60 * 60 * 24 * 365.25);
+            yearsWritingSpan.textContent = yearsWriting.toFixed(1);
+            
+            // Calculate years until release (with one decimal place)
+            const yearsUntil = (releaseDate - currentDate) / (1000 * 60 * 60 * 24 * 365.25);
+            yearsUntilSpan.textContent = Math.max(0, yearsUntil).toFixed(1);
+        }
+        
+        // Open popup
+        bookBtn.addEventListener('click', function() {
+            updateYears();
+            bookPopup.classList.remove('hidden');
+            setTimeout(() => {
+                popupContent.classList.add('scale-100', 'opacity-100');
+                popupContent.classList.remove('scale-95', 'opacity-0');
+            }, 10);
+        });
+        
+        // Close popup when clicking the close button
+        closePopup.addEventListener('click', function() {
+            popupContent.classList.remove('scale-100', 'opacity-100');
+            popupContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                bookPopup.classList.add('hidden');
+            }, 300);
+        });
+        
+        // Close popup when clicking outside
+        popupOverlay.addEventListener('click', function() {
+            popupContent.classList.remove('scale-100', 'opacity-100');
+            popupContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                bookPopup.classList.add('hidden');
+            }, 300);
+        });
+    }
     // Mobile menu toggle
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');

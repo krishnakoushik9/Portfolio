@@ -3,225 +3,349 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divine Shiva Game | P. Krishna Koushik</title>
-    <!-- Tailwind CSS for utility classes -->
-    <link rel="stylesheet" href="./css/output.css">
-    <!-- Custom CSS for divine theme -->
-    <link rel="stylesheet" href="./css/gamedev-details.css">
-    <!-- Poppins font -->
+    <title>Game Development | P. Krishna Koushik</title>
+    
+    <!-- Monochrome CSS Theme -->
+    <link rel="stylesheet" href="./css/gamedev-monochrome.css">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
     <!-- Font Awesome for icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7515728727059624"
      crossorigin="anonymous"></script>
+     
     <!-- Protection script -->
     <script src="./js/protection.js"></script>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: white;
-            color: black;
-            position: relative;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .divine-title {
-            font-weight: 600;
-            color: black;
-        }
-        
-        .divine-text {
-            color: black;
-        }
-        
-        .divine-quote {
-            font-style: italic;
-            color: black;
-        }
-        
-        .divine-container {
-            width: 100%;
-            max-width: 100%;
-            margin: 0;
-            padding: 2rem;
-            background-color: white;
-            border: none;
-            box-shadow: none;
-        }
-        
-        .divine-btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background-color: white;
-            color: black;
-            border-radius: 0;
-            border: 2px solid black;
-            text-decoration: none;
-            font-weight: 500;
-            margin: 1rem;
-        }
-        
-        .back-btn {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 100;
-        }
-        
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border: 2px solid black;
-            margin-bottom: 2rem;
-        }
-        
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .grid-item {
-            background-color: white;
-            padding: 1.5rem;
-            border: 2px solid black;
-            border-left: 4px solid black;
-        }
-        
-        .fade-in {
-            opacity: 1;
-            transform: none;
-        }
-        
-        footer {
-            border-top: 2px solid black !important;
-        }
-    </style>
 </head>
 <body>
-    <!-- Back button -->
-    <a href="index.html" class="divine-btn back-btn">
-        <i class="fas fa-arrow-left"></i> Back to Portfolio
-    </a>
+    <!-- Simple background -->
+    <div class="simple-background"></div>
+    
+    <!-- Navigation -->
+    <nav class="mono-nav">
+        <div class="mono-nav-left">
+            <a href="index.html" class="mono-nav-back"><i class="fas fa-arrow-left"></i> Back</a>
+        </div>
+        <div class="mono-nav-logo">Krishna Koushik</div>
+        <div class="mono-nav-links">
+            <a href="https://www.unrealengine.com/" target="_blank" class="mono-nav-link">Unreal</a>
+            <a href="https://dev.epicgames.com/community/" target="_blank" class="mono-nav-link">Community</a>
+        </div>
+    </nav>
     
     <!-- Main content container -->
-    <div class="divine-container">
-        <!-- Header section with title and quote -->
-        <header class="text-center py-12">
-            <h1 class="text-5xl md:text-7xl divine-text divine-title mb-6 divine-animation">The Path of Shiva</h1>
-            <p class="text-2xl divine-quote mb-8">"In the cosmic dance of creation and destruction, I find my divine inspiration."</p>
+    <div class="mono-container">
+        <!-- Header section -->
+        <header class="mono-header">
+            <h1 class="mono-title fade-in">The Path of Shiva</h1>
+            <p class="mono-subtitle fade-in delay-1">A technical exploration of game development using Unreal Engine 5, inspired by Hindu mythology and mathematical precision.</p>
+            <a href="https://www.unrealengine.com/en-US/download" target="_blank" class="mono-btn fade-in delay-2">Get Unreal Engine</a>
         </header>
         
         <!-- Main video showcase -->
-        <section class="mb-16 fade-in">
-            <div class="video-container divine-pulse">
+        <section class="fade-in delay-2">
+            <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/OQeS5noefQk?si=8pk9ZfOeREUXNgIo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             
-            <h2 class="text-3xl divine-text divine-title mb-4 fade-in">Sacred Journey</h2>
-            <p class="mb-6 text-lg fade-in">
-                This divine journey represents my exploration into game development using Unreal Engine 5, 
-                inspired by the cosmic energy of Lord Shiva. What began as devotion has evolved into a 
-                sacred project where I explore the boundaries between reality and divinity through 
+            <h2 class="fade-in">Project Overview</h2>
+            <p class="fade-in delay-1">
+                This project represents my exploration into advanced game development using Unreal Engine 5. 
+                What began as a personal experiment has evolved into a comprehensive technical showcase 
+                where I explore the boundaries between mathematical precision and artistic expression through 
                 interactive storytelling and immersive environments.
             </p>
+            <p class="fade-in delay-2">
+                The game draws inspiration from Hindu mythology, particularly the cosmic dance of Lord Shiva, 
+                which symbolizes the cyclical process of creation and destruction. This concept is reflected 
+                in the game's procedural generation systems and dynamic world elements.                
+            </p>
+        </section>
+        
+        <!-- Technical Features Grid -->
+        <section class="feature-section">
+            <h2 class="fade-in">Technical Implementation</h2>
             
-            <!-- Three-column grid for project details -->
-            <div class="grid-container">
-                <div class="grid-item fade-in">
-                    <h3 class="text-xl divine-text divine-title mb-3">Divine Technologies</h3>
-                    <ul class="list-disc pl-5 space-y-2">
-                        <li>Unreal Engine 5</li>
-                        <li>Blueprint Visual Scripting</li>
-                        <li>C++ for sacred systems</li>
-                        <li>Nanite & Lumen technologies</li>
-                        <li>Quixel Megascans for realistic environments</li>
-                        <li>Blender for custom temple assets</li>
+            <div class="mono-grid fade-in delay-1">
+                <div class="mono-grid-item">
+                    <h3>Core Technologies</h3>
+                    <ul>
+                        <li><a href="https://www.unrealengine.com/en-US/unreal-engine-5" target="_blank">Unreal Engine 5</a> - Core engine</li>
+                        <li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/blueprints-visual-scripting-in-unreal-engine" target="_blank">Blueprint Visual Scripting</a> - Rapid prototyping</li>
+                        <li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/programming-with-cpp-in-unreal-engine" target="_blank">C++ Programming</a> - Performance-critical systems</li>
+                        <li><a href="https://docs.unrealengine.com/5.0/en-US/nanite-virtualized-geometry-in-unreal-engine/" target="_blank">Nanite</a> - Virtualized micropolygon geometry</li>
+                        <li><a href="https://docs.unrealengine.com/5.0/en-US/lumen-global-illumination-and-reflections-in-unreal-engine/" target="_blank">Lumen</a> - Dynamic global illumination</li>
+                        <li><a href="https://quixel.com/megascans" target="_blank">Quixel Megascans</a> - Photorealistic assets</li>
+                        <li><a href="https://www.blender.org/" target="_blank">Blender</a> - Custom 3D modeling</li>
                     </ul>
                 </div>
                 
-                <div class="grid-item fade-in">
-                    <h3 class="text-xl divine-text divine-title mb-3">Sacred Features</h3>
-                    <ul class="list-disc pl-5 space-y-2">
-                        <li>Dynamic day/night cycle with ritual timing</li>
-                        <li>Advanced devotee character controller</li>
-                        <li>Divine particle effects system</li>
+                <div class="mono-grid-item">
+                    <h3>Current Features</h3>
+                    <ul>
+                        <li>Basic terrain and environment setup</li>
+                        <li>Simple day/night lighting cycle</li>
+                        <li>Basic character controller</li>
+                        <li>Simple particle effects</li>
+                        <li>Standard material setup</li>
+                        <li>Basic NPC placement</li>
+                        <li>Initial performance optimization</li>
                     </ul>
                 </div>
                 
-                <div class="grid-item fade-in">
-                    <h3 class="text-xl divine-text divine-title mb-3">Future Pilgrimage</h3>
-                    <ul class="list-disc pl-5 space-y-2">
-                        <li>Advanced weather systems with monsoon cycles</li>
-                        <li>Narrative-driven spiritual quests</li>
-                        <li>Procedural mantra audio generation</li>
-                        <li>Laptop platform only will try to make it accessable to MAC's soon</li>
+                <div class="mono-grid-item">
+                    <h3>Future Development</h3>
+                    <ul>
+                        <li>Advanced weather system with realistic simulation</li>
+                        <li>Narrative-driven quest system with branching paths</li>
+                        <li>Procedural audio generation for ambient soundscapes</li>
+                        <li>Cross-platform support including macOS compatibility</li>
+                        <li>VR implementation with full motion controls</li>
+                        <li>Machine learning integration for NPC behavior</li>
+                        <li>Community modding support</li>
                     </ul>
                 </div>
             </div>
         </section>
         
-        <!-- Development process section -->
-        <section class="mb-16">
-            <h2 class="text-3xl divine-text divine-title mb-6 fade-in">Creation Process</h2>
+        <!-- Development Timeline -->
+        <section class="fade-in">
+            <h2>Development Timeline</h2>
             
-            <div class="grid-container">
-                <div class="grid-item fade-in">
-                    <h3 class="text-xl divine-text divine-title mb-3">Divine Concept</h3>
+            <div class="timeline fade-in delay-1">
+                <div class="timeline-item">
+                    <div class="timeline-date" id="concept-date">September 2024</div>
+                    <h3>Concept & Research Phase</h3>
                     <p>
-                        Every sacred journey begins with a vision. My process starts with deep 
-                        meditation, research into Hindu mythology, and concept art to establish 
-                        the core aesthetic and gameplay mechanics. I focus on creating authentic 
-                        experiences that honor the divine while providing engaging gameplay.
+                        The project began with research into Unreal Engine 5 
+                        and the mythological elements that would inform the game's design. This phase included:
                     </p>
+                    <ul>
+                        <li>Establishing basic technical requirements</li>
+                        <li>Researching Hindu mythology and symbolism</li>
+                        <li>Creating initial concept ideas</li>
+                        <li>Setting up the initial project structure in Unreal Engine</li>
+                    </ul>
                 </div>
                 
-                <div class="grid-item fade-in">
-                    <h3 class="text-xl divine-text divine-title mb-3">Sacred Prototyping</h3>
+                <div class="timeline-item">
+                    <div class="timeline-date" id="prototype-date">October 2024</div>
+                    <h3>Early Prototyping</h3>
                     <p>
-                        Iteration is the path to perfection. I build functional prototypes 
-                        to test core mechanics, focusing on player feedback and spiritual feel 
-                        before investing in high-fidelity assets. This approach allows me to 
-                        align with the divine vision when the current path isn't working.
+                        With the foundation established, I moved into developing basic prototypes:
                     </p>
+                    <ul>
+                        <li>Implementing basic character movement</li>
+                        <li>Creating simple environment layouts</li>
+                        <li>Testing Nanite and Lumen features</li>
+                        <li>Experimenting with basic day/night lighting</li>
+                    </ul>
                 </div>
                 
-                <div class="grid-item fade-in">
-                    <h3 class="text-xl divine-text divine-title mb-3">Temple Building</h3>
+                <div class="timeline-item">
+                    <div class="timeline-date" id="asset-date">December 2024</div>
+                    <h3>Initial Asset Creation</h3>
                     <p>
-                        With the divine blueprint established, I move into full production, creating 
-                        detailed temple environments, deity models, sacred animations, and implementing 
-                        advanced systems like spiritual AI behavior trees, quest logic, and optimization 
-                        for various hardware configurations.
+                        Once the basic systems were functioning, I focused on creating visual elements:
                     </p>
+                    <ul>
+                        <li>Modeling simple architectural elements in Blender</li>
+                        <li>Integrating some Megascans assets</li>
+                        <li>Working with basic materials</li>
+                        <li>Adding simple particle effects</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date" id="current-phase">Current Phase</div>
+                    <h3>Pre-Alpha Development</h3>
+                    <p>
+                        The current phase focuses on building the foundation:
+                    </p>
+                    <ul>
+                        <li>Connecting basic game systems</li>
+                        <li>Implementing simple character interactions</li>
+                        <li>Basic optimization for performance</li>
+                        <li>Planning future development roadmap</li>
+                    </ul>
                 </div>
             </div>
         </section>
         
-
+        <!-- Technical Deep Dive -->
+        <section class="fade-in">
+            <h2>Technical Deep Dive</h2>
+            
+            <div class="tech-specs fade-in delay-1">
+                <h3>Current System Architecture</h3>
+                <p>
+                    The game is in pre-alpha development with a basic structure that will be expanded over time.
+                    The current implementation uses standard Unreal Engine 5 systems with minimal customization.
+                </p>
+                
+                <div class="specs-list">
+                    <div class="spec-item">
+                        <div class="spec-label">Rendering Pipeline</div>
+                        <div class="spec-value">Standard Unreal Engine 5 with Nanite & Lumen</div>
+                    </div>
+                    
+                    <div class="spec-item">
+                        <div class="spec-label">Physics System</div>
+                        <div class="spec-value">Standard PhysX implementation</div>
+                    </div>
+                    
+                    <div class="spec-item">
+                        <div class="spec-label">AI Framework</div>
+                        <div class="spec-value">Basic behavior implementation</div>
+                    </div>
+                    
+                    <div class="spec-item">
+                        <div class="spec-label">Audio System</div>
+                        <div class="spec-value">Standard Unreal audio system</div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="mt-lg fade-in">Environment Design</h3>
+            <p class="fade-in delay-1">
+                The current environment design focuses on creating a basic representation of the game world.
+                Using standard Unreal Engine 5 tools, I've created a simple landscape that will serve as the
+                foundation for future development.
+            </p>
+            <p class="fade-in delay-2">
+                The environment incorporates elements from Hindu mythology, with simple architectural structures
+                and placeholder assets that will be refined as development progresses.
+            </p>
+            
+            <h3 class="mt-lg fade-in">Performance Optimization</h3>
+            <p class="fade-in delay-1">
+                To ensure the game runs smoothly across different hardware configurations, I've implemented 
+                several optimization techniques:
+            </p>
+            <ul class="fade-in delay-2">
+                <li>Level of Detail (LOD) system for all assets</li>
+                <li>Dynamic resolution scaling based on performance metrics</li>
+                <li>Occlusion culling with hardware acceleration</li>
+                <li>Asset streaming with prioritized loading</li>
+                <li>Memory management with custom allocation strategies</li>
+                <li>Multithreaded processing for CPU-intensive tasks</li>
+            </ul>
+        </section>
         
-        <!-- Footer with quote -->
-        <footer class="text-center py-8 border-t-2 border-divine-border">
-            <p class="divine-text divine-quote">"ॐ नमः शिवाय" - Om Namah Shivaya</p>
+        <!-- Resources Section -->
+        <section class="fade-in">
+            <h2>Resources & Learning</h2>
+            
+            <p class="fade-in delay-1">
+                For those interested in exploring game development with Unreal Engine 5, here are some valuable resources:
+            </p>
+            
+            <div class="mono-grid fade-in delay-2">
+                <div class="mono-grid-item">
+                    <h3>Official Documentation</h3>
+                    <ul>
+                        <li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-5-1-documentation" target="_blank">Unreal Engine 5 Documentation</a></li>
+                        <li><a href="https://dev.epicgames.com/community/learning" target="_blank">Epic Learning Portal</a></li>
+                        <li><a href="https://www.unrealengine.com/marketplace/en-US/store" target="_blank">Unreal Marketplace</a></li>
+                    </ul>
+                </div>
+                
+                <div class="mono-grid-item">
+                    <h3>Community Resources</h3>
+                    <ul>
+                        <li><a href="https://forums.unrealengine.com/" target="_blank">Unreal Engine Forums</a></li>
+                        <li><a href="https://www.reddit.com/r/unrealengine/" target="_blank">Unreal Engine Subreddit</a></li>
+                        <li><a href="https://discord.com/invite/unreal-engine" target="_blank">Official Discord Server</a></li>
+                    </ul>
+                </div>
+                
+                <div class="mono-grid-item">
+                    <h3>Learning Platforms</h3>
+                    <ul>
+                        <li><a href="https://www.udemy.com/topic/unreal-engine/" target="_blank">Udemy Courses</a></li>
+                        <li><a href="https://www.pluralsight.com/search?q=unreal%20engine" target="_blank">Pluralsight</a></li>
+                        <li><a href="https://www.youtube.com/c/UnrealEngine" target="_blank">Official YouTube Channel</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact & Links Section -->
+        <section class="text-center fade-in">
+            <h2>Connect & Follow Development</h2>
+            
+            <p class="fade-in delay-1 mb-lg">
+                I'm always open to feedback, collaboration opportunities, or technical discussions about game development.
+            </p>
+            
+            <div class="fade-in delay-2">
+                <a href="https://github.com/krishnakoushik9" target="_blank" class="mono-btn mono-btn-outline"><i class="fab fa-github"></i> GitHub</a>
+                <a href="mailto:legionkoushik3@gmail.com" class="mono-btn mono-btn-outline"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="https://www.unrealengine.com/en-US/download" target="_blank" class="mono-btn"><i class="fas fa-download"></i> Get Unreal</a>
+            </div>
+        </section>
+        
+        <!-- Quote -->
+        <blockquote class="mono-quote fade-in">
+            "In the intersection of mathematics and art, we find the purest expression of creativity."
+        </blockquote>
+        
+        <!-- Footer -->
+        <footer class="mono-footer">
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">Portfolio</a>
+                <a href="https://www.unrealengine.com/" target="_blank" class="footer-link">Unreal</a>
+                <a href="https://dev.epicgames.com/community/" target="_blank" class="footer-link">Community</a>
+            </div>
+            <p class="copyright">© 2025 P. Krishna Koushik. All rights reserved.</p>
         </footer>
     </div>
     
-    <!-- Custom JavaScript for divine interactions -->
-    <script src="./js/gamedev-details.js"></script>
+    <!-- Dynamic date calculation script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get current date
+            const now = new Date();
+            
+            // Format date as Month Year
+            function formatDate(date) {
+                return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+            }
+            
+            // Set the dates in the timeline
+            const startDate = new Date(2024, 8, 1); // September 2024
+            document.getElementById('concept-date').textContent = formatDate(startDate);
+            
+            const prototypeDate = new Date(2024, 9, 1); // October 2024
+            document.getElementById('prototype-date').textContent = formatDate(prototypeDate);
+            
+            const assetDate = new Date(2024, 11, 1); // December 2024
+            document.getElementById('asset-date').textContent = formatDate(assetDate);
+            
+            // Set current phase text
+            document.getElementById('current-phase').textContent = 'Current Phase (' + formatDate(now) + ')';
+            
+            // Animated elements reveal on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            // Observe all elements that should animate on scroll
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>
