@@ -215,30 +215,6 @@ document.addEventListener('DOMContentLoaded', function() {
         adContainer.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
         adContainer.style.backdropFilter = 'blur(5px)';
         adContainer.style.WebkitBackdropFilter = 'blur(5px)';
-        adContainer.style.borderRadius = '10px';
-        adContainer.style.border = '1px solid rgba(255, 255, 255, 0.2)';
-        adContainer.style.overflow = 'hidden';
-        adContainer.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
-        
-        // AdSense code
-        const adIns = document.createElement('ins');
-        adIns.className = 'adsbygoogle';
-        adIns.style.display = 'block';
-        adIns.setAttribute('data-ad-client', 'ca-pub-7515728727059624');
-        adIns.setAttribute('data-ad-slot', '1234567894'); // Using a different slot for popup
-        adIns.setAttribute('data-ad-format', 'rectangle');
-        adIns.style.width = '300px';
-        adIns.style.height = '250px';
-        
-        adContainer.appendChild(adIns);
-        
-        const adScript = document.createElement('script');
-        adScript.textContent = '(adsbygoogle = window.adsbygoogle || []).push({});';
-        
-        // Add ad elements
-        adContent.appendChild(adTitle);
-        adContent.appendChild(adContainer);
-        adContent.appendChild(adScript);
         
         // Add columns to content container
         contentContainer.appendChild(memeContent);
