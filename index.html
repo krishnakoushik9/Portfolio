@@ -54,6 +54,35 @@
             width: 2px;
             background-color: black;
         }
+        .boot-container {
+  font-family: "Courier New", monospace;
+  color: #00ff99;
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+  white-space: pre-wrap;
+  overflow: hidden;
+}
+
+.assembly-text {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.final-quote {
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+.final-quote.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
         
         .experience-card::after {
             content: '';
@@ -69,6 +98,11 @@
     <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
 </head>
 <body>
+    <div id="boot-sequence" class="boot-container">
+      <pre id="assembly-text" class="assembly-text"></pre>
+      <p id="final-quote" class="final-quote">Every day I wake up and then I choose between peak narcissism versus peak self-hatred.</p>
+    </div>
+
     <!-- Particles.js Background -->
     <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.6;"></div>
     <!-- Navigation -->
@@ -568,6 +602,44 @@
     <!-- AdSense Code -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7515728727059624"
      crossorigin="anonymous"></script>
+    <script>
+  const code = `
+section .data
+    msg db "Every day I wake up and then I choose between peak narcissism versus peak self-hatred.", 10
+    len equ $ - msg
+
+section .text
+    global _start
+
+_start:
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, msg
+    mov edx, len
+    int 0x80
+
+    mov eax, 1
+    xor ebx, ebx
+    int 0x80`;
+
+  let i = 0;
+  const speed = 25;
+  const output = document.getElementById("assembly-text");
+  const quote = document.getElementById("final-quote");
+
+  function typeAssembly() {
+    if (i < code.length) {
+      output.innerHTML += code.charAt(i);
+      i++;
+      setTimeout(typeAssembly, speed);
+    } else {
+      quote.classList.add("visible");
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", typeAssembly);
+</script>
+
     
     <!-- Ad Boxes Below Footer -->
 <amp-ad width="100vw" height="320"
@@ -578,5 +650,6 @@
      data-full-width="">
   <div overflow=""></div>
 </amp-ad>
+    
 </body>
 </html>
