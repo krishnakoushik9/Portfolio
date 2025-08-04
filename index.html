@@ -54,35 +54,6 @@
             width: 2px;
             background-color: black;
         }
-        .boot-container {
-  font-family: "Courier New", monospace;
-  color: #00ff99;
-  padding: 2rem;
-  max-width: 900px;
-  margin: auto;
-  white-space: pre-wrap;
-  overflow: hidden;
-}
-
-.assembly-text {
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-
-.final-quote {
-  color: #ffffff;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.1rem;
-  margin-top: 2rem;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-}
-.final-quote.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
         
         .experience-card::after {
             content: '';
@@ -98,11 +69,6 @@
     <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
 </head>
 <body>
-    <div id="boot-sequence" class="boot-container">
-      <pre id="assembly-text" class="assembly-text"></pre>
-      <p id="final-quote" class="final-quote">Every day I wake up and then I choose between peak narcissism versus peak self-hatred.</p>
-    </div>
-
     <!-- Particles.js Background -->
     <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.6;"></div>
     <!-- Navigation -->
@@ -225,23 +191,14 @@
         <div class="container mx-auto px-6">
             <h2 class="section-title text-center">Skills</h2>
             <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg border-2 border-primary shadow-custom">
-                <div class="flex flex-wrap gap-4 justify-center">
-                    <span class="text-lg font-medium">AWS SageMaker</span>
-                    <span class="text-lg font-medium">Firebase</span>
-                    <span class="text-lg font-medium">Three.js</span>
-                    <span class="text-lg font-medium">JupyterNotebook-Python</span>
-                    <span class="text-lg font-medium">LINUX</span>
-                    <span class="text-lg font-medium">AWS Educate Machine Learning</span>
-                    <span class="text-lg font-medium">Java Programming</span>
-                    <span class="text-lg font-medium">Natural Language Processing (NLP)</span>
-                    <span class="text-lg font-medium">Public Speaking</span>
-                    <span class="text-lg font-medium">Internet of Things (IoT)</span>
-                    <span class="text-lg font-medium">Arduino</span>
-                    <span class="text-lg font-medium">Artificial Intelligence (AI)</span>
-                    <span class="text-lg font-medium">Machine Learning</span>
-                    <span class="text-lg font-medium">Cybersecurity</span>
-                    <span class="text-lg font-medium">UI/UX</span>
-                    <span class="text-lg font-medium">Unreal Engine 5.3</span>
+                <div class="flex flex-wrap gap-4 justify-center text-lg font-medium">
+                  <span>Unreal Engine 5.6</span>
+                  <span>Firebase (Auth, Firestore, Hosting)</span>
+                  <span>Vercel Hosting Platform</span>
+                  <span>Jupyter Notebooks + Unsloth (AI Fine-Tuning)</span>
+                  <span>Artificial Intelligence (AI)</span>
+                  <span>Natural Language Processing (NLP)</span>
+                  <span>Psychology</span>
                 </div>
             </div>
         </div>
@@ -312,6 +269,14 @@
                                 <a href="https://github.com/krishnakoushik9/legion-surf-mate/tree/main/eventmate" target="_blank" class="btn inline-block">Deep Dive</a>
                             </div>
                         </div>
+                        <!-- Work Card: Assignments-krsnaSolved -->
+                        <div class="w-full md:w-1/3 px-4 flex-shrink-0">
+                            <div class="card h-full p-6">
+                            <h3 class="text-xl font-bold mb-2">Assignments-krsnaSolved</h3>
+                            <p class="mb-4">A growing collection of Java programs I'm solving daily from a DSA course led by a “mystery mentor” 😄. Pushed straight from IntelliJ IDEA.</p>
+                            <a href="https://github.com/krishnakoushik9/Assignments-krsnaSolved" target="_blank" class="btn inline-block">Check It Out</a>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -602,44 +567,6 @@
     <!-- AdSense Code -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7515728727059624"
      crossorigin="anonymous"></script>
-    <script>
-  const code = `
-section .data
-    msg db "Every day I wake up and then I choose between peak narcissism versus peak self-hatred.", 10
-    len equ $ - msg
-
-section .text
-    global _start
-
-_start:
-    mov eax, 4
-    mov ebx, 1
-    mov ecx, msg
-    mov edx, len
-    int 0x80
-
-    mov eax, 1
-    xor ebx, ebx
-    int 0x80`;
-
-  let i = 0;
-  const speed = 25;
-  const output = document.getElementById("assembly-text");
-  const quote = document.getElementById("final-quote");
-
-  function typeAssembly() {
-    if (i < code.length) {
-      output.innerHTML += code.charAt(i);
-      i++;
-      setTimeout(typeAssembly, speed);
-    } else {
-      quote.classList.add("visible");
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", typeAssembly);
-</script>
-
     
     <!-- Ad Boxes Below Footer -->
 <amp-ad width="100vw" height="320"
@@ -650,6 +577,5 @@ _start:
      data-full-width="">
   <div overflow=""></div>
 </amp-ad>
-    
 </body>
 </html>
