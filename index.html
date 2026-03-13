@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,20 +8,68 @@
     <link rel="icon" href="./src/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="./css/output.css">
     <link rel="stylesheet" href="./css/enhanced-shadows.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7515728727059624"
-     crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
     <style>
         .skills-container {
             position: relative;
             height: 500px;
             margin: 0 auto;
         }
-        
+
+        .boot-container {
+            background: transparent;
+            color: #00ff9f;
+            /* Matrix-like green */
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            padding: 2rem;
+            white-space: pre-wrap;
+            overflow: hidden;
+            max-width: 80%;
+            margin: auto;
+        }
+
+        .assembly {
+            animation: fadein 1s ease-in-out;
+        }
+
+        .final-message {
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.15);
+        }
+
+        .final-message.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+
         .skill-item {
             padding: 0.75rem 1.25rem;
             background-color: white;
@@ -31,20 +80,20 @@
             cursor: pointer;
             z-index: 1;
         }
-        
+
         .certificate-card {
             transition: all 0.3s ease;
         }
-        
+
         .certificate-card:hover {
             transform: translateY(-5px);
         }
-        
+
         .experience-card {
             position: relative;
             padding-left: 30px;
         }
-        
+
         .experience-card::before {
             content: '';
             position: absolute;
@@ -54,7 +103,7 @@
             width: 2px;
             background-color: black;
         }
-        
+
         .experience-card::after {
             content: '';
             position: absolute;
@@ -68,9 +117,12 @@
     </style>
     <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
 </head>
+
 <body>
     <!-- Particles.js Background -->
-    <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.6;"></div>
+    <div id="particles-js"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.6;">
+    </div>
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 w-full bg-secondary z-50 border-b-2 border-primary">
         <div class="container mx-auto px-6 py-4">
@@ -80,6 +132,7 @@
                     <a href="#home" class="hover:font-bold transition-all">Home</a>
                     <a href="#about" class="hover:font-bold transition-all">About</a>
                     <a href="#experience" class="hover:font-bold transition-all">Experience</a>
+                    <a href="#achievements" class="hover:font-bold transition-all">Achievements</a>
                     <a href="#skills" class="hover:font-bold transition-all">Skills</a>
                     <a href="#github" class="hover:font-bold transition-all">GitHub</a>
                     <a href="#huggingface" class="hover:font-bold transition-all">AI Work</a>
@@ -89,8 +142,10 @@
                     <a href="#contact" class="hover:font-bold transition-all">Contact</a>
                 </div>
                 <button class="md:hidden" id="menu-toggle">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
             </div>
@@ -101,6 +156,7 @@
                 <a href="#home" class="hover:font-bold transition-all">Home</a>
                 <a href="#about" class="hover:font-bold transition-all">About</a>
                 <a href="#experience" class="hover:font-bold transition-all">Experience</a>
+                <a href="#achievements" class="hover:font-bold transition-all">Achievements</a>
                 <a href="#skills" class="hover:font-bold transition-all">Skills</a>
                 <a href="#github" class="hover:font-bold transition-all">GitHub</a>
                 <a href="#huggingface" class="hover:font-bold transition-all">AI Work</a>
@@ -112,59 +168,62 @@
         </div>
     </nav>
 
-   <!-- Landing Page (Home Section) -->
-<section id="home" class="min-h-screen flex items-center justify-center w-full">
-    <div class="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between">
-      <!-- Left: Text Content -->
-      <div class="w-full md:w-1/2 flex flex-col justify-center mb-10 md:mb-0">
-        <h1 class="text-5xl sm:text-7xl md:text-8xl xl:text-9xl font-black tracking-tight leading-none mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-800 via-purple-600 to-blue-500">
-        Krishna<br class="hidden sm:block"> Koushik
-        </h1>
-        <div class="pl-2">
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">CMRCET, Hyderabad</h2>
-          <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold mb-6 max-w-3xl">B.Tech - CSE (Artificial Intelligence & Machine Learning)</h3>
-          <p class="text-lg sm:text-xl md:text-2xl italic font-medium border-l-4 border-primary pl-4 py-2 max-w-2xl">"Jack of all trades, master of none, but oftentimes better than master of one."</p>
+    <!-- Landing Page (Home Section) -->
+    <section id="home" class="min-h-screen flex items-center justify-center w-full">
+        <div class="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between">
+            <!-- Left: Text Content -->
+            <div class="w-full md:w-1/2 flex flex-col justify-center mb-10 md:mb-0">
+                <h1
+                    class="text-5xl sm:text-7xl md:text-8xl xl:text-9xl font-black tracking-tight leading-none mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-800 via-purple-600 to-blue-500">
+                    Krishna<br class="hidden sm:block"> Koushik
+                </h1>
+                <div class="pl-2">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">CMRCET, Hyderabad</h2>
+                    <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold mb-6 max-w-3xl">B.Tech - CSE (Artificial
+                        Intelligence & Machine Learning)</h3>
+                    <p
+                        class="text-lg sm:text-xl md:text-2xl italic font-medium border-l-4 border-primary pl-4 py-2 max-w-2xl">
+                        "Jack of all trades, master of none, but oftentimes better than master of one."</p>
+                </div>
+            </div>
+
+            <!-- Right: Face Image -->
+            <div class="w-full md:w-1/2 flex justify-center items-center">
+                <div class="relative">
+                    <!-- Multi-gradient animated border with inline animation -->
+                    <div class="absolute inset-0 rounded-full p-1 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500"
+                        style="animation: spin 8s linear infinite;">
+                    </div>
+                    <!-- Image container - perfect circle -->
+                    <div
+                        class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-lg relative z-10 border-4 border-white">
+                        <img src="/src/Face.jpg" alt="Face" class="w-full h-full object-cover" />
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      
-      <!-- Right: Face Image -->
-      <div class="w-full md:w-1/2 flex justify-center items-center">
-        <div class="relative">
-          <!-- Multi-gradient animated border with inline animation -->
-          <div class="absolute inset-0 rounded-full p-1 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500" style="animation: spin 8s linear infinite;">
-          </div>
-          <!-- Image container - perfect circle -->
-          <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-lg relative z-10 border-4 border-white">
-            <img src="/src/Face.jpg" alt="Face" class="w-full h-full object-cover" />
-          </div> 
-        <!-- Image container - perfect circle with text instead -->
-        <!--<div class="w-64 h-64 md:w-80 md:h-80 rounded-full flex items-center justify-center text-center shadow-lg relative z-10 border-4 border-white bg-gray-200">
-          <span class="px-4 text-sm md:text-base font-medium text-gray-700">
-            Blocked the image to protect my identity for McAupy Grinds video
-          </span>
-        </div>-->
-        </div>
-      </div>
+    </section>
     </div>
-  </section>
-    </div>
-  </section>
+    </section>
     <!-- About Me Section -->
     <section id="about" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <h2 class="section-title text-center">About Me</h2>
             <div class="max-w-3xl mx-auto">
                 <p class="text-lg leading-relaxed text-center">
-                    I'm a passionate technologist with a deep interest in artificial intelligence, machine learning, and game development. 
-                    Currently pursuing my B.Tech in CSE with a specialization in AI & ML at CMRCET, Hyderabad. 
-                    I enjoy exploring the intersection of technology and creativity, whether that's through coding AI models, 
-                    developing games, or building web applications. I believe in continuous learning and pushing the boundaries 
+                    I'm a passionate technologist with a deep interest in artificial intelligence, machine learning, and
+                    game development.
+                    Currently pursuing my B.Tech in CSE with a specialization in AI & ML at CMRCET, Hyderabad.
+                    I enjoy exploring the intersection of technology and creativity, whether that's through coding AI
+                    models,
+                    developing games, or building web applications. I believe in continuous learning and pushing the
+                    boundaries
                     of what's possible with technology.
                 </p>
             </div>
         </div>
     </section>
-    
+
     <!-- Experience Section -->
     <section id="experience" class="py-20">
         <div class="container mx-auto px-6">
@@ -177,8 +236,20 @@
                     <p class="text-gray-700 mb-2">Jan 2025 - June 2025 · 6 months - Ended</p>
                     <p class="text-gray-700 mb-4">Hyderabad, Telangana, India · Hybrid</p>
                 </div>
-                
+
                 <!-- Experience Card 2 -->
+                <div class="experience-card">
+                    <h3 class="text-2xl font-bold mb-2">Brand Ambassador</h3>
+                    <p class="text-lg font-semibold mb-1">CSI Hyderabad Chapter</p>
+                    <p class="text-gray-700 mb-2">Oct 2024 - Present</p>
+                    <p class="text-gray-700 mb-4">Hyderabad, Telangana, India · Hybrid</p>
+                    <ul class="list-disc pl-5">
+                        <li class="mb-1">Representing Computer Society of India (CSI) Hyderabad Chapter to promote
+                            technological awareness and student engagement.</li>
+                    </ul>
+                </div>
+
+                <!-- Experience Card 3 -->
                 <div class="experience-card">
                     <h3 class="text-2xl font-bold mb-2">Summer Internship</h3>
                     <p class="text-lg font-semibold mb-1">Swecha Telangana</p>
@@ -191,20 +262,95 @@
             </div>
         </div>
     </section>
-    
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-center">Achievements</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white p-8 rounded-lg border-2 border-primary shadow-custom mb-12">
+                    <div class="flex flex-col md:flex-row items-center justify-between mb-8">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">1st Prize - IIT Bombay Hackathon</h3>
+                            <p class="text-xl font-semibold text-primary">Conducted by Co-grad</p>
+                        </div>
+                        <div class="mt-4 md:mt-0">
+                            <span class="bg-primary text-white px-4 py-2 rounded-full font-bold">Winner</span>
+                        </div>
+                    </div>
+
+                    <p class="text-lg mb-8 leading-relaxed">
+                        Extremely proud to announce that we secured the <span class="font-bold">1st Prize</span> at the
+                        IIT Bombay Hackathon organized by <span class="font-bold">Co-grad</span>.
+                        Our team developed an innovative solution that stood out among numerous participants from across
+                        the country.
+                        The experience was intense, rewarding, and a testament to our technical skills and
+                        problem-solving abilities.
+                    </p>
+
+                    <!-- Image Slideshow (Framer Motion style) -->
+                    <div class="relative overflow-hidden rounded-2xl shadow-2xl h-[300px] md:h-[500px] group"
+                        id="achievement-slideshow">
+                        <div class="flex transition-transform duration-700 ease-in-out h-full" id="achievement-slider">
+                            <div class="w-full flex-shrink-0 relative">
+                                <img src="./src/Win1.jpeg" alt="IIT Bombay Hackathon Win 1"
+                                    class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                            </div>
+                            <div class="w-full flex-shrink-0 relative">
+                                <img src="./src/Win2.jpeg" alt="IIT Bombay Hackathon Win 2"
+                                    class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                            </div>
+                            <div class="w-full flex-shrink-0 relative">
+                                <img src="./src/Win3.jpeg" alt="IIT Bombay Hackathon Win 3"
+                                    class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Arrows -->
+                        <button
+                            class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-md text-white w-12 h-12 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
+                            id="slide-prev">
+                            <i class="fas fa-chevron-left text-xl"></i>
+                        </button>
+                        <button
+                            class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-md text-white w-12 h-12 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
+                            id="slide-next">
+                            <i class="fas fa-chevron-right text-xl"></i>
+                        </button>
+
+                        <!-- Dots Indicator -->
+                        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
+                            <button class="w-3 h-3 rounded-full bg-white transition-all duration-300 slide-dot active"
+                                data-index="0"></button>
+                            <button
+                                class="w-3 h-3 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 slide-dot"
+                                data-index="1"></button>
+                            <button
+                                class="w-3 h-3 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 slide-dot"
+                                data-index="2"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Skills Section -->
     <section id="skills" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <h2 class="section-title text-center">Skills</h2>
             <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg border-2 border-primary shadow-custom">
                 <div class="flex flex-wrap gap-4 justify-center text-lg font-medium">
-                  <span>Unreal Engine 5.6</span>
-                  <span>Firebase (Auth, Firestore, Hosting)</span>
-                  <span>Vercel Hosting Platform</span>
-                  <span>Jupyter Notebooks + Unsloth (AI Fine-Tuning)</span>
-                  <span>Artificial Intelligence (AI)</span>
-                  <span>Natural Language Processing (NLP)</span>
-                  <span>Psychology</span>
+                    <span>Unreal Engine 5.6</span>
+                    <span>Firebase (Auth, Firestore, Hosting)</span>
+                    <span>Vercel Hosting Platform</span>
+                    <span>Jupyter Notebooks + Unsloth (AI Fine-Tuning)</span>
+                    <span>Artificial Intelligence (AI)</span>
+                    <span>Natural Language Processing (NLP)</span>
+                    <span>Psychology</span>
                 </div>
             </div>
         </div>
@@ -214,20 +360,26 @@
     <section id="github" class="py-20">
         <div class="container mx-auto px-6">
             <h2 class="section-title text-center">My GitHub Projects</h2>
-            
+
             <div class="relative">
                 <!-- Navigation Arrows -->
-                <button class="absolute top-1/2 -left-4 transform -translate-y-1/2 z-10 bg-secondary rounded-full p-2 border-2 border-primary" id="github-prev">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <button
+                    class="absolute top-1/2 -left-4 transform -translate-y-1/2 z-10 bg-secondary rounded-full p-2 border-2 border-primary"
+                    id="github-prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                     </svg>
                 </button>
-                <button class="absolute top-1/2 -right-4 transform -translate-y-1/2 z-10 bg-secondary rounded-full p-2 border-2 border-primary" id="github-next">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <button
+                    class="absolute top-1/2 -right-4 transform -translate-y-1/2 z-10 bg-secondary rounded-full p-2 border-2 border-primary"
+                    id="github-next">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
                 </button>
-                
+
                 <!-- Project Cards Container -->
                 <div class="overflow-hidden">
                     <div class="flex transition-transform duration-500 ease-in-out" id="github-projects">
@@ -235,54 +387,57 @@
                         <div class="w-full md:w-1/3 px-4 flex-shrink-0">
                             <div class="card h-full p-6">
                                 <h3 class="text-xl font-bold mb-2">Ayur-Verse</h3>
-                                <p class="mb-4">An immersive 3D exploration of sacred trees combining cutting-edge technology with ancient knowledge. Features interactive 3D models and smooth user experience.</p>
-                                <a href="https://github.com/krishnakoushik9/AyurVerse" target="_blank" class="btn inline-block">Deep Dive</a>
+                                <p class="mb-4">An immersive 3D exploration of sacred trees combining cutting-edge
+                                    technology with ancient knowledge. Features interactive 3D models and smooth user
+                                    experience.</p>
+                                <a href="https://github.com/krishnakoushik9/AyurVerse" target="_blank"
+                                    class="btn inline-block">Deep Dive</a>
                             </div>
                         </div>
-                        
+
                         <!-- Project Card 2: EMO-CARE-KAVVY -->
                         <div class="w-full md:w-1/3 px-4 flex-shrink-0">
                             <div class="card h-full p-6">
                                 <h3 class="text-xl font-bold mb-2">EMO-CARE Response System</h3>
-                                <p class="mb-4">An interactive AI application that responds to emotions and voice in real-time using facial recognition and speech recognition technologies.</p>
-                                <a href="https://github.com/krishnakoushik9/EMO-CARE-KAVVY" target="_blank" class="btn inline-block">Deep Dive</a>
+                                <p class="mb-4">An interactive AI application that responds to emotions and voice in
+                                    real-time using facial recognition and speech recognition technologies.</p>
+                                <a href="https://github.com/krishnakoushik9/EMO-CARE-KAVVY" target="_blank"
+                                    class="btn inline-block">Deep Dive</a>
                             </div>
                         </div>
-                        
+
                         <!-- Project Card 3: E-SUMMIT -->
                         <div class="w-full md:w-1/3 px-4 flex-shrink-0">
                             <div class="card h-full p-6">
                                 <h3 class="text-xl font-bold mb-2">CMRCET E-Summit 2025</h3>
-                                <p class="mb-4">A modern and interactive landing page featuring a countdown timer, Three.js animation, event schedule, and responsive design.</p>
-                                <a href="https://github.com/krishnakoushik9/E-SUMMIT" target="_blank" class="btn inline-block">Deep Dive</a>
+                                <p class="mb-4">A modern and interactive landing page featuring a countdown timer,
+                                    Three.js animation, event schedule, and responsive design.</p>
+                                <a href="https://github.com/krishnakoushik9/E-SUMMIT" target="_blank"
+                                    class="btn inline-block">Deep Dive</a>
                             </div>
                         </div>
-                        
+
                         <!-- Project Card 4: ASHBORN-SRCS -->
                         <div class="w-full md:w-1/3 px-4 flex-shrink-0">
                             <div class="card h-full p-6">
-                                 <h3 class="text-xl font-bold mb-2">HackIndia Spark 4 ASHBORN</h3>
-                                <p class="mb-4">A 24/7 document-based RAG AI bot designed to run continuously on a laptop, providing intelligent responses based on document context.</p>
-                                <a href="https://github.com/krishnakoushik9/HackIndia-Spark-4-2025-ASHBORN-SRCS" target="_blank" class="btn inline-block">Deep Dive</a>
+                                <h3 class="text-xl font-bold mb-2">HackIndia Spark 4 ASHBORN</h3>
+                                <p class="mb-4">A 24/7 document-based RAG AI bot designed to run continuously on a
+                                    laptop, providing intelligent responses based on document context.</p>
+                                <a href="https://github.com/krishnakoushik9/HackIndia-Spark-4-2025-ASHBORN-SRCS"
+                                    target="_blank" class="btn inline-block">Deep Dive</a>
                             </div>
                         </div>
-                        
+
                         <!-- Project Card 5: Legion-Surf-Mate -->
                         <div class="w-full md:w-1/3 px-4 flex-shrink-0">
                             <div class="card h-full p-6">
                                 <h3 class="text-xl font-bold mb-2">Legion-Surf-Mate</h3>
-                                <p class="mb-4">A full-stack AI chatbot web application for discovering and planning local events with AI-powered recommendations and a glassmorphic dark UI.</p>
-                                <a href="https://github.com/krishnakoushik9/legion-surf-mate/tree/main/eventmate" target="_blank" class="btn inline-block">Deep Dive</a>
+                                <p class="mb-4">A full-stack AI chatbot web application for discovering and planning
+                                    local events with AI-powered recommendations and a glassmorphic dark UI.</p>
+                                <a href="https://github.com/krishnakoushik9/legion-surf-mate/tree/main/eventmate"
+                                    target="_blank" class="btn inline-block">Deep Dive</a>
                             </div>
                         </div>
-                        <!-- Work Card: Assignments-krsnaSolved -->
-                        <div class="w-full md:w-1/3 px-4 flex-shrink-0">
-                            <div class="card h-full p-6">
-                            <h3 class="text-xl font-bold mb-2">Assignments-krsnaSolved</h3>
-                            <p class="mb-4">A growing collection of Java programs I'm solving daily from a DSA course led by a “mystery mentor” 😄. Pushed straight from IntelliJ IDEA.</p>
-                            <a href="https://github.com/krishnakoushik9/Assignments-krsnaSolved" target="_blank" class="btn inline-block">Check It Out</a>
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>
@@ -293,23 +448,29 @@
     <section id="huggingface" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <h2 class="section-title text-center">AI Work on Hugging Face</h2>
-            
+
             <div class="flex flex-wrap -mx-4">
                 <!-- HuggingFace Profile and Projects -->
                 <div class="w-full px-4 mb-8">
                     <div class="card h-full p-8 bg-white shadow-lg rounded-lg">
                         <!-- Profile Header -->
                         <div class="flex flex-col md:flex-row items-start md:items-center mb-6 pb-6 border-b">
-                            <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center mr-4 mb-4 md:mb-0 overflow-hidden flex-shrink-0">
-                                <img src="https://huggingface.co/front/assets/huggingface_logo.svg" alt="Hugging Face Logo" class="w-6 h-6 object-contain">
+                            <div
+                                class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center mr-4 mb-4 md:mb-0 overflow-hidden flex-shrink-0">
+                                <img src="https://huggingface.co/front/assets/huggingface_logo.svg"
+                                    alt="Hugging Face Logo" class="w-6 h-6 object-contain">
                             </div>
                             <div>
                                 <h3 class="text-2xl font-bold mb-2">LOHAMEIT</h3>
-                                <p class="text-lg text-gray-700">AI & ML interests: Large Language Models (LLMs), specifically leveraging open-source models like Meta's LLaMA for privacy-first applications.</p>
-                                <a href="https://huggingface.co/LOHAMEIT" target="_blank" class="btn bg-blue-600 text-white hover:bg-blue-700 mt-4 inline-block px-4 py-2 rounded-md">View Profile</a>
+                                <p class="text-lg text-gray-700">AI & ML interests: Large Language Models (LLMs),
+                                    specifically leveraging open-source models like Meta's LLaMA for privacy-first
+                                    applications.</p>
+                                <a href="https://huggingface.co/LOHAMEIT" target="_blank"
+                                    class="btn bg-blue-600 text-white hover:bg-blue-700 mt-4 inline-block px-4 py-2 rounded-md">View
+                                    Profile</a>
                             </div>
                         </div>
-                        
+
                         <!-- Projects Grid -->
                         <h4 class="text-xl font-bold mb-4">Projects</h4>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -317,24 +478,30 @@
                             <div class="bg-gray-50 p-5 rounded-lg shadow">
                                 <h5 class="text-lg font-bold mb-2">LOHAMEIT/BITShyd</h5>
                                 <p class="text-gray-700 mb-3">Text2Text Generation • Updated Nov 30, 2024</p>
-                                <p class="mb-4">AI-Enhanced Facial Expression & Mental Health Counseling. Fine-tuned on mental health counseling conversations dataset.</p>
-                                <a href="https://huggingface.co/LOHAMEIT/BITShyd" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium">View Project →</a>
+                                <p class="mb-4">AI-Enhanced Facial Expression & Mental Health Counseling. Fine-tuned on
+                                    mental health counseling conversations dataset.</p>
+                                <a href="https://huggingface.co/LOHAMEIT/BITShyd" target="_blank"
+                                    class="text-blue-600 hover:text-blue-800 font-medium">View Project →</a>
                             </div>
-                            
+
                             <!-- Project 2 -->
                             <div class="bg-gray-50 p-5 rounded-lg shadow">
                                 <h5 class="text-lg font-bold mb-2">LOHAMEIT/snehal-tirupati</h5>
                                 <p class="text-gray-700 mb-3">Updated Nov 17, 2024</p>
-                                <p class="mb-4">A specialized language model fine-tuned for specific domain applications with enhanced performance.</p>
-                                <a href="https://huggingface.co/LOHAMEIT/snehal-tirupati" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium">View Project →</a>
+                                <p class="mb-4">A specialized language model fine-tuned for specific domain applications
+                                    with enhanced performance.</p>
+                                <a href="https://huggingface.co/LOHAMEIT/snehal-tirupati" target="_blank"
+                                    class="text-blue-600 hover:text-blue-800 font-medium">View Project →</a>
                             </div>
-                            
+
                             <!-- Project 3 -->
                             <div class="bg-gray-50 p-5 rounded-lg shadow">
                                 <h5 class="text-lg font-bold mb-2">LOHAMEIT/lohameit-3.2</h5>
                                 <p class="text-gray-700 mb-3">Updated Oct 12, 2024</p>
-                                <p class="mb-4">Advanced language model optimized for performance and efficiency in various natural language processing tasks.</p>
-                                <a href="https://huggingface.co/LOHAMEIT/lohameit-3.2" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium">View Project →</a>
+                                <p class="mb-4">Advanced language model optimized for performance and efficiency in
+                                    various natural language processing tasks.</p>
+                                <a href="https://huggingface.co/LOHAMEIT/lohameit-3.2" target="_blank"
+                                    class="text-blue-600 hover:text-blue-800 font-medium">View Project →</a>
                             </div>
                         </div>
                     </div>
@@ -347,50 +514,74 @@
     <section id="gamedev" class="py-20">
         <div class="container mx-auto px-6">
             <h2 class="section-title text-center">My Unreal Engine Journey</h2>
-            <p class="text-lg text-center max-w-4xl mx-auto mb-12">A showcase of my game development project built with Unreal Engine 5, featuring three unique maps with distinct gameplay experiences.</p>
-            
+            <p class="text-lg text-center max-w-4xl mx-auto mb-12">A showcase of my game development project built with
+                Unreal Engine 5, featuring three unique maps with distinct gameplay experiences.</p>
+
             <div class="flex flex-wrap -mx-4">
                 <!-- Map 1 -->
                 <div class="w-full md:w-1/3 px-4 mb-12">
                     <div class="card h-full relative overflow-hidden group shadow-lg">
                         <div class="h-[350px] md:h-[450px] overflow-hidden">
-                            <img src="/src/Screenshot 2025-05-16 at 19-42-29 Instagram.png" alt="Map 1 Preview" class="w-full h-full object-cover">
+                            <img src="/src/Screenshot 2025-05-16 at 19-42-29 Instagram.png" alt="Map 1 Preview"
+                                class="w-full h-full object-cover">
                         </div>
-                        <div class="absolute inset-0 bg-black bg-opacity-75 flex flex-col justify-end p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-75 flex flex-col justify-end p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                             <h3 class="text-2xl font-bold text-white mb-4">Map 1: The Beginning</h3>
-                            <p class="text-gray-200 mb-6 text-lg">The first level introduces players to the game's core mechanics, setting the stage for the epic battles to come. Features dynamic lighting, environmental puzzles, and preliminary combat encounters.</p>
+                            <p class="text-gray-200 mb-6 text-lg">The first level introduces players to the game's core
+                                mechanics, setting the stage for the epic battles to come. Features dynamic lighting,
+                                environmental puzzles, and preliminary combat encounters.</p>
                             <div class="flex flex-wrap gap-4">
-                                <a href="https://www.instagram.com/p/C_aVwoTviHI/?img_index=3&igsh=MXdyM3lhcG12M2RxdA==" class="btn bg-white text-black hover:bg-gray-200 text-lg px-6 py-2" target="_blank" rel="noopener noreferrer">View on Instagram</a>
-                                <a href="gamedev-details.html" class="btn bg-white text-black hover:bg-gray-200 text-lg px-6 py-2">Deep Dive</a>
+                                <a href="https://www.instagram.com/p/C_aVwoTviHI/?img_index=3&igsh=MXdyM3lhcG12M2RxdA=="
+                                    class="btn bg-white text-black hover:bg-gray-200 text-lg px-6 py-2" target="_blank"
+                                    rel="noopener noreferrer">View on Instagram</a>
+                                <a href="gamedev-details.html"
+                                    class="btn bg-white text-black hover:bg-gray-200 text-lg px-6 py-2">Deep Dive</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Map 2 -->
                 <div class="w-full md:w-1/3 px-4 mb-12">
                     <div class="card h-full relative overflow-hidden group shadow-lg">
                         <div class="h-[350px] md:h-[450px]">
-                            <iframe class="w-full h-full youtube-video" src="https://www.youtube.com/embed/4fidA5pWAg0?si=OZ4Ekt1Jsijsrj8T" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <iframe class="w-full h-full youtube-video"
+                                src="https://www.youtube.com/embed/4fidA5pWAg0?si=OZ4Ekt1Jsijsrj8T"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
                         </div>
-                        <div class="absolute inset-0 bg-black bg-opacity-75 flex flex-col justify-end p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-75 flex flex-col justify-end p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                             <h3 class="text-2xl font-bold text-white mb-4">Map 2: The Shadow Ape King</h3>
-                            <p class="text-gray-200 mb-6 text-lg">A mirror battle where players experience Wukong's strength distorted by arrogance. This challenging boss fight tests the player's mastery of combat mechanics and pattern recognition.</p>
-                            <a href="gamedev-details.html" class="btn bg-white text-black hover:bg-gray-200 text-lg px-6 py-2">Deep Dive</a>
+                            <p class="text-gray-200 mb-6 text-lg">A mirror battle where players experience Wukong's
+                                strength distorted by arrogance. This challenging boss fight tests the player's mastery
+                                of combat mechanics and pattern recognition.</p>
+                            <a href="gamedev-details.html"
+                                class="btn bg-white text-black hover:bg-gray-200 text-lg px-6 py-2">Deep Dive</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Map 3 -->
                 <div class="w-full md:w-1/3 px-4 mb-12">
                     <div class="card h-full relative overflow-hidden group shadow-lg">
                         <div class="h-[350px] md:h-[450px]">
-                            <iframe class="w-full h-full youtube-video" src="https://www.youtube.com/embed/OQeS5noefQk?si=rjVwEl3zv0543kOA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <iframe class="w-full h-full youtube-video"
+                                src="https://www.youtube.com/embed/OQeS5noefQk?si=rjVwEl3zv0543kOA"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
                         </div>
-                        <div class="absolute inset-0 bg-black bg-opacity-75 flex flex-col justify-end p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-75 flex flex-col justify-end p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                             <h3 class="text-2xl font-bold text-white mb-4">Map 3: Kuruomashi's Final Form</h3>
-                            <p class="text-gray-200 mb-6 text-lg">A three-stage celestial battle where Hanuman's divine form briefly aids the player. Set inside a deep old Shiva temple, this climactic confrontation features dramatic lighting, epic scale, and emotional storytelling.</p>
-                            <a href="gamedev-details.html" class="btn bg-white text-black hover:bg-gray-200 text-lg px-6 py-2">Deep Dive</a>
+                            <p class="text-gray-200 mb-6 text-lg">A three-stage celestial battle where Hanuman's divine
+                                form briefly aids the player. Set inside a deep old Shiva temple, this climactic
+                                confrontation features dramatic lighting, epic scale, and emotional storytelling.</p>
+                            <a href="gamedev-details.html"
+                                class="btn bg-white text-black hover:bg-gray-200 text-lg px-6 py-2">Deep Dive</a>
                         </div>
                     </div>
                 </div>
@@ -403,11 +594,15 @@
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-black mb-6">Blender Space</h2>
             <p class="text-lg text-black mb-8">Explore my 3D creations made with Blender</p>
-            <a href="./blender.html" class="inline-block px-8 py-4 text-xl font-bold text-black bg-transparent border-2 border-black rounded-lg hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg">
+            <a href="./blender.html"
+                class="inline-block px-8 py-4 text-xl font-bold text-black bg-transparent border-2 border-black rounded-lg hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg">
                 <span class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                     </svg>
                     Enter Blender Space
                 </span>
@@ -419,7 +614,7 @@
     <section id="certificates" class="py-20">
         <div class="container mx-auto px-6">
             <h2 class="section-title text-center">Certificates</h2>
-            
+
             <div class="flex flex-wrap -mx-4">
                 <!-- Certificate 1 -->
                 <div class="w-full md:w-1/3 px-4 mb-8">
@@ -427,12 +622,13 @@
                         <div class="mb-4">
                             <h3 class="text-xl font-bold">AWS Educate Machine Learning Foundations</h3>
                         </div>
-                        <div class="mb-4 rounded-lg overflow-hidden">  
+                        <div class="mb-4 rounded-lg overflow-hidden">
                         </div>
-                        <a href="https://www.credly.com/badges/f4ec610c-bb79-4b95-83d2-f5e006af7800/public_url" target="_blank" class="btn inline-block">View Certificate</a>
+                        <a href="https://www.credly.com/badges/f4ec610c-bb79-4b95-83d2-f5e006af7800/public_url"
+                            target="_blank" class="btn inline-block">View Certificate</a>
                     </div>
                 </div>
-                
+
                 <!-- Certificate 2 -->
                 <div class="w-full md:w-1/3 px-4 mb-8">
                     <div class="certificate-card card h-full p-6">
@@ -440,12 +636,13 @@
                             <h3 class="text-xl font-bold">AWS Educate Introduction to Generative AI</h3>
                         </div>
                         <div class="mb-4 rounded-lg overflow-hidden">
-                            
+
                         </div>
-                        <a href="https://www.credly.com/badges/1d6dcaec-321f-47d0-9984-5d2a89407032/linked_in_profile" target="_blank" class="btn inline-block">View Certificate</a>
+                        <a href="https://www.credly.com/badges/1d6dcaec-321f-47d0-9984-5d2a89407032/linked_in_profile"
+                            target="_blank" class="btn inline-block">View Certificate</a>
                     </div>
                 </div>
-                
+
                 <!-- Certificate 3 -->
                 <div class="w-full md:w-1/3 px-4 mb-8">
                     <div class="certificate-card card h-full p-6">
@@ -463,88 +660,109 @@
                         <div class="flex items-center mb-4">
                             <h3 class="text-xl font-bold">Wells Fargo Software Engineering Job Simulation</h3>
                         </div>
-                        <p class="mb-4">Completed virtual experience program focused on software engineering practices at Wells Fargo</p>
-                        <a href="https://www.linkedin.com/posts/legionkrsna_softwareengineering-java-erdiagrams-activity-7329512684578578432-xzgh" target="_blank" class="btn inline-block">View Certificate</a>
-                    </div>
-                </div>
+                        <p class="mb-4">Completed virtual experience program focused on software engineering practices
+                            at Wells Fargo</p>
+                        <a href="https://www.linkedin.com/posts/legionkrsna_softwareengineering-java-erdiagrams-activity-7329512684578578432-xzgh"
+                            target="_blank" class="btn inline-block">View Certificate</a>
                     </div>
                 </div>
             </div>
         </div>
+        </div>
+        </div>
     </section>
-    
+
     <!-- Upcoming Projects Button -->
     <div class="py-12 bg-gradient-to-r from-indigo-600 to-purple-600 text-center">
         <div class="container mx-auto px-6">
-            <a href="./upcoming.html" class="inline-block px-8 py-4 text-xl font-bold text-black bg-transparent border-2 border-white rounded-lg hover:bg-white hover:text-indigo-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
+            <a href="./upcoming.html"
+                class="inline-block px-8 py-4 text-xl font-bold text-black bg-transparent border-2 border-white rounded-lg hover:bg-white hover:text-indigo-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
                 <span class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                     Upcoming and Currently in Development Projects
                 </span>
             </a>
         </div>
     </div>
-    
+
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <h2 class="section-title text-center">Let's Connect</h2>
-            
+
             <div class="flex flex-wrap justify-center gap-8">
                 <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/in/legionkrsna" target="_blank" rel="noopener noreferrer" class="social-icon">
+                <a href="https://www.linkedin.com/in/legionkrsna" target="_blank" rel="noopener noreferrer"
+                    class="social-icon">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
-                
+
                 <!-- Instagram -->
-                <a href="https://www.instagram.com/krsna_legion/" target="_blank" rel="noopener noreferrer" class="social-icon">
+                <a href="https://www.instagram.com/krsna_legion/" target="_blank" rel="noopener noreferrer"
+                    class="social-icon">
                     <i class="fab fa-instagram"></i>
                 </a>
-                
+
                 <!-- WhatsApp -->
                 <a href="https://wa.me/918019435543" target="_blank" rel="noopener noreferrer" class="social-icon">
                     <i class="fab fa-whatsapp"></i>
                 </a>
-                
+
                 <!-- Twitter/X -->
                 <a href="https://x.com/Koushik1156" target="_blank" rel="noopener noreferrer" class="social-icon">
                     <i class="fab fa-twitter"></i>
                 </a>
             </div>
-            
+
             <div class="mt-8 text-center">
                 <!-- Written by me button with visible text -->
-                <a id="book-btn" class="inline-block px-4 py-2 bg-gray-200 text-black rounded-md hover:bg-gray-300 transition-colors duration-300 cursor-pointer">
+                <a id="book-btn"
+                    class="inline-block px-4 py-2 bg-gray-200 text-black rounded-md hover:bg-gray-300 transition-colors duration-300 cursor-pointer">
                     <i class="fas fa-book mr-2"></i> My Book Project
                 </a>
             </div>
-            
+
             <!-- Book Popup -->
             <div id="book-popup" class="fixed inset-0 flex items-center justify-center z-50 hidden">
                 <div class="absolute inset-0 bg-black opacity-75" id="popup-overlay"></div>
-                <div class="relative bg-white text-black p-8 rounded-lg shadow-2xl max-w-lg mx-4 transform transition-all duration-300 scale-95 opacity-0" id="popup-content">
+                <div class="relative bg-white text-black p-8 rounded-lg shadow-2xl max-w-lg mx-4 transform transition-all duration-300 scale-95 opacity-0"
+                    id="popup-content">
                     <button id="close-popup" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
-                    
+
                     <h3 class="text-3xl font-bold mb-6 text-gray-900">My Secret Book Project</h3>
-                    
-                    <p class="mb-4">Since February 2023 (<span id="years-writing" class="font-bold"></span> years ago), I've been working on a deeply personal book project that explores the darkest corners of human consciousness through my dreams.</p>
-                    
-                    <p class="mb-4">This compilation weaves together vivid nightmares into a narrative that pushes beyond what conventional horror offers. Think of works like <span class="font-semibold">American Psycho</span> or <span class="font-semibold">Blood Meridian</span>, but derived from actual dream experiences rather than fiction.</p>
-                    
-                    <p class="mb-4">Each chapter documents dreams where the familiar becomes horrifying in ways that challenge our understanding of reality. The imagery is intense and visceral, exploring themes that most authors would avoid.</p>
-                    
-                    <p class="mb-4">The complete manuscript won't be published until after 2030, as I continue to document these experiences and connect them into a cohesive narrative. The final work will include illustrations to capture what words alone cannot describe.</p>
-                    
+
+                    <p class="mb-4">Since February 2023 (<span id="years-writing" class="font-bold"></span> years ago),
+                        I've been working on a deeply personal book project that explores the darkest corners of human
+                        consciousness through my dreams.</p>
+
+                    <p class="mb-4">This compilation weaves together vivid nightmares into a narrative that pushes
+                        beyond what conventional horror offers. Think of works like <span class="font-semibold">American
+                            Psycho</span> or <span class="font-semibold">Blood Meridian</span>, but derived from actual
+                        dream experiences rather than fiction.</p>
+
+                    <p class="mb-4">Each chapter documents dreams where the familiar becomes horrifying in ways that
+                        challenge our understanding of reality. The imagery is intense and visceral, exploring themes
+                        that most authors would avoid.</p>
+
+                    <p class="mb-4">The complete manuscript won't be published until after 2030, as I continue to
+                        document these experiences and connect them into a cohesive narrative. The final work will
+                        include illustrations to capture what words alone cannot describe.</p>
+
                     <div class="p-4 bg-gray-100 rounded-lg mb-4">
-                        <p class="font-bold text-center">You'll have to wait approximately <span id="years-until" class="font-bold"></span> more years to read this collection of nightmares.</p>
+                        <p class="font-bold text-center">You'll have to wait approximately <span id="years-until"
+                                class="font-bold"></span> more years to read this collection of nightmares.</p>
                     </div>
-                    
+
                     <div class="text-xs text-gray-500 mt-4 text-right">
                         *This project contains graphic content and is intended for mature audiences only.
                     </div>
@@ -552,14 +770,16 @@
             </div>
         </div>
     </section>
-    
+
 
     <!-- Footer -->
     <footer class="py-8 border-t-2 border-primary">
         <div class="container mx-auto px-6 text-center">
-            <p class="text-lg font-serif italic">"In the symphony of code and circuits, I found my purpose: to breathe consciousness into man-made machines."</p>
+            <p class="text-lg font-serif italic">"In the symphony of code and circuits, I found my purpose: to breathe
+                consciousness into man-made machines."</p>
             <div class="mt-4">
-                <a href="#" id="toggleParticles" class="text-sm text-gray-500 hover:text-black transition-colors">Toggle Background Effect</a>
+                <a href="#" id="toggleParticles" class="text-sm text-gray-500 hover:text-black transition-colors">Toggle
+                    Background Effect</a>
             </div>
         </div>
     </footer>
@@ -569,19 +789,45 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="./js/particles.js"></script>
     <script src="./js/protection.js"></script>
-    
+
     <!-- AdSense Code -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7515728727059624"
-     crossorigin="anonymous"></script>
-    
+        crossorigin="anonymous"></script>
+
     <!-- Ad Boxes Below Footer -->
-<amp-ad width="100vw" height="320"
-     type="adsense"
-     data-ad-client="ca-pub-7515728727059624"
-     data-ad-slot="5741633413"
-     data-auto-format="rspv"
-     data-full-width="">
-  <div overflow=""></div>
-</amp-ad>
+    <div class="ad-container"
+        style="margin-top: 60px; padding: 20px; background-color: rgba(0,0,0,0.02); text-align: center;">
+        <div
+            style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px;">
+            <!-- Ad Box 1 -->
+            <div style="width: 250px; height: 125px; margin-bottom: 20px;">
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7515728727059624"
+                    data-ad-slot="1234567890" data-ad-format="rectangle"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+
+            <!-- Ad Box 2 -->
+            <div style="width: 250px; height: 125px; margin-bottom: 20px;">
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7515728727059624"
+                    data-ad-slot="1234567891" data-ad-format="rectangle"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+
+            <!-- Ad Box 3 -->
+            <div style="width: 250px; height: 125px; margin-bottom: 20px;">
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7515728727059624"
+                    data-ad-slot="1234567892" data-ad-format="rectangle"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+
+            <!-- Ad Box 4 -->
+            <div style="width: 250px; height: 125px; margin-bottom: 20px;">
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7515728727059624"
+                    data-ad-slot="1234567893" data-ad-format="rectangle"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
