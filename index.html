@@ -8,6 +8,7 @@
     <link rel="icon" href="./src/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="./css/output.css">
     <link rel="stylesheet" href="./css/enhanced-shadows.css">
+    <link rel="stylesheet" href="./css/navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -123,48 +124,46 @@
     <div id="particles-js"
         style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.6;">
     </div>
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 w-full bg-secondary z-50 border-b-2 border-primary">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <a href="#home" class="text-xl font-serif font-bold">P. Krishna</a>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="hover:font-bold transition-all">Home</a>
-                    <a href="#about" class="hover:font-bold transition-all">About</a>
-                    <a href="#experience" class="hover:font-bold transition-all">Experience</a>
-                    <a href="#achievements" class="hover:font-bold transition-all">Achievements</a>
-                    <a href="#skills" class="hover:font-bold transition-all">Skills</a>
-                    <a href="#github" class="hover:font-bold transition-all">GitHub</a>
-                    <a href="#huggingface" class="hover:font-bold transition-all">AI Work</a>
-                    <a href="#gamedev" class="hover:font-bold transition-all">Game Dev</a>
-                    <a href="#blender-space" class="hover:font-bold transition-all">Blender</a>
-                    <a href="#certificates" class="hover:font-bold transition-all">Certificates</a>
-                    <a href="#contact" class="hover:font-bold transition-all">Contact</a>
-                </div>
-                <button class="md:hidden" id="menu-toggle">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-            </div>
+    <nav class="modern-nav">
+        <div class="nav-overlay"></div>
+        <a href="#home" class="nav-logo">
+            <span class="logo-p">P.</span>
+            <span class="logo-name">Krishna</span>
+        </a>
+
+        <!-- Desktop Menu -->
+        <ul class="nav-menu">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#achievements" class="nav-link">Achievements</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#github" class="nav-link">GitHub</a></li>
+            <li><a href="#huggingface" class="nav-link">AI Work</a></li>
+            <li><a href="#gamedev" class="nav-link">Game Dev</a></li>
+            <li><a href="#blender-space" class="nav-link">Blender</a></li>
+            <li><a href="#certificates" class="nav-link">Certificates</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-        <!-- Mobile Menu -->
-        <div class="md:hidden hidden bg-secondary w-full border-t-2 border-primary" id="mobile-menu">
-            <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
-                <a href="#home" class="hover:font-bold transition-all">Home</a>
-                <a href="#about" class="hover:font-bold transition-all">About</a>
-                <a href="#experience" class="hover:font-bold transition-all">Experience</a>
-                <a href="#achievements" class="hover:font-bold transition-all">Achievements</a>
-                <a href="#skills" class="hover:font-bold transition-all">Skills</a>
-                <a href="#github" class="hover:font-bold transition-all">GitHub</a>
-                <a href="#huggingface" class="hover:font-bold transition-all">AI Work</a>
-                <a href="#gamedev" class="hover:font-bold transition-all">Game Dev</a>
-                <a href="#blender-space" class="hover:font-bold transition-all">Blender</a>
-                <a href="#certificates" class="hover:font-bold transition-all">Certificates</a>
-                <a href="#contact" class="hover:font-bold transition-all">Contact</a>
-            </div>
+
+        <div class="nav-mobile-menu">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#achievements" class="nav-link">Achievements</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#github" class="nav-link">GitHub</a>
+            <a href="#huggingface" class="nav-link">AI Work</a>
+            <a href="#gamedev" class="nav-link">Game Dev</a>
+            <a href="#blender-space" class="nav-link">Blender</a>
+            <a href="#certificates" class="nav-link">Certificates</a>
+            <a href="#contact" class="nav-link">Contact</a>
         </div>
     </nav>
 
@@ -784,6 +783,7 @@
         </div>
     </footer>
 
+    <script src="./js/navbar.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/youtube-hover.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>

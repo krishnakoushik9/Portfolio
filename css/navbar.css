@@ -1,0 +1,220 @@
+/* Modern Floating Navbar Styles */
+
+:root {
+    --nav-bg: rgba(255, 255, 255, 0.7);
+    --nav-blur: 15px;
+    --nav-border: rgba(255, 255, 255, 0.3);
+    --nav-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+    --nav-accent: #3b82f6; /* Default blue, will use gradient where possible */
+    --nav-text: #111;
+    --nav-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Navbar Container */
+.modern-nav {
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 92%;
+    max-width: 1400px;
+    z-index: 1000;
+    background: var(--nav-bg);
+    backdrop-filter: blur(var(--nav-blur));
+    -webkit-backdrop-filter: blur(var(--nav-blur));
+    border: 1px solid var(--nav-border);
+    border-radius: 40px;
+    box-shadow: var(--nav-shadow);
+    transition: var(--nav-transition);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 35px;
+}
+
+/* Shrink on Scroll */
+.modern-nav.scrolled {
+    top: 15px;
+    padding: 8px 30px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.15);
+}
+
+/* Logo Section */
+.nav-logo {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--nav-text);
+    transition: var(--nav-transition);
+}
+
+.nav-logo .logo-p {
+    font-size: 1.4rem;
+    font-weight: 800;
+    line-height: 1;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-logo .logo-name {
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nav-logo:hover {
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
+    transform: scale(1.02);
+}
+
+/* Navigation Links - Desktop */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--nav-text);
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    padding: 5px 0;
+    transition: var(--nav-transition);
+}
+
+.nav-link:hover {
+    color: var(--nav-accent);
+    transform: translateY(-2px);
+}
+
+/* Underline Animation */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, #2563eb, #9333ea);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Hamburger Menu Icon */
+.nav-hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1001;
+    padding: 10px;
+}
+
+.nav-hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: var(--nav-text);
+    border-radius: 3px;
+    transition: var(--nav-transition);
+}
+
+/* Mobile Menu Toggle States */
+.nav-hamburger.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.nav-hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-hamburger.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Mobile Menu Overlay & Drawer */
+.nav-mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 999;
+    padding: 100px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-mobile-menu.active {
+    right: 0;
+}
+
+.nav-mobile-menu .nav-link {
+    font-size: 1.2rem;
+    width: fit-content;
+}
+
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    z-index: 998;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+    .nav-menu {
+        gap: 15px;
+    }
+    .nav-link {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .modern-nav {
+        width: 95%;
+        padding: 10px 25px;
+    }
+    .nav-menu {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 850px) {
+    .nav-menu {
+        display: none;
+    }
+    .nav-hamburger {
+        display: flex;
+    }
+}
