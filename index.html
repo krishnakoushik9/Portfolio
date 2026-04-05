@@ -1,335 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P. Krishna | Portfolio</title>
+    <title>KRISHNA | DISRUPTOR</title>
     <link rel="icon" href="./src/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="./css/output.css">
-    <link rel="stylesheet" href="./css/enhanced-shadows.css">
-    <link rel="stylesheet" href="./css/navbar.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7515728727059624"
-        crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Ranchers&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/neo-brutalist.css">
+    
     <style>
-        .skills-container {
-            position: relative;
-            height: 500px;
-            margin: 0 auto;
+        /* Additional inline styles for specific layout needs */
+        .hero-title {
+            font-size: clamp(4rem, 15vw, 12rem);
+            line-height: 0.8;
+            margin-bottom: 2rem;
+        }
+        
+        .bento-1 { grid-column: span 8; grid-row: span 2; }
+        .bento-2 { grid-column: span 4; }
+        .bento-3 { grid-column: span 4; }
+        
+        @media (max-width: 1024px) {
+            .bento-1, .bento-2, .bento-3 { grid-column: span 12; }
         }
 
-        .boot-container {
-            background: transparent;
-            color: #00ff9f;
-            /* Matrix-like green */
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            padding: 2rem;
-            white-space: pre-wrap;
-            overflow: hidden;
-            max-width: 80%;
-            margin: auto;
-        }
-
-        .assembly {
-            animation: fadein 1s ease-in-out;
-        }
-
-        .final-message {
-            color: #ffffff;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.2rem;
-            margin-top: 1.5rem;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1s ease, transform 1s ease;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.15);
-        }
-
-        .final-message.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @keyframes fadein {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-
-        .skill-item {
-            padding: 0.75rem 1.25rem;
-            background-color: white;
-            border: 2px solid black;
-            border-radius: 9999px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            z-index: 1;
-        }
-
-        .certificate-card {
+        .img-brutalist {
+            width: 100%;
+            height: 100%;
+            object-cover: cover;
+            border: 4px solid var(--ink);
+            filter: grayscale(100%) contrast(120%);
             transition: all 0.3s ease;
         }
-
-        .certificate-card:hover {
-            transform: translateY(-5px);
+        
+        .img-brutalist:hover {
+            filter: none;
         }
 
-        .experience-card {
-            position: relative;
-            padding-left: 30px;
+        .horizontal-scroll {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            padding: 2rem 0;
+            scrollbar-width: none;
         }
+        .horizontal-scroll::-webkit-scrollbar { display: none; }
 
-        .experience-card::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background-color: black;
-        }
-
-        .experience-card::after {
-            content: '';
-            position: absolute;
-            left: -4px;
-            top: 10px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: black;
+        .scroll-item {
+            min-width: 400px;
+            flex-shrink: 0;
         }
     </style>
-    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
 </head>
-
 <body>
-    <!-- Particles.js Background -->
-    <div id="particles-js"
-        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.6;">
+
+    <!-- Sidebar Blueprint -->
+    <div class="sidebar-blueprint">
+        <div class="sidebar-tab">DESIGN</div>
+        <div class="sidebar-tab">BUILD</div>
+        <div class="sidebar-tab">SHIP</div>
+        <div class="sidebar-tab">SCALE</div>
     </div>
-    <nav class="modern-nav">
-        <div class="nav-overlay"></div>
-        <a href="#home" class="nav-logo">
-            <span class="logo-p">P.</span>
-            <span class="logo-name">Krishna</span>
-        </a>
 
-        <!-- Desktop Menu -->
-        <ul class="nav-menu">
-            <li><a href="#home" class="nav-link">Home</a></li>
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#experience" class="nav-link">Experience</a></li>
-            <li><a href="#achievements" class="nav-link">Achievements</a></li>
-            <li><a href="#skills" class="nav-link">Skills</a></li>
-            <li><a href="#github" class="nav-link">GitHub</a></li>
-            <li><a href="#huggingface" class="nav-link">AI Work</a></li>
-            <li><a href="#gamedev" class="nav-link">Game Dev</a></li>
-            <li><a href="#blender-space" class="nav-link">Blender</a></li>
-            <li><a href="#certificates" class="nav-link">Certificates</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-
-        <div class="nav-hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+    <!-- Navigation -->
+    <nav class="nav-brutalist">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="background: var(--ink); color: var(--white); padding: 0.5rem; font-family: var(--font-heading); transform: rotate(3deg);">P.</div>
+            <a href="#home" style="text-decoration: none; color: var(--ink); font-family: var(--font-body-alt); font-weight: 800; font-size: 1.5rem;">KRISHNA</a>
         </div>
-
-        <div class="nav-mobile-menu">
-            <a href="#home" class="nav-link">Home</a>
-            <a href="#about" class="nav-link">About</a>
-            <a href="#experience" class="nav-link">Experience</a>
-            <a href="#achievements" class="nav-link">Achievements</a>
-            <a href="#skills" class="nav-link">Skills</a>
-            <a href="#github" class="nav-link">GitHub</a>
-            <a href="#huggingface" class="nav-link">AI Work</a>
-            <a href="#gamedev" class="nav-link">Game Dev</a>
-            <a href="#blender-space" class="nav-link">Blender</a>
-            <a href="#certificates" class="nav-link">Certificates</a>
-            <a href="#contact" class="nav-link">Contact</a>
+        <div style="display: flex; gap: 2rem; align-items: center;">
+            <a href="#about" class="font-mono" style="text-decoration: none; color: var(--ink);">INFO</a>
+            <a href="#experience" class="font-mono" style="text-decoration: none; color: var(--ink);">WORK</a>
+            <a href="#github" class="font-mono" style="text-decoration: none; color: var(--ink);">CODE</a>
+            <a href="#contact" class="btn-brutalist" style="padding: 0.5rem 1rem;">JOIN BETA</a>
         </div>
     </nav>
 
-    <!-- Landing Page (Home Section) -->
-    <section id="home" class="min-h-screen flex items-center justify-center w-full">
-        <div class="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between">
-            <!-- Left: Text Content -->
-            <div class="w-full md:w-1/2 flex flex-col justify-center mb-10 md:mb-0">
-                <h1
-                    class="text-5xl sm:text-7xl md:text-8xl xl:text-9xl font-black tracking-tight leading-none mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-800 via-purple-600 to-blue-500">
-                    Krishna<br class="hidden sm:block"> Koushik
-                </h1>
-                <div class="pl-2">
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">CMRCET, Hyderabad</h2>
-                    <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold mb-6 max-w-3xl">B.Tech - CSE (Artificial
-                        Intelligence & Machine Learning)</h3>
-                    <p
-                        class="text-lg sm:text-xl md:text-2xl italic font-medium border-l-4 border-primary pl-4 py-2 max-w-2xl">
-                        "Jack of all trades, master of none, but oftentimes better than master of one."</p>
-                </div>
-            </div>
-
-            <!-- Right: Face Image -->
-            <div class="w-full md:w-1/2 flex justify-center items-center">
-                <div class="relative">
-                    <!-- Multi-gradient animated border with inline animation -->
-                    <div class="absolute inset-0 rounded-full p-1 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500"
-                        style="animation: spin 8s linear infinite;">
+    <!-- Hero Section -->
+    <section id="home" class="section-brutalist" style="border-top: none;">
+        <div class="container-brutalist">
+            <div class="grid-bento">
+                <div class="bento-1">
+                    <div class="sticker">AVAILABLE FOR HIRE 2026</div>
+                    <h1 class="hero-title glitch-hover">KRISHNA<br>KOUSHIK</h1>
+                    <p style="font-size: 1.5rem; max-width: 600px; margin-bottom: 2rem;">B.Tech - CSE (AI & ML) | Building high-output intelligent systems and immersive digital experiences.</p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#github" class="btn-brutalist">EXPLORE STACK</a>
+                        <a href="#contact" class="btn-brutalist" style="background: var(--white); color: var(--ink);">GET IN TOUCH</a>
                     </div>
-                    <!-- Image container - perfect circle -->
-                    <div
-                        class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-lg relative z-10 border-4 border-white">
-                        <img src="/src/Face.jpg" alt="Face" class="w-full h-full object-cover" />
+                </div>
+                <div class="bento-2">
+                    <div class="card-brutalist" style="padding: 0; height: 100%; overflow: hidden;">
+                        <img src="/src/Face.jpg" alt="Krishna" class="img-brutalist">
+                    </div>
+                </div>
+                <div class="bento-3">
+                    <div class="card-brutalist" style="background: var(--acid); display: flex; flex-direction: column; justify-content: center; height: 100%;">
+                        <div class="font-mono" style="font-size: 3rem; font-weight: 900; margin-bottom: 1rem;">01.</div>
+                        <h3 style="font-size: 2rem;">JACK OF ALL TRADES</h3>
+                        <p>Oftentimes better than master of one. Specializing in AI, Game Dev, and Web.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Marquee -->
+    <div class="marquee-container">
+        <div class="marquee-content font-ranchers" style="font-size: 4rem;">
+            UNREAL ENGINE 5 • FIREBASE • VERCEL • JUPYTER • LLMS • NLP • BLENDER • REACT • PYTHON • FINE-TUNING • UNREAL ENGINE 5 • FIREBASE • VERCEL • JUPYTER • LLMS • NLP • BLENDER • REACT • PYTHON • FINE-TUNING • 
+        </div>
     </div>
+
+    <!-- About Section -->
+    <section id="about" class="section-brutalist">
+        <div class="container-brutalist">
+            <h2 style="font-size: 4rem; margin-bottom: 4rem;">SYSTEM_OVERVIEW</h2>
+            <div class="grid-bento">
+                <div style="grid-column: span 6;">
+                    <p style="font-size: 2rem; line-height: 1.2; font-weight: 500;">
+                        I am a technologist operating at the intersection of machine intelligence and creative engineering. My goal is to ship high-impact solutions that disrupt standard workflows.
+                    </p>
+                </div>
+                <div style="grid-column: span 6;">
+                    <div class="card-brutalist" style="background: var(--ink); color: var(--white);">
+                        <div class="font-mono" style="margin-bottom: 1rem; color: var(--acid);">[STATUS: ACTIVE]</div>
+                        <p>Currently pursuing B.Tech in CSE (AI & ML) at CMRCET, Hyderabad. Focusing on Large Language Models, Generative AI, and immersive real-time environments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    <!-- About Me Section -->
-    <section id="about" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title text-center">About Me</h2>
-            <div class="max-w-3xl mx-auto">
-                <p class="text-lg leading-relaxed text-center">
-                    I'm a passionate technologist with a deep interest in artificial intelligence, machine learning, and
-                    game development.
-                    Currently pursuing my B.Tech in CSE with a specialization in AI & ML at CMRCET, Hyderabad.
-                    I enjoy exploring the intersection of technology and creativity, whether that's through coding AI
-                    models,
-                    developing games, or building web applications. I believe in continuous learning and pushing the
-                    boundaries
-                    of what's possible with technology.
-                </p>
+
+    <!-- Comparison Section (Disruptor Style) -->
+    <section class="section-brutalist" style="padding: 0;">
+        <div class="comparison-row">
+            <div class="comparison-left">
+                <div class="font-mono" style="margin-bottom: 1rem;">THE OLD WAY</div>
+                <h3 class="font-ranchers" style="font-size: 5rem;">STATIC & SLOW</h3>
+                <p>Manual processes, unoptimized models, and dated interfaces.</p>
+            </div>
+            <div class="comparison-right">
+                <div class="font-mono" style="margin-bottom: 1rem;">THE BETTER WAY</div>
+                <h3 class="font-ranchers" style="font-size: 5rem;">AI-DRIVEN</h3>
+                <p>Automated intelligence, real-time rendering, and high-precision output.</p>
             </div>
         </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title text-center">Experience</h2>
-            <div class="max-w-4xl mx-auto space-y-12">
-                <!-- Experience Card 1 -->
-                <div class="experience-card">
-                    <h3 class="text-2xl font-bold mb-2">Technical Lead</h3>
-                    <p class="text-lg font-semibold mb-1">Entrepreneur's Club CMRCET</p>
-                    <p class="text-gray-700 mb-2">Jan 2025 - June 2025 · 6 months - Ended</p>
-                    <p class="text-gray-700 mb-4">Hyderabad, Telangana, India · Hybrid</p>
+    <section id="experience" class="section-brutalist">
+        <div class="container-brutalist">
+            <h2 style="font-size: 4rem; margin-bottom: 4rem;">LOG_HISTORY</h2>
+            <div class="grid-bento">
+                <div style="grid-column: span 4;">
+                    <div class="card-brutalist">
+                        <div class="font-mono" style="margin-bottom: 0.5rem;">2025 / JAN - JUN</div>
+                        <h3>TECH LEAD</h3>
+                        <p>Entrepreneur's Club CMRCET</p>
+                        <div style="margin-top: 1rem;" class="font-mono">#LEADERSHIP #STRATEGY</div>
+                    </div>
                 </div>
-
-                <!-- Experience Card 2 -->
-                <div class="experience-card">
-                    <h3 class="text-2xl font-bold mb-2">Brand Ambassador</h3>
-                    <p class="text-lg font-semibold mb-1">CSI Hyderabad Chapter</p>
-                    <p class="text-gray-700 mb-2">Oct 2024 - Present</p>
-                    <p class="text-gray-700 mb-4">Hyderabad, Telangana, India · Hybrid</p>
-                    <ul class="list-disc pl-5">
-                        <li class="mb-1">Representing Computer Society of India (CSI) Hyderabad Chapter to promote
-                            technological awareness and student engagement.</li>
-                    </ul>
+                <div style="grid-column: span 4;">
+                    <div class="card-brutalist">
+                        <div class="font-mono" style="margin-bottom: 0.5rem;">2024 / OCT - NOW</div>
+                        <h3>AMBASSADOR</h3>
+                        <p>CSI Hyderabad Chapter</p>
+                        <div style="margin-top: 1rem;" class="font-mono">#ENGAGEMENT #TECH</div>
+                    </div>
                 </div>
-
-                <!-- Experience Card 3 -->
-                <div class="experience-card">
-                    <h3 class="text-2xl font-bold mb-2">Summer Internship</h3>
-                    <p class="text-lg font-semibold mb-1">Swecha Telangana</p>
-                    <p class="text-gray-700 mb-2">May 2024 - Jun 2024 · 2 months</p>
-                    <p class="text-gray-700 mb-4">Hyderabad, Telangana, India · Remote</p>
-                    <ul class="list-disc pl-5">
-                        <li class="mb-1">Summer AI Intern</li>
-                    </ul>
+                <div style="grid-column: span 4;">
+                    <div class="card-brutalist">
+                        <div class="font-mono" style="margin-bottom: 0.5rem;">2024 / MAY - JUN</div>
+                        <h3>AI INTERN</h3>
+                        <p>Swecha Telangana</p>
+                        <div style="margin-top: 1rem;" class="font-mono">#PYTHON #MODELS</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Achievements Section -->
-    <section id="achievements" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title text-center">Achievements</h2>
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-white p-8 rounded-lg border-2 border-primary shadow-custom mb-12">
-                    <div class="flex flex-col md:flex-row items-center justify-between mb-8">
+    <!-- Achievements -->
+    <section id="achievements" class="section-brutalist" style="background: var(--ink); color: var(--white);">
+        <div class="container-brutalist">
+            <div class="sticker" style="background: var(--white); color: var(--ink);">HIGH IMPACT</div>
+            <h2 style="font-size: 6rem; margin-bottom: 2rem; color: var(--volt);">1ST PRIZE<br>IIT BOMBAY</h2>
+            <p style="font-size: 2rem; margin-bottom: 4rem;">Developed an innovative solution at the IIT Bombay Hackathon by Co-grad. Secured the top spot among nationwide talent.</p>
+            
+            <div class="horizontal-scroll">
+                <div class="scroll-item">
+                    <img src="./src/Win1.jpeg" class="img-brutalist" style="filter: none; height: 400px; width: 100%;">
+                </div>
+                <div class="scroll-item">
+                    <img src="./src/Win2.jpeg" class="img-brutalist" style="filter: none; height: 400px; width: 100%;">
+                </div>
+                <div class="scroll-item">
+                    <img src="./src/Win3.jpeg" class="img-brutalist" style="filter: none; height: 400px; width: 100%;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Section -->
+    <section id="github" class="section-brutalist">
+        <div class="container-brutalist">
+            <h2 style="font-size: 4rem; margin-bottom: 4rem;">CODEBASE</h2>
+            <div class="grid-bento">
+                <div style="grid-column: span 6;">
+                    <div class="card-brutalist" style="background: var(--volt);">
+                        <h3 style="font-size: 3rem;">AYUR-VERSE</h3>
+                        <p style="margin-bottom: 2rem;">Immersive 3D exploration of sacred trees combining ancient knowledge with modern tech.</p>
+                        <a href="https://github.com/krishnakoushik9/AyurVerse" class="btn-brutalist">PULL_REQUEST</a>
+                    </div>
+                </div>
+                <div style="grid-column: span 6;">
+                    <div class="card-brutalist">
+                        <h3 style="font-size: 3rem;">EMO-CARE</h3>
+                        <p style="margin-bottom: 2rem;">Real-time emotion and voice response system using facial recognition.</p>
+                        <a href="https://github.com/krishnakoushik9/EMO-CARE-KAVVY" class="btn-brutalist">PULL_REQUEST</a>
+                    </div>
+                </div>
+                <div style="grid-column: span 4;">
+                    <div class="card-brutalist">
+                        <h3>E-SUMMIT</h3>
+                        <p>Modern landing page with Three.js animations.</p>
+                        <a href="https://github.com/krishnakoushik9/E-SUMMIT" class="font-mono" style="color: var(--ink);">VIEW SOURCE →</a>
+                    </div>
+                </div>
+                <div style="grid-column: span 4;">
+                    <div class="card-brutalist">
+                        <h3>ASHBORN RAG</h3>
+                        <p>24/7 document-based AI bot for local execution.</p>
+                        <a href="https://github.com/krishnakoushik9/HackIndia-Spark-4-2025-ASHBORN-SRCS" class="font-mono" style="color: var(--ink);">VIEW SOURCE →</a>
+                    </div>
+                </div>
+                <div style="grid-column: span 4;">
+                    <div class="card-brutalist">
+                        <h3>LEGION SURF</h3>
+                        <p>Full-stack AI chatbot for local event discovery.</p>
+                        <a href="https://github.com/krishnakoushik9/legion-surf-mate/tree/main/eventmate" class="font-mono" style="color: var(--ink);">VIEW SOURCE →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hugging Face Section -->
+    <section id="huggingface" class="section-brutalist">
+        <div class="container-brutalist">
+            <h2 style="font-size: 4rem; margin-bottom: 4rem;">NEURAL_NETS</h2>
+            <div class="card-brutalist" style="background: var(--white); margin-bottom: 2rem;">
+                <div style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem; border-bottom: 2px solid var(--ink); padding-bottom: 2rem;">
+                    <img src="https://huggingface.co/front/assets/huggingface_logo.svg" style="width: 80px; height: 80px;">
+                    <div>
+                        <h3 style="font-size: 3rem;">LOHAMEIT</h3>
+                        <p class="font-mono">STATUS: TRAINING LLMS / PRIVACY-FIRST AI</p>
+                    </div>
+                    <a href="https://huggingface.co/LOHAMEIT" class="btn-brutalist" style="margin-left: auto;">FOLLOW_MODEL</a>
+                </div>
+                <div class="grid-bento">
+                    <div style="grid-column: span 4;">
+                        <div class="card-brutalist" style="background: var(--bg-paper);">
+                            <h4>BITShyd</h4>
+                            <p>Text2Text Generation • AI-Enhanced Mental Health Counseling.</p>
+                            <a href="https://huggingface.co/LOHAMEIT/BITShyd" class="font-mono" style="color: var(--ink);">INSPECT →</a>
+                        </div>
+                    </div>
+                    <div style="grid-column: span 4;">
+                        <div class="card-brutalist" style="background: var(--bg-paper);">
+                            <h4>snehal-tirupati</h4>
+                            <p>Fine-tuned domain-specific language model.</p>
+                            <a href="https://huggingface.co/LOHAMEIT/snehal-tirupati" class="font-mono" style="color: var(--ink);">INSPECT →</a>
+                        </div>
+                    </div>
+                    <div style="grid-column: span 4;">
+                        <div class="card-brutalist" style="background: var(--bg-paper);">
+                            <h4>lohameit-3.2</h4>
+                            <p>Optimized model for performance and efficiency.</p>
+                            <a href="https://huggingface.co/LOHAMEIT/lohameit-3.2" class="font-mono" style="color: var(--ink);">INSPECT →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates -->
+    <section id="certificates" class="section-brutalist">
+        <div class="container-brutalist">
+            <h2 style="font-size: 4rem; margin-bottom: 4rem;">VALIDATION_LOG</h2>
+            <div class="grid-bento">
+                <div style="grid-column: span 6;">
+                    <div class="card-brutalist" style="display: flex; justify-content: space-between; align-items: center;">
                         <div>
-                            <h3 class="text-3xl font-bold mb-2">1st Prize - IIT Bombay Hackathon</h3>
-                            <p class="text-xl font-semibold text-primary">Conducted by Co-grad</p>
+                            <h3>AWS ML FOUNDATIONS</h3>
+                            <p class="font-mono">#AWS #MACHINE_LEARNING</p>
                         </div>
-                        <div class="mt-4 md:mt-0">
-                            <span class="bg-primary text-white px-4 py-2 rounded-full font-bold">Winner</span>
+                        <a href="https://www.credly.com/badges/f4ec610c-bb79-4b95-83d2-f5e006af7800/public_url" class="btn-brutalist" style="padding: 0.5rem 1rem;">VERIFY</a>
+                    </div>
+                </div>
+                <div style="grid-column: span 6;">
+                    <div class="card-brutalist" style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h3>GEN-AI INTRODUCTION</h3>
+                            <p class="font-mono">#AWS #GENERATIVE_AI</p>
+                        </div>
+                        <a href="https://www.credly.com/badges/1d6dcaec-321f-47d0-9984-5d2a89407032/linked_in_profile" class="btn-brutalist" style="padding: 0.5rem 1rem;">VERIFY</a>
+                    </div>
+                </div>
+                <div style="grid-column: span 6;">
+                    <div class="card-brutalist">
+                        <h3>PYTHON BOOTCAMP</h3>
+                        <p class="font-mono">#PYTHON #PROGRAMMING</p>
+                        <p>Credential ID: LUEPYTSEP1241463</p>
+                    </div>
+                </div>
+                <div style="grid-column: span 6;">
+                    <div class="card-brutalist">
+                        <h3>WELLS FARGO SWE</h3>
+                        <p class="font-mono">#SWE #SIMULATION</p>
+                        <a href="https://www.linkedin.com/posts/legionkrsna_softwareengineering-java-erdiagrams-activity-7329512684578578432-xzgh" class="font-mono" style="color: var(--ink);">VIEW PROOF →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Dev / Unreal -->
+    <section id="gamedev" class="section-brutalist" style="background: var(--ink); color: var(--white); overflow: hidden;">
+        <div class="container-brutalist">
+            <h2 style="font-size: 8vw; color: var(--acid);">UNREAL_JOURNEY</h2>
+            <div class="grid-bento" style="margin-top: 4rem;">
+                <div style="grid-column: span 4;">
+                    <div class="card-brutalist" style="padding: 0; background: var(--dark-grey);">
+                        <img src="/src/Screenshot 2025-05-16 at 19-42-29 Instagram.png" class="img-brutalist" style="filter: none;">
+                        <div style="padding: 2rem;">
+                            <h3 style="color: var(--white);">MAP 01</h3>
+                            <p style="color: #94a3b8;">CORE MECHANICS & LEVEL DESIGN</p>
                         </div>
                     </div>
-
-                    <p class="text-lg mb-8 leading-relaxed">
-                        Extremely proud to announce that we secured the <span class="font-bold">1st Prize</span> at the
-                        IIT Bombay Hackathon organized by <span class="font-bold">Co-grad</span>.
-                        Our team developed an innovative solution that stood out among numerous participants from across
-                        the country.
-                        The experience was intense, rewarding, and a testament to our technical skills and
-                        problem-solving abilities.
-                    </p>
-
-                    <!-- Image Slideshow (Framer Motion style) -->
-                    <div class="relative overflow-hidden rounded-2xl shadow-2xl h-[300px] md:h-[500px] group"
-                        id="achievement-slideshow">
-                        <div class="flex transition-transform duration-700 ease-in-out h-full" id="achievement-slider">
-                            <div class="w-full flex-shrink-0 relative">
-                                <img src="./src/Win1.jpeg" alt="IIT Bombay Hackathon Win 1"
-                                    class="w-full h-full object-cover">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                            </div>
-                            <div class="w-full flex-shrink-0 relative">
-                                <img src="./src/Win2.jpeg" alt="IIT Bombay Hackathon Win 2"
-                                    class="w-full h-full object-cover">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                            </div>
-                            <div class="w-full flex-shrink-0 relative">
-                                <img src="./src/Win3.jpeg" alt="IIT Bombay Hackathon Win 3"
-                                    class="w-full h-full object-cover">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                            </div>
-                        </div>
-
-                        <!-- Navigation Arrows -->
-                        <button
-                            class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-md text-white w-12 h-12 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
-                            id="slide-prev">
-                            <i class="fas fa-chevron-left text-xl"></i>
-                        </button>
-                        <button
-                            class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-md text-white w-12 h-12 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
-                            id="slide-next">
-                            <i class="fas fa-chevron-right text-xl"></i>
-                        </button>
-
-                        <!-- Dots Indicator -->
-                        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
-                            <button class="w-3 h-3 rounded-full bg-white transition-all duration-300 slide-dot active"
-                                data-index="0"></button>
-                            <button
-                                class="w-3 h-3 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 slide-dot"
-                                data-index="1"></button>
-                            <button
-                                class="w-3 h-3 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300 slide-dot"
-                                data-index="2"></button>
+                </div>
+                <div style="grid-column: span 8;">
+                    <div class="card-brutalist" style="padding: 0; background: var(--dark-grey); height: 100%;">
+                        <iframe style="width: 100%; height: 400px; border: none;" src="https://www.youtube.com/embed/4fidA5pWAg0?si=OZ4Ekt1Jsijsrj8T"></iframe>
+                        <div style="padding: 2rem;">
+                            <h3 style="color: var(--white);">MAP 02: SHADOW APE KING</h3>
+                            <p style="color: #94a3b8;">BOSS BATTLE & PATTERN RECOGNITION</p>
                         </div>
                     </div>
                 </div>
@@ -337,497 +363,82 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title text-center">Skills</h2>
-            <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg border-2 border-primary shadow-custom">
-                <div class="flex flex-wrap gap-4 justify-center text-lg font-medium">
-                    <span>Unreal Engine 5.6</span>
-                    <span>Firebase (Auth, Firestore, Hosting)</span>
-                    <span>Vercel Hosting Platform</span>
-                    <span>Jupyter Notebooks + Unsloth (AI Fine-Tuning)</span>
-                    <span>Artificial Intelligence (AI)</span>
-                    <span>Natural Language Processing (NLP)</span>
-                    <span>Psychology</span>
-                </div>
+    <!-- Blender / Call to Action -->
+    <section class="section-brutalist" style="background: var(--volt);">
+        <div class="container-brutalist text-center" style="text-align: center;">
+            <h2 style="font-size: 8rem; margin-bottom: 2rem;">3D_SPACE</h2>
+            <p style="font-size: 2rem; margin-bottom: 3rem;">EXPLORE THE DIMENSIONS OF CREATIVITY IN BLENDER.</p>
+            <a href="./blender.html" class="btn-brutalist" style="font-size: 2rem; padding: 2rem 4rem;">ENTER_VOXELS</a>
+        </div>
+    </section>
+
+    <!-- Book Project Button -->
+    <section class="section-brutalist" style="background: var(--bg-paper);">
+        <div class="container-brutalist" style="text-align: center;">
+            <button id="book-btn" class="btn-brutalist" style="font-size: 1.5rem;">
+                <i class="fas fa-book mr-2"></i> OPEN_SECRET_LOG
+            </button>
+        </div>
+    </section>
+
+    <!-- Book Popup -->
+    <div id="book-popup" style="position: fixed; inset: 0; background: rgba(9, 9, 11, 0.95); z-index: 10000; display: none; align-items: center; justify-content: center; padding: 2rem;">
+        <div class="card-brutalist" style="max-width: 800px; background: var(--bg-paper);">
+            <button id="close-popup" style="position: absolute; top: 1rem; right: 1rem; background: var(--ink); color: var(--white); border: none; padding: 0.5rem 1rem; cursor: pointer;">CLOSE</button>
+            <h2 style="font-size: 3rem; margin-bottom: 2rem;">PROJECT_NIGHTMARE</h2>
+            <p style="font-size: 1.25rem; margin-bottom: 1.5rem;">Since February 2023 (<span id="years-writing" class="font-mono"></span> years ago), I've been documenting the deepest subconscious fears through a compilation of nightmares.</p>
+            <p style="font-size: 1.25rem; margin-bottom: 1.5rem;">This manuscript explores the architecture of human terror, inspired by actual dream experiences. Think of American Psycho or Blood Meridian, but forged in the forge of the subconscious.</p>
+            <div class="card-brutalist" style="background: var(--volt); text-align: center; margin: 2rem 0;">
+                <p style="font-weight: 800;">REMAINING DOC TIME: <span id="years-until"></span> YEARS (EST. 2030)</p>
             </div>
-        </div>
-    </section>
-
-    <!-- GitHub Projects Section -->
-    <section id="github" class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title text-center">My GitHub Projects</h2>
-
-            <div class="relative">
-                <!-- Navigation Arrows -->
-                <button
-                    class="absolute top-1/2 -left-4 transform -translate-y-1/2 z-10 bg-secondary rounded-full p-2 border-2 border-primary"
-                    id="github-prev">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
-                <button
-                    class="absolute top-1/2 -right-4 transform -translate-y-1/2 z-10 bg-secondary rounded-full p-2 border-2 border-primary"
-                    id="github-next">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
-
-                <!-- Project Cards Container -->
-                <div class="overflow-hidden">
-                    <div class="flex transition-transform duration-500 ease-in-out" id="github-projects">
-                        <!-- Project Card 1: Ayur-Verse -->
-                        <div class="w-full md:w-1/3 px-4 flex-shrink-0">
-                            <div class="card h-full p-6">
-                                <h3 class="text-xl font-bold mb-2">Ayur-Verse</h3>
-                                <p class="mb-4">An immersive 3D exploration of sacred trees combining cutting-edge
-                                    technology with ancient knowledge. Features interactive 3D models and smooth user
-                                    experience.</p>
-                                <a href="https://github.com/krishnakoushik9/AyurVerse" target="_blank"
-                                    class="btn inline-block">Deep Dive</a>
-                            </div>
-                        </div>
-
-                        <!-- Project Card 2: EMO-CARE-KAVVY -->
-                        <div class="w-full md:w-1/3 px-4 flex-shrink-0">
-                            <div class="card h-full p-6">
-                                <h3 class="text-xl font-bold mb-2">EMO-CARE Response System</h3>
-                                <p class="mb-4">An interactive AI application that responds to emotions and voice in
-                                    real-time using facial recognition and speech recognition technologies.</p>
-                                <a href="https://github.com/krishnakoushik9/EMO-CARE-KAVVY" target="_blank"
-                                    class="btn inline-block">Deep Dive</a>
-                            </div>
-                        </div>
-
-                        <!-- Project Card 3: E-SUMMIT -->
-                        <div class="w-full md:w-1/3 px-4 flex-shrink-0">
-                            <div class="card h-full p-6">
-                                <h3 class="text-xl font-bold mb-2">CMRCET E-Summit 2025</h3>
-                                <p class="mb-4">A modern and interactive landing page featuring a countdown timer,
-                                    Three.js animation, event schedule, and responsive design.</p>
-                                <a href="https://github.com/krishnakoushik9/E-SUMMIT" target="_blank"
-                                    class="btn inline-block">Deep Dive</a>
-                            </div>
-                        </div>
-
-                        <!-- Project Card 4: ASHBORN-SRCS -->
-                        <div class="w-full md:w-1/3 px-4 flex-shrink-0">
-                            <div class="card h-full p-6">
-                                <h3 class="text-xl font-bold mb-2">HackIndia Spark 4 ASHBORN</h3>
-                                <p class="mb-4">A 24/7 document-based RAG AI bot designed to run continuously on a
-                                    laptop, providing intelligent responses based on document context.</p>
-                                <a href="https://github.com/krishnakoushik9/HackIndia-Spark-4-2025-ASHBORN-SRCS"
-                                    target="_blank" class="btn inline-block">Deep Dive</a>
-                            </div>
-                        </div>
-
-                        <!-- Project Card 5: Legion-Surf-Mate -->
-                        <div class="w-full md:w-1/3 px-4 flex-shrink-0">
-                            <div class="card h-full p-6">
-                                <h3 class="text-xl font-bold mb-2">Legion-Surf-Mate</h3>
-                                <p class="mb-4">A full-stack AI chatbot web application for discovering and planning
-                                    local events with AI-powered recommendations and a glassmorphic dark UI.</p>
-                                <a href="https://github.com/krishnakoushik9/legion-surf-mate/tree/main/eventmate"
-                                    target="_blank" class="btn inline-block">Deep Dive</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Hugging Face Projects Section -->
-    <section id="huggingface" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title text-center">AI Work on Hugging Face</h2>
-
-            <div class="flex flex-wrap -mx-4">
-                <!-- HuggingFace Profile and Projects -->
-                <div class="w-full px-4 mb-8">
-                    <div class="card h-full p-8 bg-white shadow-lg rounded-lg">
-                        <!-- Profile Header -->
-                        <div class="flex flex-col md:flex-row items-start md:items-center mb-6 pb-6 border-b">
-                            <div
-                                class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center mr-4 mb-4 md:mb-0 overflow-hidden flex-shrink-0">
-                                <img src="https://huggingface.co/front/assets/huggingface_logo.svg"
-                                    alt="Hugging Face Logo" class="w-6 h-6 object-contain">
-                            </div>
-                            <div>
-                                <h3 class="text-2xl font-bold mb-2">LOHAMEIT</h3>
-                                <p class="text-lg text-gray-700">AI & ML interests: Large Language Models (LLMs),
-                                    specifically leveraging open-source models like Meta's LLaMA for privacy-first
-                                    applications.</p>
-                                <a href="https://huggingface.co/LOHAMEIT" target="_blank"
-                                    class="btn bg-blue-600 text-white hover:bg-blue-700 mt-4 inline-block px-4 py-2 rounded-md">View
-                                    Profile</a>
-                            </div>
-                        </div>
-
-                        <!-- Projects Grid -->
-                        <h4 class="text-xl font-bold mb-4">Projects</h4>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <!-- Project 1 -->
-                            <div class="bg-gray-50 p-5 rounded-lg shadow">
-                                <h5 class="text-lg font-bold mb-2">LOHAMEIT/BITShyd</h5>
-                                <p class="text-gray-700 mb-3">Text2Text Generation • Updated Nov 30, 2024</p>
-                                <p class="mb-4">AI-Enhanced Facial Expression & Mental Health Counseling. Fine-tuned on
-                                    mental health counseling conversations dataset.</p>
-                                <a href="https://huggingface.co/LOHAMEIT/BITShyd" target="_blank"
-                                    class="text-blue-600 hover:text-blue-800 font-medium">View Project →</a>
-                            </div>
-
-                            <!-- Project 2 -->
-                            <div class="bg-gray-50 p-5 rounded-lg shadow">
-                                <h5 class="text-lg font-bold mb-2">LOHAMEIT/snehal-tirupati</h5>
-                                <p class="text-gray-700 mb-3">Updated Nov 17, 2024</p>
-                                <p class="mb-4">A specialized language model fine-tuned for specific domain applications
-                                    with enhanced performance.</p>
-                                <a href="https://huggingface.co/LOHAMEIT/snehal-tirupati" target="_blank"
-                                    class="text-blue-600 hover:text-blue-800 font-medium">View Project →</a>
-                            </div>
-
-                            <!-- Project 3 -->
-                            <div class="bg-gray-50 p-5 rounded-lg shadow">
-                                <h5 class="text-lg font-bold mb-2">LOHAMEIT/lohameit-3.2</h5>
-                                <p class="text-gray-700 mb-3">Updated Oct 12, 2024</p>
-                                <p class="mb-4">Advanced language model optimized for performance and efficiency in
-                                    various natural language processing tasks.</p>
-                                <a href="https://huggingface.co/LOHAMEIT/lohameit-3.2" target="_blank"
-                                    class="text-blue-600 hover:text-blue-800 font-medium">View Project →</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Game Dev Journey Section -->
-    <section id="gamedev" class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title text-center">My Unreal Engine Journey</h2>
-            <p class="text-lg text-center max-w-4xl mx-auto mb-12">A showcase of my game development project built with
-                Unreal Engine 5, featuring three unique maps with distinct gameplay experiences.</p>
-
-            <div class="flex flex-wrap -mx-4">
-                <!-- Map 1 -->
-                <div class="w-full md:w-1/3 px-4 mb-12">
-                    <div class="card h-full relative overflow-hidden group shadow-lg">
-                        <div class="h-[350px] md:h-[450px] overflow-hidden">
-                            <img src="/src/Screenshot 2025-05-16 at 19-42-29 Instagram.png" alt="Map 1 Preview"
-                                class="w-full h-full object-cover">
-                        </div>
-                        <div
-                            class="absolute inset-0 bg-black bg-opacity-75 flex flex-col justify-end p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                            <h3 class="text-2xl font-bold text-white mb-4">Map 1: The Beginning</h3>
-                            <p class="text-gray-200 mb-6 text-lg">The first level introduces players to the game's core
-                                mechanics, setting the stage for the epic battles to come. Features dynamic lighting,
-                                environmental puzzles, and preliminary combat encounters.</p>
-                            <div class="flex flex-wrap gap-4">
-                                <a href="https://www.instagram.com/p/C_aVwoTviHI/?img_index=3&igsh=MXdyM3lhcG12M2RxdA=="
-                                    class="btn bg-white text-black hover:bg-gray-200 text-lg px-6 py-2" target="_blank"
-                                    rel="noopener noreferrer">View on Instagram</a>
-                                <a href="gamedev-details.html"
-                                    class="btn bg-white text-black hover:bg-gray-200 text-lg px-6 py-2">Deep Dive</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Map 2 -->
-                <div class="w-full md:w-1/3 px-4 mb-12">
-                    <div class="card h-full relative overflow-hidden group shadow-lg">
-                        <div class="h-[350px] md:h-[450px]">
-                            <iframe class="w-full h-full youtube-video"
-                                src="https://www.youtube.com/embed/4fidA5pWAg0?si=OZ4Ekt1Jsijsrj8T"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen></iframe>
-                        </div>
-                        <div
-                            class="absolute inset-0 bg-black bg-opacity-75 flex flex-col justify-end p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                            <h3 class="text-2xl font-bold text-white mb-4">Map 2: The Shadow Ape King</h3>
-                            <p class="text-gray-200 mb-6 text-lg">A mirror battle where players experience Wukong's
-                                strength distorted by arrogance. This challenging boss fight tests the player's mastery
-                                of combat mechanics and pattern recognition.</p>
-                            <a href="gamedev-details.html"
-                                class="btn bg-white text-black hover:bg-gray-200 text-lg px-6 py-2">Deep Dive</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Map 3 -->
-                <div class="w-full md:w-1/3 px-4 mb-12">
-                    <div class="card h-full relative overflow-hidden group shadow-lg">
-                        <div class="h-[350px] md:h-[450px]">
-                            <iframe class="w-full h-full youtube-video"
-                                src="https://www.youtube.com/embed/OQeS5noefQk?si=rjVwEl3zv0543kOA"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen></iframe>
-                        </div>
-                        <div
-                            class="absolute inset-0 bg-black bg-opacity-75 flex flex-col justify-end p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                            <h3 class="text-2xl font-bold text-white mb-4">Map 3: Kuruomashi's Final Form</h3>
-                            <p class="text-gray-200 mb-6 text-lg">A three-stage celestial battle where Hanuman's divine
-                                form briefly aids the player. Set inside a deep old Shiva temple, this climactic
-                                confrontation features dramatic lighting, epic scale, and emotional storytelling.</p>
-                            <a href="gamedev-details.html"
-                                class="btn bg-white text-black hover:bg-gray-200 text-lg px-6 py-2">Deep Dive</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blender Space Section -->
-    <section id="blender-space" class="py-12 bg-gradient-to-r from-blue-300 to-purple-400 text-center">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-black mb-6">Blender Space</h2>
-            <p class="text-lg text-black mb-8">Explore my 3D creations made with Blender</p>
-            <a href="./blender.html"
-                class="inline-block px-8 py-4 text-xl font-bold text-black bg-transparent border-2 border-black rounded-lg hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg">
-                <span class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                    </svg>
-                    Enter Blender Space
-                </span>
-            </a>
-        </div>
-    </section>
-
-    <!-- Certificates Section -->
-    <section id="certificates" class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title text-center">Certificates</h2>
-
-            <div class="flex flex-wrap -mx-4">
-                <!-- Certificate 1 -->
-                <div class="w-full md:w-1/3 px-4 mb-8">
-                    <div class="certificate-card card h-full p-6">
-                        <div class="mb-4">
-                            <h3 class="text-xl font-bold">AWS Educate Machine Learning Foundations</h3>
-                        </div>
-                        <div class="mb-4 rounded-lg overflow-hidden">
-                        </div>
-                        <a href="https://www.credly.com/badges/f4ec610c-bb79-4b95-83d2-f5e006af7800/public_url"
-                            target="_blank" class="btn inline-block">View Certificate</a>
-                    </div>
-                </div>
-
-                <!-- Certificate 2 -->
-                <div class="w-full md:w-1/3 px-4 mb-8">
-                    <div class="certificate-card card h-full p-6">
-                        <div class="mb-4">
-                            <h3 class="text-xl font-bold">AWS Educate Introduction to Generative AI</h3>
-                        </div>
-                        <div class="mb-4 rounded-lg overflow-hidden">
-
-                        </div>
-                        <a href="https://www.credly.com/badges/1d6dcaec-321f-47d0-9984-5d2a89407032/linked_in_profile"
-                            target="_blank" class="btn inline-block">View Certificate</a>
-                    </div>
-                </div>
-
-                <!-- Certificate 3 -->
-                <div class="w-full md:w-1/3 px-4 mb-8">
-                    <div class="certificate-card card h-full p-6">
-                        <div class="flex items-center mb-4">
-                            <h3 class="text-xl font-bold">Python Programming Bootcamp (5 Days)</h3>
-                        </div>
-                        <p class="mb-2"><span class="font-semibold">Issued:</span> Oct 2024</p>
-                        <p class="mb-4"><span class="font-semibold">Credential ID:</span> LUEPYTSEP1241463</p>
-                    </div>
-                </div>
-
-                <!-- Certificate 4 -->
-                <div class="w-full md:w-1/3 px-4 mb-8">
-                    <div class="certificate-card card h-full p-6">
-                        <div class="flex items-center mb-4">
-                            <h3 class="text-xl font-bold">Wells Fargo Software Engineering Job Simulation</h3>
-                        </div>
-                        <p class="mb-4">Completed virtual experience program focused on software engineering practices
-                            at Wells Fargo</p>
-                        <a href="https://www.linkedin.com/posts/legionkrsna_softwareengineering-java-erdiagrams-activity-7329512684578578432-xzgh"
-                            target="_blank" class="btn inline-block">View Certificate</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        </div>
-    </section>
-
-    <!-- Upcoming Projects Button -->
-    <div class="py-12 bg-gradient-to-r from-indigo-600 to-purple-600 text-center">
-        <div class="container mx-auto px-6">
-            <a href="./upcoming.html"
-                class="inline-block px-8 py-4 text-xl font-bold text-black bg-transparent border-2 border-white rounded-lg hover:bg-white hover:text-indigo-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                <span class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                    Upcoming and Currently in Development Projects
-                </span>
-            </a>
+            <p style="font-size: 0.8rem; text-transform: uppercase;" class="font-mono">* THIS PROJECT CONTAINS GRAPHIC CONTENT. RESTRICTED ACCESS.</p>
         </div>
     </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title text-center">Let's Connect</h2>
-
-            <div class="flex flex-wrap justify-center gap-8">
-                <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/in/legionkrsna" target="_blank" rel="noopener noreferrer"
-                    class="social-icon">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-
-                <!-- Instagram -->
-                <a href="https://www.instagram.com/krsna_legion/" target="_blank" rel="noopener noreferrer"
-                    class="social-icon">
-                    <i class="fab fa-instagram"></i>
-                </a>
-
-                <!-- WhatsApp -->
-                <a href="https://wa.me/918019435543" target="_blank" rel="noopener noreferrer" class="social-icon">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-
-                <!-- Twitter/X -->
-                <a href="https://x.com/Koushik1156" target="_blank" rel="noopener noreferrer" class="social-icon">
-                    <i class="fab fa-twitter"></i>
-                </a>
+    <!-- Ad Boxes -->
+    <div class="marquee-container" style="background: var(--white); border-bottom: none;">
+        <div style="display: flex; justify-content: space-around; padding: 2rem; gap: 2rem; flex-wrap: wrap;">
+            <div style="width: 250px; height: 125px; border: 2px solid var(--ink); background: #eee; display: flex; align-items: center; justify-content: center;">
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7515728727059624" data-ad-slot="1234567890" data-ad-format="rectangle"></ins>
             </div>
-
-            <div class="mt-8 text-center">
-                <!-- Written by me button with visible text -->
-                <a id="book-btn"
-                    class="inline-block px-4 py-2 bg-gray-200 text-black rounded-md hover:bg-gray-300 transition-colors duration-300 cursor-pointer">
-                    <i class="fas fa-book mr-2"></i> My Book Project
-                </a>
+            <div style="width: 250px; height: 125px; border: 2px solid var(--ink); background: #eee; display: flex; align-items: center; justify-content: center;">
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7515728727059624" data-ad-slot="1234567891" data-ad-format="rectangle"></ins>
             </div>
+        </div>
+    </div>
 
-            <!-- Book Popup -->
-            <div id="book-popup" class="fixed inset-0 flex items-center justify-center z-50 hidden">
-                <div class="absolute inset-0 bg-black opacity-75" id="popup-overlay"></div>
-                <div class="relative bg-white text-black p-8 rounded-lg shadow-2xl max-w-lg mx-4 transform transition-all duration-300 scale-95 opacity-0"
-                    id="popup-content">
-                    <button id="close-popup" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
-
-                    <h3 class="text-3xl font-bold mb-6 text-gray-900">My Secret Book Project</h3>
-
-                    <p class="mb-4">Since February 2023 (<span id="years-writing" class="font-bold"></span> years ago),
-                        I've been working on a deeply personal book project that explores the darkest corners of human
-                        consciousness through my dreams.</p>
-
-                    <p class="mb-4">This compilation weaves together vivid nightmares into a narrative that pushes
-                        beyond what conventional horror offers. Think of works like <span class="font-semibold">American
-                            Psycho</span> or <span class="font-semibold">Blood Meridian</span>, but derived from actual
-                        dream experiences rather than fiction.</p>
-
-                    <p class="mb-4">Each chapter documents dreams where the familiar becomes horrifying in ways that
-                        challenge our understanding of reality. The imagery is intense and visceral, exploring themes
-                        that most authors would avoid.</p>
-
-                    <p class="mb-4">The complete manuscript won't be published until after 2030, as I continue to
-                        document these experiences and connect them into a cohesive narrative. The final work will
-                        include illustrations to capture what words alone cannot describe.</p>
-
-                    <div class="p-4 bg-gray-100 rounded-lg mb-4">
-                        <p class="font-bold text-center">You'll have to wait approximately <span id="years-until"
-                                class="font-bold"></span> more years to read this collection of nightmares.</p>
+    <!-- Footer -->
+    <footer class="section-brutalist" style="background: var(--ink); color: var(--bg-paper);">
+        <div class="container-brutalist">
+            <div class="grid-bento">
+                <div style="grid-column: span 6;">
+                    <h2 style="font-size: 5rem; color: var(--acid);">LET'S CONNECT</h2>
+                    <p style="font-size: 1.5rem; margin-bottom: 2rem;">Building the future, one prompt at a time.</p>
+                    <div style="display: flex; gap: 2rem;">
+                        <a href="https://www.linkedin.com/in/legionkrsna" class="font-mono" style="color: var(--white); font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/krsna_legion/" class="font-mono" style="color: var(--white); font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/Koushik1156" class="font-mono" style="color: var(--white); font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
                     </div>
-
-                    <div class="text-xs text-gray-500 mt-4 text-right">
-                        *This project contains graphic content and is intended for mature audiences only.
+                </div>
+                <div style="grid-column: span 6;">
+                    <div class="card-brutalist" style="background: transparent; border-color: var(--white);">
+                        <h3 style="color: var(--white);">NEWSLETTER</h3>
+                        <div style="display: flex; margin-top: 1rem;">
+                            <input type="email" placeholder="USER@EMAIL.COM" style="flex: 1; background: transparent; border: 2px solid var(--white); padding: 1rem; color: var(--white); font-family: var(--font-mono);">
+                            <button class="btn-brutalist" style="margin-left: -4px; box-shadow: none;">JOIN</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-
-    <!-- Footer -->
-    <footer class="py-8 border-t-2 border-primary">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-lg font-serif italic">"In the symphony of code and circuits, I found my purpose: to breathe
-                consciousness into man-made machines."</p>
-            <div class="mt-4">
-                <a href="#" id="toggleParticles" class="text-sm text-gray-500 hover:text-black transition-colors">Toggle
-                    Background Effect</a>
+            <div style="margin-top: 4rem; border-top: 2px solid #333; padding-top: 2rem; display: flex; justify-content: space-between;" class="font-mono">
+                <div>© 2026 KRISHNA KOUSHIK</div>
+                <div>DESIGNED FOR DISRUPTION</div>
             </div>
         </div>
     </footer>
 
-    <script src="./js/navbar.js"></script>
-    <script src="./js/main.js"></script>
-    <script src="./js/youtube-hover.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="./js/particles.js"></script>
-    <script src="./js/protection.js"></script>
-
-    <!-- AdSense Code -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7515728727059624"
-        crossorigin="anonymous"></script>
-
-    <!-- Ad Boxes Below Footer -->
-    <div class="ad-container"
-        style="margin-top: 60px; padding: 20px; background-color: rgba(0,0,0,0.02); text-align: center;">
-        <div
-            style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px;">
-            <!-- Ad Box 1 -->
-            <div style="width: 250px; height: 125px; margin-bottom: 20px;">
-                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7515728727059624"
-                    data-ad-slot="1234567890" data-ad-format="rectangle"></ins>
-                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-            </div>
-
-            <!-- Ad Box 2 -->
-            <div style="width: 250px; height: 125px; margin-bottom: 20px;">
-                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7515728727059624"
-                    data-ad-slot="1234567891" data-ad-format="rectangle"></ins>
-                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-            </div>
-
-            <!-- Ad Box 3 -->
-            <div style="width: 250px; height: 125px; margin-bottom: 20px;">
-                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7515728727059624"
-                    data-ad-slot="1234567892" data-ad-format="rectangle"></ins>
-                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-            </div>
-
-            <!-- Ad Box 4 -->
-            <div style="width: 250px; height: 125px; margin-bottom: 20px;">
-                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7515728727059624"
-                    data-ad-slot="1234567893" data-ad-format="rectangle"></ins>
-                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-            </div>
-        </div>
-    </div>
+    <script src="./js/neo-brutalist.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7515728727059624" crossorigin="anonymous"></script>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </body>
-
 </html>
