@@ -129,23 +129,18 @@
 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden swiss-grid-pattern pt-32">
-        <!-- Floating Elements -->
-        <div class="absolute -left-[5%] top-[10%] w-[40vw] opacity-40 animate-float-left pointer-events-none">
-            <img src="/images/map-1-preview.png" alt="Shiva Game" class="w-full h-auto grayscale contrast-125 border-4 border-[#FF3000]">
-        </div>
-        <div class="absolute -right-[5%] bottom-[10%] w-[35vw] opacity-40 animate-float-right pointer-events-none">
-            <img src="/images/hyd-iit-win-1.jpg" alt="Atmosphere" class="w-full h-auto grayscale contrast-125 border-4 border-white">
-        </div>
+        <!-- Hero Overlay for Contrast -->
+        <div class="absolute inset-0 bg-black/70 z-10 pointer-events-none"></div>
 
         <div class="container mx-auto px-6 relative z-20 text-center">
             <div class="reveal">
                 <span class="inline-block text-[#FF3000] font-mono tracking-[0.5em] mb-6 uppercase text-sm">[ UNREAL_ENGINE_5_EXPLORATION ]</span>
-                <h1 class="text-6xl md:text-[10rem] font-black leading-[0.8] tracking-tighter mb-8 font-serif italic">
-                    THE PATH <br />OF SHIVA.
+                <h1 class="text-6xl md:text-[10rem] font-black leading-[0.8] tracking-tighter mb-8 font-serif italic text-white">
+                    THE PATH <br />OF <span class="text-[#FF3000]">SHIVA.</span>
                 </h1>
             </div>
             <div class="reveal" style="transition-delay: 200ms;">
-                <p class="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto mb-12 font-light leading-relaxed uppercase tracking-wide">
+                <p class="text-xl md:text-2xl text-white max-w-3xl mx-auto mb-12 font-medium leading-relaxed uppercase tracking-wide">
                     Mathematical precision meets mythological architecture. A technical showcase of real-time rendering and immersive storytelling.
                 </p>
             </div>
@@ -213,26 +208,26 @@
             
             <div class="space-y-24">
                 <div class="reveal flex flex-col md:flex-row gap-12 items-start">
-                    <div class="text-8xl font-black text-white/5 md:w-1/3 leading-none">SEPT_24</div>
+                    <div class="text-8xl font-black text-white/20 md:w-1/3 leading-none">SEPT_24</div>
                     <div class="md:w-2/3 border-l-4 border-[#FF3000] pl-12">
                         <h3 class="text-3xl font-bold mb-4 uppercase">Concept & Research</h3>
-                        <p class="text-white/60 text-lg">Establishing technical requirements and researching Hindu mythology to inform game architecture.</p>
+                        <p class="text-white text-lg">Establishing technical requirements and researching Hindu mythology to inform game architecture.</p>
                     </div>
                 </div>
                 
                 <div class="reveal flex flex-col md:flex-row gap-12 items-start" style="transition-delay: 100ms;">
-                    <div class="text-8xl font-black text-white/5 md:w-1/3 leading-none">OCT_24</div>
+                    <div class="text-8xl font-black text-white/20 md:w-1/3 leading-none">OCT_24</div>
                     <div class="md:w-2/3 border-l-4 border-white pl-12">
                         <h3 class="text-3xl font-bold mb-4 uppercase">Early Prototyping</h3>
-                        <p class="text-white/60 text-lg">Implementing character movement, environment layouts, and testing Nanite/Lumen integration.</p>
+                        <p class="text-white text-lg">Implementing character movement, environment layouts, and testing Nanite/Lumen integration.</p>
                     </div>
                 </div>
 
                 <div class="reveal flex flex-col md:flex-row gap-12 items-start" style="transition-delay: 200ms;">
-                    <div class="text-8xl font-black text-white/5 md:w-1/3 leading-none">PRESENT</div>
+                    <div class="text-8xl font-black text-white/20 md:w-1/3 leading-none text-[#FF3000]/40">PRESENT</div>
                     <div class="md:w-2/3 border-l-4 border-[#FF3000] pl-12">
                         <h3 class="text-3xl font-bold mb-4 uppercase">Pre-Alpha Phase</h3>
-                        <p class="text-white/60 text-lg">Connecting core systems, optimizing performance, and building the foundation for Map 03.</p>
+                        <p class="text-white text-lg">Connecting core systems, optimizing performance, and building the foundation for Map 03.</p>
                     </div>
                 </div>
             </div>
