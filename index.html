@@ -20,9 +20,10 @@
     <style>
         /* Additional inline styles for specific layout needs */
         .hero-title {
-            font-size: clamp(4rem, 15vw, 12rem);
+            font-size: clamp(3rem, 10vw, 8rem); /* Reduced slightly for scaling */
             line-height: 0.8;
             margin-bottom: 2rem;
+            letter-spacing: -0.04em;
         }
         
         .bento-1 { grid-column: span 8; grid-row: span 2; }
@@ -33,17 +34,31 @@
             .bento-1, .bento-2, .bento-3 { grid-column: span 12; }
         }
 
+        .img-container {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border: 4px solid var(--ink);
+            background: var(--dark-grey);
+        }
+
         .img-brutalist {
             width: 100%;
             height: 100%;
-            object-cover: cover;
-            border: 4px solid var(--ink);
+            object-fit: cover;
+            object-position: center;
             filter: grayscale(100%) contrast(120%);
             transition: all 0.3s ease;
         }
         
         .img-brutalist:hover {
             filter: none;
+        }
+
+        .btn-brutalist.link-btn:hover {
+            background: var(--white);
+            color: var(--ink);
+            box-shadow: 0 0 15px var(--acid);
         }
 
         .horizontal-scroll {
@@ -58,6 +73,15 @@
         .scroll-item {
             min-width: 400px;
             flex-shrink: 0;
+        }
+
+        .footer-quote {
+            font-size: 1.25rem;
+            font-style: italic;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 2rem auto 0;
+            line-height: 1.4;
         }
     </style>
 </head>
@@ -81,7 +105,7 @@
             <a href="#about" class="font-mono" style="text-decoration: none; color: var(--ink);">INFO</a>
             <a href="#experience" class="font-mono" style="text-decoration: none; color: var(--ink);">WORK</a>
             <a href="#github" class="font-mono" style="text-decoration: none; color: var(--ink);">CODE</a>
-            <a href="#contact" class="btn-brutalist" style="padding: 0.5rem 1rem;">JOIN BETA</a>
+            <a href="https://www.linkedin.com/in/legionkrsna" target="_blank" class="btn-brutalist" style="padding: 0.5rem 1rem;">CONNECT</a>
         </div>
     </nav>
 
@@ -95,19 +119,21 @@
                     <p style="font-size: 1.5rem; max-width: 600px; margin-bottom: 2rem;">B.Tech - CSE (AI & ML) | Building high-output intelligent systems and immersive digital experiences.</p>
                     <div style="display: flex; gap: 1rem;">
                         <a href="#github" class="btn-brutalist">EXPLORE STACK</a>
-                        <a href="#contact" class="btn-brutalist" style="background: var(--white); color: var(--ink);">GET IN TOUCH</a>
+                        <a href="https://www.linkedin.com/in/legionkrsna" target="_blank" class="btn-brutalist link-btn" style="background: var(--white); color: var(--ink);">GET IN TOUCH</a>
                     </div>
                 </div>
                 <div class="bento-2">
-                    <div class="card-brutalist" style="padding: 0; height: 100%; overflow: hidden;">
-                        <img src="/src/Face.jpg" alt="Krishna" class="img-brutalist">
+                    <div class="card-brutalist" style="padding: 0; overflow: hidden; border: none; box-shadow: none;">
+                        <div class="img-container">
+                            <img src="/image-src/Face.jpg" alt="Krishna" class="img-brutalist">
+                        </div>
                     </div>
                 </div>
                 <div class="bento-3">
                     <div class="card-brutalist" style="background: var(--acid); display: flex; flex-direction: column; justify-content: center; height: 100%;">
                         <div class="font-mono" style="font-size: 3rem; font-weight: 900; margin-bottom: 1rem;">01.</div>
                         <h3 style="font-size: 2rem;">JACK OF ALL TRADES</h3>
-                        <p>Oftentimes better than master of one. Specializing in AI, Game Dev, and Web.</p>
+                        <p>Specializing in AI, Game Dev, and Web Engineering.</p>
                     </div>
                 </div>
             </div>
@@ -411,23 +437,19 @@
     <footer class="section-brutalist" style="background: var(--ink); color: var(--bg-paper);">
         <div class="container-brutalist">
             <div class="grid-bento">
-                <div style="grid-column: span 6;">
-                    <h2 style="font-size: 5rem; color: var(--acid);">LET'S CONNECT</h2>
-                    <p style="font-size: 1.5rem; margin-bottom: 2rem;">Building the future, one prompt at a time.</p>
-                    <div style="display: flex; gap: 2rem;">
-                        <a href="https://www.linkedin.com/in/legionkrsna" class="font-mono" style="color: var(--white); font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://www.instagram.com/krsna_legion/" class="font-mono" style="color: var(--white); font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
-                        <a href="https://x.com/Koushik1156" class="font-mono" style="color: var(--white); font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+                <div style="grid-column: span 12; text-align: center;">
+                    <h2 style="font-size: 5rem; color: var(--acid); margin-bottom: 2rem;">LET'S CONNECT</h2>
+                    <div style="display: flex; justify-content: center; gap: 3rem; margin-bottom: 3rem;">
+                        <a href="https://www.linkedin.com/in/legionkrsna" target="_blank" class="font-mono" style="color: var(--white); font-size: 2rem; text-decoration: none;"><i class="fab fa-linkedin"></i> LINKEDIN</a>
+                        <a href="https://github.com/krishnakoushik9" target="_blank" class="font-mono" style="color: var(--white); font-size: 2rem; text-decoration: none;"><i class="fab fa-github"></i> GITHUB</a>
+                        <a href="https://x.com/Koushik1156" target="_blank" class="font-mono" style="color: var(--white); font-size: 2rem; text-decoration: none;"><i class="fab fa-twitter"></i> TWITTER</a>
                     </div>
-                </div>
-                <div style="grid-column: span 6;">
-                    <div class="card-brutalist" style="background: transparent; border-color: var(--white);">
-                        <h3 style="color: var(--white);">NEWSLETTER</h3>
-                        <div style="display: flex; margin-top: 1rem;">
-                            <input type="email" placeholder="USER@EMAIL.COM" style="flex: 1; background: transparent; border: 2px solid var(--white); padding: 1rem; color: var(--white); font-family: var(--font-mono);">
-                            <button class="btn-brutalist" style="margin-left: -4px; box-shadow: none;">JOIN</button>
-                        </div>
-                    </div>
+                    <a href="https://www.linkedin.com/in/legionkrsna" target="_blank" class="btn-brutalist" style="background: var(--acid); color: var(--ink); font-size: 1.5rem; padding: 1rem 3rem;">REACH OUT</a>
+                    
+                    <p class="footer-quote">
+                        "It ain't who wins the most fights, just who wins the last one!"<br>
+                        <span style="font-size: 1rem; opacity: 0.7;">— Thunderhoof, Transformers: Robots in Disguise</span>
+                    </p>
                 </div>
             </div>
             <div style="margin-top: 4rem; border-top: 2px solid #333; padding-top: 2rem; display: flex; justify-content: space-between;" class="font-mono">
