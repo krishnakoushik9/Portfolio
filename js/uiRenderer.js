@@ -25,7 +25,7 @@ export const uiRenderer = {
             const isMain = index < 2; // Make first two cards larger span 6
             const isMostActive = index === 0; // Highlight the very first (most recently pushed)
 
-            const lastUpdated = new Date(repo.pushed_at).toLocaleDateString(undefined, {
+            const lastUpdated = new Date(repo.pushed_at || repo.updatedAt).toLocaleDateString(undefined, {
                 month: 'short', day: 'numeric', year: 'numeric'
             });
 
