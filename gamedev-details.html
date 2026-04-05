@@ -1,350 +1,281 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Development | P. Krishna Koushik</title>
-    
-    <!-- Monochrome CSS Theme -->
-    <link rel="stylesheet" href="./css/gamedev-monochrome.css">
-    
-    <!-- Google Fonts -->
+    <title>THE PATH OF SHIVA | GAMEDEV_DEEP_DIVE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7515728727059624"
-     crossorigin="anonymous"></script>
-     
-    <!-- Protection script -->
-    <script src="./js/protection.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --swiss-red: #FF3000;
+            --muted: #111111;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--white);
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .font-serif { font-family: 'Playfair Display', serif; }
+
+        /* Noise Overlay */
+        .noise-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            pointer-events: none;
+            opacity: 0.05;
+            mix-blend-mode: overlay;
+            background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+        }
+
+        /* Swiss Patterns */
+        .swiss-grid-pattern {
+            background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .swiss-dots {
+            background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 16px 16px;
+        }
+
+        /* Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Floating Surrealism */
+        @keyframes float-left {
+            0%, 100% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+        @keyframes float-right {
+            0%, 100% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(20px) rotate(-2deg); }
+        }
+        .animate-float-left { animation: float-left 12s ease-in-out infinite; }
+        .animate-float-right { animation: float-right 14s ease-in-out infinite; }
+
+        .btn-swiss {
+            border: 2px solid var(--white);
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2rem;
+            text-transform: uppercase;
+            font-weight: 900;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+        .btn-swiss:hover {
+            background: var(--swiss-red);
+            border-color: var(--swiss-red);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border: 4px solid var(--white);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
-<body>
-    <!-- Simple background -->
-    <div class="simple-background"></div>
-    
+<body class="selection:bg-[#FF3000] selection:text-white">
+    <div class="noise-overlay"></div>
+
     <!-- Navigation -->
-    <nav class="mono-nav">
-        <div class="mono-nav-left">
-            <a href="index.html" class="mono-nav-back"><i class="fas fa-arrow-left"></i> Back</a>
-        </div>
-        <div class="mono-nav-logo">Krishna Koushik</div>
-        <div class="mono-nav-links">
-            <a href="https://www.unrealengine.com/" target="_blank" class="mono-nav-link">Unreal</a>
-            <a href="https://dev.epicgames.com/community/" target="_blank" class="mono-nav-link">Community</a>
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-8 border-b border-white/5 backdrop-blur-sm">
+        <div class="container mx-auto px-6 flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-black tracking-tighter font-serif">
+                SHIVA_PATH.
+            </a>
+            <div class="hidden md:flex items-center space-x-12 font-mono text-xs tracking-widest text-white/60">
+                <a href="#overview" class="hover:text-[#FF3000] transition-colors">OVERVIEW</a>
+                <a href="#technical" class="hover:text-[#FF3000] transition-colors">TECHNICAL</a>
+                <a href="#timeline" class="hover:text-[#FF3000] transition-colors">TIMELINE</a>
+            </div>
+            <a href="index.html" class="inline-flex items-center justify-center px-6 py-2 rounded-none text-xs font-bold bg-white text-black hover:bg-[#FF3000] hover:text-white transition-all duration-300 uppercase tracking-tighter">
+                BACK_TO_HOME
+            </a>
         </div>
     </nav>
-    
-    <!-- Main content container -->
-    <div class="mono-container">
-        <!-- Header section -->
-        <header class="mono-header">
-            <h1 class="mono-title fade-in">The Path of Shiva</h1>
-            <p class="mono-subtitle fade-in delay-1">A technical exploration of game development using Unreal Engine 5, inspired by Hindu mythology and mathematical precision.</p>
-            <a href="https://www.unrealengine.com/en-US/download" target="_blank" class="mono-btn fade-in delay-2">Get Unreal Engine</a>
-        </header>
-        
-        <!-- Main video showcase -->
-        <section class="fade-in delay-2">
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/OQeS5noefQk?si=8pk9ZfOeREUXNgIo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden swiss-grid-pattern pt-32">
+        <!-- Floating Elements -->
+        <div class="absolute -left-[5%] top-[10%] w-[40vw] opacity-40 animate-float-left pointer-events-none">
+            <img src="/images/map-1-preview.png" alt="Shiva Game" class="w-full h-auto grayscale contrast-125 border-4 border-[#FF3000]">
+        </div>
+        <div class="absolute -right-[5%] bottom-[10%] w-[35vw] opacity-40 animate-float-right pointer-events-none">
+            <img src="/images/hyd-iit-win-1.jpg" alt="Atmosphere" class="w-full h-auto grayscale contrast-125 border-4 border-white">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-20 text-center">
+            <div class="reveal">
+                <span class="inline-block text-[#FF3000] font-mono tracking-[0.5em] mb-6 uppercase text-sm">[ UNREAL_ENGINE_5_EXPLORATION ]</span>
+                <h1 class="text-6xl md:text-[10rem] font-black leading-[0.8] tracking-tighter mb-8 font-serif italic">
+                    THE PATH <br />OF SHIVA.
+                </h1>
             </div>
-            
-            <h2 class="fade-in">Project Overview</h2>
-            <p class="fade-in delay-1">
-                This project represents my exploration into advanced game development using Unreal Engine 5. 
-                What began as a personal experiment has evolved into a comprehensive technical showcase 
-                where I explore the boundaries between mathematical precision and artistic expression through 
-                interactive storytelling and immersive environments.
-            </p>
-            <p class="fade-in delay-2">
-                The game draws inspiration from Hindu mythology, particularly the cosmic dance of Lord Shiva, 
-                which symbolizes the cyclical process of creation and destruction. This concept is reflected 
-                in the game's procedural generation systems and dynamic world elements.                
-            </p>
-        </section>
-        
-        <!-- Technical Features Grid -->
-        <section class="feature-section">
-            <h2 class="fade-in">Technical Implementation</h2>
-            
-            <div class="mono-grid fade-in delay-1">
-                <div class="mono-grid-item">
-                    <h3>Core Technologies</h3>
-                    <ul>
-                        <li><a href="https://www.unrealengine.com/en-US/unreal-engine-5" target="_blank">Unreal Engine 5</a> - Core engine</li>
-                        <li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/blueprints-visual-scripting-in-unreal-engine" target="_blank">Blueprint Visual Scripting</a> - Rapid prototyping</li>
-                        <li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/programming-with-cpp-in-unreal-engine" target="_blank">C++ Programming</a> - Performance-critical systems</li>
-                        <li><a href="https://docs.unrealengine.com/5.0/en-US/nanite-virtualized-geometry-in-unreal-engine/" target="_blank">Nanite</a> - Virtualized micropolygon geometry</li>
-                        <li><a href="https://docs.unrealengine.com/5.0/en-US/lumen-global-illumination-and-reflections-in-unreal-engine/" target="_blank">Lumen</a> - Dynamic global illumination</li>
-                        <li><a href="https://quixel.com/megascans" target="_blank">Quixel Megascans</a> - Photorealistic assets</li>
-                        <li><a href="https://www.blender.org/" target="_blank">Blender</a> - Custom 3D modeling</li>
-                    </ul>
-                </div>
-                
-                <div class="mono-grid-item">
-                    <h3>Current Features</h3>
-                    <ul>
-                        <li>Basic terrain and environment setup</li>
-                        <li>Simple day/night lighting cycle</li>
-                        <li>Basic character controller</li>
-                        <li>Simple particle effects</li>
-                        <li>Standard material setup</li>
-                        <li>Basic NPC placement</li>
-                        <li>Initial performance optimization</li>
-                    </ul>
-                </div>
-                
-                <div class="mono-grid-item">
-                    <h3>Future Development</h3>
-                    <ul>
-                        <li>Advanced weather system with realistic simulation</li>
-                        <li>Narrative-driven quest system with branching paths</li>
-                        <li>Procedural audio generation for ambient soundscapes</li>
-                        <li>Cross-platform support including macOS compatibility</li>
-                        <li>VR implementation with full motion controls</li>
-                        <li>Machine learning integration for NPC behavior</li>
-                        <li>Community modding support</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Development Timeline -->
-        <section class="fade-in">
-            <h2>Development Timeline</h2>
-            
-            <div class="timeline fade-in delay-1">
-                <div class="timeline-item">
-                    <div class="timeline-date" id="concept-date">September 2024</div>
-                    <h3>Concept & Research Phase</h3>
-                    <p>
-                        The project began with research into Unreal Engine 5 
-                        and the mythological elements that would inform the game's design. This phase included:
-                    </p>
-                    <ul>
-                        <li>Establishing basic technical requirements</li>
-                        <li>Researching Hindu mythology and symbolism</li>
-                        <li>Creating initial concept ideas</li>
-                        <li>Setting up the initial project structure in Unreal Engine</li>
-                    </ul>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date" id="prototype-date">October 2024</div>
-                    <h3>Early Prototyping</h3>
-                    <p>
-                        With the foundation established, I moved into developing basic prototypes:
-                    </p>
-                    <ul>
-                        <li>Implementing basic character movement</li>
-                        <li>Creating simple environment layouts</li>
-                        <li>Testing Nanite and Lumen features</li>
-                        <li>Experimenting with basic day/night lighting</li>
-                    </ul>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date" id="asset-date">December 2024</div>
-                    <h3>Initial Asset Creation</h3>
-                    <p>
-                        Once the basic systems were functioning, I focused on creating visual elements:
-                    </p>
-                    <ul>
-                        <li>Modeling simple architectural elements in Blender</li>
-                        <li>Integrating some Megascans assets</li>
-                        <li>Working with basic materials</li>
-                        <li>Adding simple particle effects</li>
-                    </ul>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date" id="current-phase">Current Phase</div>
-                    <h3>Pre-Alpha Development</h3>
-                    <p>
-                        The current phase focuses on building the foundation:
-                    </p>
-                    <ul>
-                        <li>Connecting basic game systems</li>
-                        <li>Implementing simple character interactions</li>
-                        <li>Basic optimization for performance</li>
-                        <li>Planning future development roadmap</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Technical Deep Dive -->
-        <section class="fade-in">
-            <h2>Technical Deep Dive</h2>
-            
-            <div class="tech-specs fade-in delay-1">
-                <h3>Current System Architecture</h3>
-                <p>
-                    The game is in pre-alpha development with a basic structure that will be expanded over time.
-                    The current implementation uses standard Unreal Engine 5 systems with minimal customization.
+            <div class="reveal" style="transition-delay: 200ms;">
+                <p class="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto mb-12 font-light leading-relaxed uppercase tracking-wide">
+                    Mathematical precision meets mythological architecture. A technical showcase of real-time rendering and immersive storytelling.
                 </p>
-                
-                <div class="specs-list">
-                    <div class="spec-item">
-                        <div class="spec-label">Rendering Pipeline</div>
-                        <div class="spec-value">Standard Unreal Engine 5 with Nanite & Lumen</div>
-                    </div>
-                    
-                    <div class="spec-item">
-                        <div class="spec-label">Physics System</div>
-                        <div class="spec-value">Standard PhysX implementation</div>
-                    </div>
-                    
-                    <div class="spec-item">
-                        <div class="spec-label">AI Framework</div>
-                        <div class="spec-value">Basic behavior implementation</div>
-                    </div>
-                    
-                    <div class="spec-item">
-                        <div class="spec-label">Audio System</div>
-                        <div class="spec-value">Standard Unreal audio system</div>
+            </div>
+            <div class="reveal" style="transition-delay: 400ms;">
+                <a href="https://www.youtube.com/watch?v=OQeS5noefQk" target="_blank" class="btn-swiss">WATCH_TRAILER</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-40 border-t border-white/10 bg-[#050505]">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-7 reveal">
+                    <div class="text-[#FF3000] font-mono mb-4">01 // SYSTEM_OVERVIEW</div>
+                    <h2 class="text-5xl md:text-7xl font-bold mb-8 font-serif">THE COSMIC <br /><span class="italic">DANCE.</span></h2>
+                    <p class="text-xl text-white/60 leading-relaxed mb-8">
+                        The game draws inspiration from Hindu mythology, particularly the cosmic dance of Lord Shiva, which symbolizes the cyclical process of creation and destruction. This concept is reflected in the game's procedural generation systems and dynamic world elements.
+                    </p>
+                    <p class="text-xl text-white/60 leading-relaxed italic">
+                        "In the intersection of mathematics and art, we find the purest expression of creativity."
+                    </p>
+                </div>
+                <div class="md:col-span-5 reveal" style="transition-delay: 200ms;">
+                    <div class="video-container shadow-[20px_20px_0px_0px_#FF3000]">
+                        <iframe src="https://www.youtube.com/embed/OQeS5noefQk?si=8pk9ZfOeREUXNgIo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Technical Section -->
+    <section id="technical" class="py-40 bg-white text-black rounded-none relative overflow-hidden">
+        <div class="absolute inset-0 swiss-dots opacity-10"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-[#FF3000] font-mono mb-4 uppercase tracking-[0.3em]">02 // ARCHITECTURE</div>
+            <h2 class="text-6xl md:text-9xl font-black mb-24 tracking-tighter uppercase leading-[0.8]">TECH_STACK</h2>
             
-            <h3 class="mt-lg fade-in">Environment Design</h3>
-            <p class="fade-in delay-1">
-                The current environment design focuses on creating a basic representation of the game world.
-                Using standard Unreal Engine 5 tools, I've created a simple landscape that will serve as the
-                foundation for future development.
-            </p>
-            <p class="fade-in delay-2">
-                The environment incorporates elements from Hindu mythology, with simple architectural structures
-                and placeholder assets that will be refined as development progresses.
-            </p>
-            
-            <h3 class="mt-lg fade-in">Performance Optimization</h3>
-            <p class="fade-in delay-1">
-                To ensure the game runs smoothly across different hardware configurations, I've implemented 
-                several optimization techniques:
-            </p>
-            <ul class="fade-in delay-2">
-                <li>Level of Detail (LOD) system for all assets</li>
-                <li>Dynamic resolution scaling based on performance metrics</li>
-                <li>Occlusion culling with hardware acceleration</li>
-                <li>Asset streaming with prioritized loading</li>
-                <li>Memory management with custom allocation strategies</li>
-                <li>Multithreaded processing for CPU-intensive tasks</li>
-            </ul>
-        </section>
-        
-        <!-- Resources Section -->
-        <section class="fade-in">
-            <h2>Resources & Learning</h2>
-            
-            <p class="fade-in delay-1">
-                For those interested in exploring game development with Unreal Engine 5, here are some valuable resources:
-            </p>
-            
-            <div class="mono-grid fade-in delay-2">
-                <div class="mono-grid-item">
-                    <h3>Official Documentation</h3>
-                    <ul>
-                        <li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-5-1-documentation" target="_blank">Unreal Engine 5 Documentation</a></li>
-                        <li><a href="https://dev.epicgames.com/community/learning" target="_blank">Epic Learning Portal</a></li>
-                        <li><a href="https://www.unrealengine.com/marketplace/en-US/store" target="_blank">Unreal Marketplace</a></li>
-                    </ul>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border-4 border-black">
+                <div class="p-12 border-b md:border-b-0 md:border-r border-black hover:bg-[#FF3000] hover:text-white transition-all duration-300 group">
+                    <div class="text-sm font-bold mb-8 opacity-40">[01] CORE_ENGINES</div>
+                    <h3 class="text-3xl font-black mb-6 uppercase">UE 5.4 + <br>NANITE</h3>
+                    <p class="group-hover:text-white/80">Virtualized micropolygon geometry and Lumen global illumination for photorealistic real-time environments.</p>
                 </div>
-                
-                <div class="mono-grid-item">
-                    <h3>Community Resources</h3>
-                    <ul>
-                        <li><a href="https://forums.unrealengine.com/" target="_blank">Unreal Engine Forums</a></li>
-                        <li><a href="https://www.reddit.com/r/unrealengine/" target="_blank">Unreal Engine Subreddit</a></li>
-                        <li><a href="https://discord.com/invite/unreal-engine" target="_blank">Official Discord Server</a></li>
-                    </ul>
+                <div class="p-12 border-b md:border-b-0 md:border-r border-black hover:bg-black hover:text-white transition-all duration-300 group">
+                    <div class="text-sm font-bold mb-8 opacity-40">[02] LOGIC</div>
+                    <h3 class="text-3xl font-black mb-6 uppercase">BLUEPRINT + <br>C++</h3>
+                    <p class="group-hover:text-white/80">Performance-critical systems written in C++ with rapid prototyping via Unreal's visual scripting.</p>
+                </div>
+                <div class="p-12 hover:bg-[#FF3000] hover:text-white transition-all duration-300 group">
+                    <div class="text-sm font-bold mb-8 opacity-40">[03] ASSETS</div>
+                    <h3 class="text-3xl font-black mb-6 uppercase">BLENDER + <br>QUIXEL</h3>
+                    <p class="group-hover:text-white/80">Custom 3D modeling in Blender integrated with Quixel Megascans for high-fidelity surfaces.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="py-40 bg-[#050505] swiss-grid-pattern">
+        <div class="container mx-auto px-6">
+            <div class="text-[#FF3000] font-mono mb-4">03 // EXECUTION_LOG</div>
+            <h2 class="text-5xl md:text-7xl font-bold mb-24 font-serif italic text-center">DEVELOPMENT_PATH.</h2>
+            
+            <div class="space-y-24">
+                <div class="reveal flex flex-col md:flex-row gap-12 items-start">
+                    <div class="text-8xl font-black text-white/5 md:w-1/3 leading-none">SEPT_24</div>
+                    <div class="md:w-2/3 border-l-4 border-[#FF3000] pl-12">
+                        <h3 class="text-3xl font-bold mb-4 uppercase">Concept & Research</h3>
+                        <p class="text-white/60 text-lg">Establishing technical requirements and researching Hindu mythology to inform game architecture.</p>
+                    </div>
                 </div>
                 
-                <div class="mono-grid-item">
-                    <h3>Learning Platforms</h3>
-                    <ul>
-                        <li><a href="https://www.udemy.com/topic/unreal-engine/" target="_blank">Udemy Courses</a></li>
-                        <li><a href="https://www.pluralsight.com/search?q=unreal%20engine" target="_blank">Pluralsight</a></li>
-                        <li><a href="https://www.youtube.com/c/UnrealEngine" target="_blank">Official YouTube Channel</a></li>
-                    </ul>
+                <div class="reveal flex flex-col md:flex-row gap-12 items-start" style="transition-delay: 100ms;">
+                    <div class="text-8xl font-black text-white/5 md:w-1/3 leading-none">OCT_24</div>
+                    <div class="md:w-2/3 border-l-4 border-white pl-12">
+                        <h3 class="text-3xl font-bold mb-4 uppercase">Early Prototyping</h3>
+                        <p class="text-white/60 text-lg">Implementing character movement, environment layouts, and testing Nanite/Lumen integration.</p>
+                    </div>
+                </div>
+
+                <div class="reveal flex flex-col md:flex-row gap-12 items-start" style="transition-delay: 200ms;">
+                    <div class="text-8xl font-black text-white/5 md:w-1/3 leading-none">PRESENT</div>
+                    <div class="md:w-2/3 border-l-4 border-[#FF3000] pl-12">
+                        <h3 class="text-3xl font-bold mb-4 uppercase">Pre-Alpha Phase</h3>
+                        <p class="text-white/60 text-lg">Connecting core systems, optimizing performance, and building the foundation for Map 03.</p>
+                    </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- Contact & Links Section -->
-        <section class="text-center fade-in">
-            <h2>Connect & Follow Development</h2>
-            
-            <p class="fade-in delay-1 mb-lg">
-                I'm always open to feedback, collaboration opportunities, or technical discussions about game development.
-            </p>
-            
-            <div class="fade-in delay-2">
-                <a href="https://github.com/krishnakoushik9" target="_blank" class="mono-btn mono-btn-outline"><i class="fab fa-github"></i> GitHub</a>
-                <a href="mailto:legionkoushik3@gmail.com" class="mono-btn mono-btn-outline"><i class="fas fa-envelope"></i> Contact</a>
-                <a href="https://www.unrealengine.com/en-US/download" target="_blank" class="mono-btn"><i class="fas fa-download"></i> Get Unreal</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 border-t border-white/10 bg-[#050505]">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-[10vw] font-black text-white/5 leading-none select-none mb-12">SHIVA_PATH.</h2>
+            <div class="flex justify-center gap-12 font-mono text-xs tracking-widest text-white/40 mb-12">
+                <a href="index.html" class="hover:text-white transition-colors">PORTFOLIO</a>
+                <a href="https://www.unrealengine.com/" target="_blank" class="hover:text-white transition-colors">UNREAL</a>
+                <a href="https://github.com/krishnakoushik9" target="_blank" class="hover:text-white transition-colors">GITHUB</a>
             </div>
-        </section>
-        
-        <!-- Quote -->
-        <blockquote class="mono-quote fade-in">
-            "In the intersection of mathematics and art, we find the purest expression of creativity."
-        </blockquote>
-        
-        <!-- Footer -->
-        <footer class="mono-footer">
-            <div class="footer-links">
-                <a href="index.html" class="footer-link">Portfolio</a>
-                <a href="https://www.unrealengine.com/" target="_blank" class="footer-link">Unreal</a>
-                <a href="https://dev.epicgames.com/community/" target="_blank" class="footer-link">Community</a>
-            </div>
-            <p class="copyright">© 2025 P. Krishna Koushik. All rights reserved.</p>
-        </footer>
-    </div>
-    
-    <!-- Dynamic date calculation script -->
+            <p class="text-white/20 font-mono text-[10px]">© 2026 P. KRISHNA KOUSHIK. DESIGNED FOR DISRUPTION.</p>
+        </div>
+    </footer>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get current date
-            const now = new Date();
-            
-            // Format date as Month Year
-            function formatDate(date) {
-                return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-            }
-            
-            // Set the dates in the timeline
-            const startDate = new Date(2024, 8, 1); // September 2024
-            document.getElementById('concept-date').textContent = formatDate(startDate);
-            
-            const prototypeDate = new Date(2024, 9, 1); // October 2024
-            document.getElementById('prototype-date').textContent = formatDate(prototypeDate);
-            
-            const assetDate = new Date(2024, 11, 1); // December 2024
-            document.getElementById('asset-date').textContent = formatDate(assetDate);
-            
-            // Set current phase text
-            document.getElementById('current-phase').textContent = 'Current Phase (' + formatDate(now) + ')';
-            
-            // Animated elements reveal on scroll
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            // Observe all elements that should animate on scroll
-            document.querySelectorAll('.fade-in').forEach(el => {
-                observer.observe(el);
+        // Reveal Logic
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
             });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Parallax and Scroll Effects
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const nav = document.getElementById('main-nav');
+            
+            if (scrolled > 50) {
+                nav.classList.add('py-4', 'bg-[#050505]/90');
+                nav.classList.remove('py-8');
+            } else {
+                nav.classList.remove('py-4', 'bg-[#050505]/90');
+                nav.classList.add('py-8');
+            }
         });
     </script>
 </body>
