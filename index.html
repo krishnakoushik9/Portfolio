@@ -240,42 +240,14 @@
     <!-- GitHub Section -->
     <section id="github" class="section-brutalist">
         <div class="container-brutalist">
-            <h2 style="font-size: 4rem; margin-bottom: 4rem;">CODEBASE</h2>
-            <div class="grid-bento">
-                <div style="grid-column: span 6;">
-                    <div class="card-brutalist" style="background: var(--volt);">
-                        <h3 style="font-size: 3rem;">AYUR-VERSE</h3>
-                        <p style="margin-bottom: 2rem;">Immersive 3D exploration of sacred trees combining ancient knowledge with modern tech.</p>
-                        <a href="https://github.com/krishnakoushik9/AyurVerse" class="btn-brutalist">PULL_REQUEST</a>
-                    </div>
-                </div>
-                <div style="grid-column: span 6;">
-                    <div class="card-brutalist">
-                        <h3 style="font-size: 3rem;">EMO-CARE</h3>
-                        <p style="margin-bottom: 2rem;">Real-time emotion and voice response system using facial recognition.</p>
-                        <a href="https://github.com/krishnakoushik9/EMO-CARE-KAVVY" class="btn-brutalist">PULL_REQUEST</a>
-                    </div>
-                </div>
-                <div style="grid-column: span 4;">
-                    <div class="card-brutalist">
-                        <h3>E-SUMMIT</h3>
-                        <p>Modern landing page with Three.js animations.</p>
-                        <a href="https://github.com/krishnakoushik9/E-SUMMIT" class="font-mono" style="color: var(--ink);">VIEW SOURCE →</a>
-                    </div>
-                </div>
-                <div style="grid-column: span 4;">
-                    <div class="card-brutalist">
-                        <h3>ASHBORN RAG</h3>
-                        <p>24/7 document-based AI bot for local execution.</p>
-                        <a href="https://github.com/krishnakoushik9/HackIndia-Spark-4-2025-ASHBORN-SRCS" class="font-mono" style="color: var(--ink);">VIEW SOURCE →</a>
-                    </div>
-                </div>
-                <div style="grid-column: span 4;">
-                    <div class="card-brutalist">
-                        <h3>LEGION SURF</h3>
-                        <p>Full-stack AI chatbot for local event discovery.</p>
-                        <a href="https://github.com/krishnakoushik9/legion-surf-mate/tree/main/eventmate" class="font-mono" style="color: var(--ink);">VIEW SOURCE →</a>
-                    </div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem;">
+                <h2 style="font-size: 4rem; margin: 0;">CODEBASE</h2>
+                <button id="view-contributions-btn" class="btn-brutalist" style="font-size: 1rem; padding: 0.5rem 1rem;">VIEW_CONTRIBUTIONS</button>
+            </div>
+            <div class="grid-bento" id="github-projects-container">
+                <!-- Dynamically populated by githubMain.js -->
+                <div style="grid-column: span 12; text-align: center; padding: 4rem;">
+                    <p class="font-mono" style="font-size: 1.5rem;">[INITIALIZING_SYNC_SYSTEM...]</p>
                 </div>
             </div>
         </div>
@@ -459,6 +431,7 @@
         </div>
     </footer>
 
+    <script type="module" src="./js/githubMain.js"></script>
     <script src="./js/neo-brutalist.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7515728727059624" crossorigin="anonymous"></script>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
