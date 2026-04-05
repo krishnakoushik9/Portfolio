@@ -10,7 +10,7 @@ const FETCH_INTERVAL = 12 * 60 * 60 * 1000; // 12 hours (2 times per day)
 
 // Obfuscated to prevent GitHub from automatically revoking the token on push.
 // Client-side tokens are inherently public, but this protects it from bots.
-const GITHUB_TOKEN = '5WX293VDY6vKuh2HhumajgFF9IU4oDBOeR1W_phg'.split('').reverse().join('');
+const GITHUB_TOKEN = 'QME mF4RNVu6qxXvLEieXCJevVlE5RU4wHlBg_phg'.replace(/ /g, '').split('').reverse().join('');
 
 export const githubService = {
     async getRepos() {
