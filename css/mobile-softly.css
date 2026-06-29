@@ -345,6 +345,29 @@ h1, h2, h3, h4 {
     margin-top: 10px;
 }
 
+.tag-mobile-tech {
+    font-family: var(--font-primary);
+    font-size: 13px;
+    font-weight: 500;
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    padding: 6px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(41, 37, 36, 0.08);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.tag-mobile-tech:hover, .tag-mobile-tech:active {
+    background-color: var(--color-coral);
+    color: var(--color-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
 /* Comparison Layout */
 .comparison-vertical {
     display: flex;

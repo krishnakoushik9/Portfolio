@@ -78,6 +78,28 @@
             flex-shrink: 0;
         }
 
+        .tag-tech {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            background: var(--bg-paper);
+            color: var(--ink);
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--ink);
+            box-shadow: 2px 2px 0px var(--ink);
+            text-decoration: none;
+            transition: transform 0.1s, box-shadow 0.1s;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .tag-tech:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px var(--ink);
+            background: var(--acid);
+        }
+
         .footer-quote {
             font-size: 1.25rem;
             font-style: italic;
@@ -182,6 +204,84 @@
                 <div class="font-mono" style="margin-bottom: 1rem;">THE BETTER WAY</div>
                 <h3 class="font-ranchers" style="font-size: 5rem;">AI-DRIVEN</h3>
                 <p>Automated intelligence, real-time rendering, and high-precision output.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section id="tech-stack" class="section-brutalist" style="border-top: none;">
+        <div class="container-brutalist">
+            <h2 style="font-size: 4rem; margin-bottom: 4rem;">TECH_STACK</h2>
+            <div class="grid-bento">
+                <!-- Languages Card -->
+                <div style="grid-column: span 3;">
+                    <div class="card-brutalist" style="height: 100%; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px;">
+                        <div>
+                            <span class="font-mono" style="opacity: 0.6; display: block; margin-bottom: 1rem;">[01. LANGUAGES]</span>
+                            <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">LANGUAGES</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                                <a href="https://docs.oracle.com/en/java/" target="_blank" class="tag-tech">Java</a>
+                                <a href="https://docs.python.org/3/" target="_blank" class="tag-tech">Python</a>
+                                <a href="https://en.cppreference.com/w/" target="_blank" class="tag-tech">C++</a>
+                                <a href="https://dart.dev/guides" target="_blank" class="tag-tech">Dart</a>
+                                <a href="https://developer.mozilla.org/en-US/docs/Glossary/SQL" target="_blank" class="tag-tech">SQL</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Backend Card -->
+                <div style="grid-column: span 3;">
+                    <div class="card-brutalist" style="height: 100%; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px;">
+                        <div>
+                            <span class="font-mono" style="opacity: 0.6; display: block; margin-bottom: 1rem;">[02. BACKEND]</span>
+                            <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">BACKEND</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                                <a href="https://spring.io/projects/spring-boot" target="_blank" class="tag-tech">Spring Boot</a>
+                                <a href="https://docs.spring.io/spring-framework/reference/web/webmvc.html" target="_blank" class="tag-tech">Spring MVC</a>
+                                <a href="https://restfulapi.net/" target="_blank" class="tag-tech">REST APIs</a>
+                                <a href="https://microservices.io/" target="_blank" class="tag-tech">Microservices</a>
+                                <a href="https://junit.org/junit5/" target="_blank" class="tag-tech">JUnit</a>
+                                <a href="https://maven.apache.org/" target="_blank" class="tag-tech">Maven</a>
+                                <a href="https://dev.mysql.com/doc/" target="_blank" class="tag-tech">MySQL</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DevOps & Cloud Card -->
+                <div style="grid-column: span 3;">
+                    <div class="card-brutalist" style="height: 100%; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px;">
+                        <div>
+                            <span class="font-mono" style="opacity: 0.6; display: block; margin-bottom: 1rem;">[03. DEVOPS & CLOUD]</span>
+                            <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">DEVOPS & CLOUD</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                                <a href="https://docs.docker.com/" target="_blank" class="tag-tech">Docker</a>
+                                <a href="https://docs.github.com/en/actions" target="_blank" class="tag-tech">GitHub Actions</a>
+                                <a href="https://docs.aws.amazon.com/ec2/" target="_blank" class="tag-tech">AWS EC2</a>
+                                <a href="https://docs.kernel.org/" target="_blank" class="tag-tech">Linux</a>
+                                <a href="https://git-scm.com/doc" target="_blank" class="tag-tech">Git</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frameworks & Tools Card -->
+                <div style="grid-column: span 3;">
+                    <div class="card-brutalist" style="height: 100%; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px;">
+                        <div>
+                            <span class="font-mono" style="opacity: 0.6; display: block; margin-bottom: 1rem;">[04. FRAMEWORKS & TOOLS]</span>
+                            <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">FRAMEWORKS & TOOLS</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                                <a href="https://docs.flutter.dev/" target="_blank" class="tag-tech">Flutter</a>
+                                <a href="https://nextjs.org/docs" target="_blank" class="tag-tech">Next.js</a>
+                                <a href="https://python.langchain.com/" target="_blank" class="tag-tech">LangChain</a>
+                                <a href="https://firebase.google.com/docs" target="_blank" class="tag-tech">Firebase</a>
+                                <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/" target="_blank" class="tag-tech">Unreal Engine 5</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
