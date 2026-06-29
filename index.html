@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Pre-website load detection code -->
     <script src="./js/device-detect.js"></script>
@@ -8,33 +9,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KRISHNA | DISRUPTOR</title>
     <link rel="icon" href="./src/favicon.svg" type="image/svg+xml">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Ranchers&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Ranchers&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/neo-brutalist.css">
-    
+
     <style>
         /* Additional inline styles for specific layout needs */
         .hero-title {
-            font-size: clamp(3rem, 10vw, 8rem); /* Reduced slightly for scaling */
+            font-size: clamp(3rem, 10vw, 8rem);
+            /* Reduced slightly for scaling */
             line-height: 0.8;
             margin-bottom: 2rem;
             letter-spacing: -0.04em;
         }
-        
-        .bento-1 { grid-column: span 8; grid-row: span 2; }
-        .bento-2 { grid-column: span 4; }
-        .bento-3 { grid-column: span 4; }
-        
+
+        .bento-1 {
+            grid-column: span 8;
+            grid-row: span 2;
+        }
+
+        .bento-2 {
+            grid-column: span 4;
+        }
+
+        .bento-3 {
+            grid-column: span 4;
+        }
+
         @media (max-width: 1024px) {
-            .bento-1, .bento-2, .bento-3 { grid-column: span 12; }
+
+            .bento-1,
+            .bento-2,
+            .bento-3 {
+                grid-column: span 12;
+            }
         }
 
         .img-container {
@@ -53,7 +71,7 @@
             filter: grayscale(100%) contrast(120%);
             transition: all 0.3s ease;
         }
-        
+
         .img-brutalist:hover {
             filter: none;
         }
@@ -71,7 +89,10 @@
             padding: 2rem 0;
             scrollbar-width: none;
         }
-        .horizontal-scroll::-webkit-scrollbar { display: none; }
+
+        .horizontal-scroll::-webkit-scrollbar {
+            display: none;
+        }
 
         .scroll-item {
             min-width: 400px;
@@ -110,6 +131,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- Sidebar Blueprint -->
@@ -123,14 +145,18 @@
     <!-- Navigation -->
     <nav class="nav-brutalist">
         <div style="display: flex; align-items: center; gap: 1rem;">
-            <div style="background: var(--ink); color: var(--white); padding: 0.5rem; font-family: var(--font-heading); transform: rotate(3deg);">P.</div>
-            <a href="#home" style="text-decoration: none; color: var(--ink); font-family: var(--font-body-alt); font-weight: 800; font-size: 1.5rem;">KRISHNA</a>
+            <div
+                style="background: var(--ink); color: var(--white); padding: 0.5rem; font-family: var(--font-heading); transform: rotate(3deg);">
+                P.</div>
+            <a href="#home"
+                style="text-decoration: none; color: var(--ink); font-family: var(--font-body-alt); font-weight: 800; font-size: 1.5rem;">KRISHNA</a>
         </div>
         <div style="display: flex; gap: 2rem; align-items: center;">
             <a href="#about" class="font-mono" style="text-decoration: none; color: var(--ink);">INFO</a>
             <a href="#experience" class="font-mono" style="text-decoration: none; color: var(--ink);">WORK</a>
             <a href="#github" class="font-mono" style="text-decoration: none; color: var(--ink);">CODE</a>
-            <a href="https://www.linkedin.com/in/legionkrsna" target="_blank" class="btn-brutalist" style="padding: 0.5rem 1rem;">CONNECT</a>
+            <a href="https://www.linkedin.com/in/legionkrsna" target="_blank" class="btn-brutalist"
+                style="padding: 0.5rem 1rem;">CONNECT</a>
         </div>
     </nav>
 
@@ -141,10 +167,12 @@
                 <div class="bento-1">
                     <div class="sticker">AVAILABLE FOR HIRE 2026</div>
                     <h1 class="hero-title glitch-hover">KRISHNA<br>KOUSHIK</h1>
-                    <p style="font-size: 1.5rem; max-width: 600px; margin-bottom: 2rem;">B.Tech - CSE (AI & ML) | Building high-output intelligent systems and immersive digital experiences.</p>
+                    <p style="font-size: 1.5rem; max-width: 600px; margin-bottom: 2rem;">B.Tech - CSE (AI & ML) |
+                        Building high-output intelligent systems and immersive digital experiences.</p>
                     <div style="display: flex; gap: 1rem;">
                         <a href="#github" class="btn-brutalist">EXPLORE STACK</a>
-                        <a href="https://www.linkedin.com/in/legionkrsna" target="_blank" class="btn-brutalist link-btn" style="background: var(--white); color: var(--ink);">GET IN TOUCH</a>
+                        <a href="https://www.linkedin.com/in/legionkrsna" target="_blank" class="btn-brutalist link-btn"
+                            style="background: var(--white); color: var(--ink);">GET IN TOUCH</a>
                     </div>
                 </div>
                 <div class="bento-2">
@@ -155,7 +183,8 @@
                     </div>
                 </div>
                 <div class="bento-3">
-                    <div class="card-brutalist" style="background: var(--acid); display: flex; flex-direction: column; justify-content: center; height: 100%;">
+                    <div class="card-brutalist"
+                        style="background: var(--acid); display: flex; flex-direction: column; justify-content: center; height: 100%;">
                         <div class="font-mono" style="font-size: 3rem; font-weight: 900; margin-bottom: 1rem;">01.</div>
                         <h3 style="font-size: 2rem;">JACK OF ALL TRADES</h3>
                         <p>Specializing in AI, Game Dev, and Web Engineering.</p>
@@ -168,7 +197,8 @@
     <!-- Marquee -->
     <div class="marquee-container">
         <div class="marquee-content font-ranchers" style="font-size: 4rem;">
-            UNREAL ENGINE 5 • FIREBASE • VERCEL • JUPYTER • LLMS • NLP • BLENDER • REACT • PYTHON • FINE-TUNING • UNREAL ENGINE 5 • FIREBASE • VERCEL • JUPYTER • LLMS • NLP • BLENDER • REACT • PYTHON • FINE-TUNING • 
+            UNREAL ENGINE 5 • FIREBASE • VERCEL • JUPYTER • LLMS • NLP • BLENDER • REACT • PYTHON • FINE-TUNING • UNREAL
+            ENGINE 5 • FIREBASE • VERCEL • JUPYTER • LLMS • NLP • BLENDER • REACT • PYTHON • FINE-TUNING •
         </div>
     </div>
 
@@ -179,13 +209,15 @@
             <div class="grid-bento">
                 <div style="grid-column: span 6;">
                     <p style="font-size: 2rem; line-height: 1.2; font-weight: 500;">
-                        I am a technologist operating at the intersection of machine intelligence and creative engineering. My goal is to ship high-impact solutions that disrupt standard workflows.
+                        I am a technologist operating at the intersection of machine intelligence and creative
+                        engineering. My goal is to ship high-impact solutions that disrupt standard workflows.
                     </p>
                 </div>
                 <div style="grid-column: span 6;">
                     <div class="card-brutalist" style="background: var(--ink); color: var(--white);">
                         <div class="font-mono" style="margin-bottom: 1rem; color: var(--acid);">[STATUS: ACTIVE]</div>
-                        <p>Currently pursuing B.Tech in CSE (AI & ML) at CMRCET, Hyderabad. Focusing on Large Language Models, Generative AI, and immersive real-time environments.</p>
+                        <p>Currently pursuing B.Tech in CSE (AI & ML) at CMRCET, Hyderabad. Focusing on Large Language
+                            Models, Generative AI, and immersive real-time environments.</p>
                     </div>
                 </div>
             </div>
@@ -215,30 +247,37 @@
             <div class="grid-bento">
                 <!-- Languages Card -->
                 <div style="grid-column: span 3;">
-                    <div class="card-brutalist" style="height: 100%; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px;">
+                    <div class="card-brutalist"
+                        style="height: 100%; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px;">
                         <div>
-                            <span class="font-mono" style="opacity: 0.6; display: block; margin-bottom: 1rem;">[01. LANGUAGES]</span>
+                            <span class="font-mono" style="opacity: 0.6; display: block; margin-bottom: 1rem;">[01.
+                                LANGUAGES]</span>
                             <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">LANGUAGES</h3>
                             <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
                                 <a href="https://docs.oracle.com/en/java/" target="_blank" class="tag-tech">Java</a>
                                 <a href="https://docs.python.org/3/" target="_blank" class="tag-tech">Python</a>
                                 <a href="https://en.cppreference.com/w/" target="_blank" class="tag-tech">C++</a>
                                 <a href="https://dart.dev/guides" target="_blank" class="tag-tech">Dart</a>
-                                <a href="https://developer.mozilla.org/en-US/docs/Glossary/SQL" target="_blank" class="tag-tech">SQL</a>
+                                <a href="https://developer.mozilla.org/en-US/docs/Glossary/SQL" target="_blank"
+                                    class="tag-tech">SQL</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Backend Card -->
                 <div style="grid-column: span 3;">
-                    <div class="card-brutalist" style="height: 100%; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px;">
+                    <div class="card-brutalist"
+                        style="height: 100%; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px;">
                         <div>
-                            <span class="font-mono" style="opacity: 0.6; display: block; margin-bottom: 1rem;">[02. BACKEND]</span>
+                            <span class="font-mono" style="opacity: 0.6; display: block; margin-bottom: 1rem;">[02.
+                                BACKEND]</span>
                             <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">BACKEND</h3>
                             <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-                                <a href="https://spring.io/projects/spring-boot" target="_blank" class="tag-tech">Spring Boot</a>
-                                <a href="https://docs.spring.io/spring-framework/reference/web/webmvc.html" target="_blank" class="tag-tech">Spring MVC</a>
+                                <a href="https://spring.io/projects/spring-boot" target="_blank" class="tag-tech">Spring
+                                    Boot</a>
+                                <a href="https://docs.spring.io/spring-framework/reference/web/webmvc.html"
+                                    target="_blank" class="tag-tech">Spring MVC</a>
                                 <a href="https://restfulapi.net/" target="_blank" class="tag-tech">REST APIs</a>
                                 <a href="https://microservices.io/" target="_blank" class="tag-tech">Microservices</a>
                                 <a href="https://junit.org/junit5/" target="_blank" class="tag-tech">JUnit</a>
@@ -251,13 +290,16 @@
 
                 <!-- DevOps & Cloud Card -->
                 <div style="grid-column: span 3;">
-                    <div class="card-brutalist" style="height: 100%; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px;">
+                    <div class="card-brutalist"
+                        style="height: 100%; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px;">
                         <div>
-                            <span class="font-mono" style="opacity: 0.6; display: block; margin-bottom: 1rem;">[03. DEVOPS & CLOUD]</span>
+                            <span class="font-mono" style="opacity: 0.6; display: block; margin-bottom: 1rem;">[03.
+                                DEVOPS & CLOUD]</span>
                             <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">DEVOPS & CLOUD</h3>
                             <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
                                 <a href="https://docs.docker.com/" target="_blank" class="tag-tech">Docker</a>
-                                <a href="https://docs.github.com/en/actions" target="_blank" class="tag-tech">GitHub Actions</a>
+                                <a href="https://docs.github.com/en/actions" target="_blank" class="tag-tech">GitHub
+                                    Actions</a>
                                 <a href="https://docs.aws.amazon.com/ec2/" target="_blank" class="tag-tech">AWS EC2</a>
                                 <a href="https://docs.kernel.org/" target="_blank" class="tag-tech">Linux</a>
                                 <a href="https://git-scm.com/doc" target="_blank" class="tag-tech">Git</a>
@@ -268,16 +310,19 @@
 
                 <!-- Frameworks & Tools Card -->
                 <div style="grid-column: span 3;">
-                    <div class="card-brutalist" style="height: 100%; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px;">
+                    <div class="card-brutalist"
+                        style="height: 100%; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px;">
                         <div>
-                            <span class="font-mono" style="opacity: 0.6; display: block; margin-bottom: 1rem;">[04. FRAMEWORKS & TOOLS]</span>
+                            <span class="font-mono" style="opacity: 0.6; display: block; margin-bottom: 1rem;">[04.
+                                FRAMEWORKS & TOOLS]</span>
                             <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">FRAMEWORKS & TOOLS</h3>
                             <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
                                 <a href="https://docs.flutter.dev/" target="_blank" class="tag-tech">Flutter</a>
                                 <a href="https://nextjs.org/docs" target="_blank" class="tag-tech">Next.js</a>
                                 <a href="https://python.langchain.com/" target="_blank" class="tag-tech">LangChain</a>
                                 <a href="https://firebase.google.com/docs" target="_blank" class="tag-tech">Firebase</a>
-                                <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/" target="_blank" class="tag-tech">Unreal Engine 5</a>
+                                <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/" target="_blank"
+                                    class="tag-tech">Unreal Engine 5</a>
                             </div>
                         </div>
                     </div>
@@ -340,8 +385,9 @@
         <div class="container-brutalist">
             <div class="sticker" style="background: var(--white); color: var(--ink);">HIGH IMPACT</div>
             <h2 style="font-size: 6rem; margin-bottom: 2rem; color: var(--volt);">1ST PRIZE<br>IIT BOMBAY</h2>
-            <p style="font-size: 2rem; margin-bottom: 4rem;">Developed an innovative solution at the IIT Bombay Hackathon by Co-grad. Secured the top spot among nationwide talent.</p>
-            
+            <p style="font-size: 2rem; margin-bottom: 4rem;">Developed an innovative solution at the IIT Bombay
+                Hackathon by Co-grad. Secured the top spot among nationwide talent.</p>
+
             <div class="horizontal-scroll">
                 <div class="scroll-item">
                     <img src="/images/win1.jpg" class="img-brutalist" style="filter: none; height: 400px; width: 100%;">
@@ -357,27 +403,37 @@
     </section>
 
     <!-- Vivriti Hackathon Section -->
-    <section id="vivriti-hackathon" class="section-brutalist" style="background: var(--ink); color: var(--white); border-top: none;">
+    <section id="vivriti-hackathon" class="section-brutalist"
+        style="background: var(--ink); color: var(--white); border-top: none;">
         <div class="container-brutalist">
             <div class="sticker" style="background: var(--volt); color: var(--ink);">SECOND RUNNER UP</div>
-            <h2 style="font-size: 6rem; margin-bottom: 2rem; color: var(--acid);">3rd PRIZE TEAM <span style="color: var(--white);">AGAINST 7600+</span></h2>
+            <h2 style="font-size: 6rem; margin-bottom: 2rem; color: var(--acid);">3rd PRIZE TEAM <span
+                    style="color: var(--white);">AGAINST 7600+</span></h2>
             <p style="font-size: 2rem; margin-bottom: 2rem; line-height: 1.2;">
-                SECOND RUNNER UP — VIVRITI CAPITAL HACKATHON. Clinched the Second Runner-up title at the national level, rising above a competitive pool of over 7,600 student registrations. We architected <span style="color: var(--volt);">Intelli Credit</span>, a high-scale, production-ready credit decisioning system powered by reinforcement learning and Spring AI, securing a cash bounty of 1 Lakh for exceptional design and technical execution.
+                SECOND RUNNER UP — VIVRITI CAPITAL HACKATHON. Clinched the Second Runner-up title at the national level,
+                rising above a competitive pool of over 7,600 student registrations. We architected <span
+                    style="color: var(--volt);">Intelli Credit</span>, a high-scale, production-ready credit decisioning
+                system powered by reinforcement learning and Spring AI, securing a cash bounty of 1 Lakh for exceptional
+                design and technical execution.
             </p>
-            
+
             <div style="margin-bottom: 4rem;" class="font-mono">
-                <span style="opacity: 0.6;">ENGINEERING_STACK:</span> JAVA • SPRING BOOT • SPRING AI • REINFORCEMENT LEARNING • PYTHON ML AGENTS
+                <span style="opacity: 0.6;">ENGINEERING_STACK:</span> JAVA • SPRING BOOT • SPRING AI • REINFORCEMENT
+                LEARNING • PYTHON ML AGENTS
             </div>
 
             <div class="horizontal-scroll">
                 <div class="scroll-item">
-                    <img src="/images/hyd-iit-win-1.jpg" class="img-brutalist" style="filter: none; height: 400px; width: 100%; object-fit: cover;" loading="lazy">
+                    <img src="/images/hyd-iit-win-1.jpg" class="img-brutalist"
+                        style="filter: none; height: 400px; width: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <div class="scroll-item">
-                    <img src="/images/hyd-iit-win-2.jpg" class="img-brutalist" style="filter: none; height: 400px; width: 100%; object-fit: cover;" loading="lazy">
+                    <img src="/images/hyd-iit-win-2.jpg" class="img-brutalist"
+                        style="filter: none; height: 400px; width: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <div class="scroll-item">
-                    <img src="/images/hyd-iit-win-3.jpg" class="img-brutalist" style="filter: none; height: 400px; width: 100%; object-fit: cover;" loading="lazy">
+                    <img src="/images/hyd-iit-win-3.jpg" class="img-brutalist"
+                        style="filter: none; height: 400px; width: 100%; object-fit: cover;" loading="lazy">
                 </div>
             </div>
         </div>
@@ -388,271 +444,429 @@
         <div class="container-brutalist">
             <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem;">
                 <h2 style="font-size: 4rem; margin: 0;">CODEBASE</h2>
-                <button id="view-contributions-btn" class="btn-brutalist" style="font-size: 1rem; padding: 0.5rem 1rem;">VIEW_CONTRIBUTIONS</button>
+                <button id="view-contributions-btn" class="btn-brutalist"
+                    style="font-size: 1rem; padding: 0.5rem 1rem;">VIEW_CONTRIBUTIONS</button>
             </div>
             <div class="grid-bento" id="github-projects-container">
                 <!-- Inline Styles for Medha AI Slideshow -->
                 <style>
                     @keyframes medhaFade1 {
-                        0%, 28% { opacity: 1; }
-                        33%, 95% { opacity: 0; }
-                        100% { opacity: 1; }
+
+                        0%,
+                        28% {
+                            opacity: 1;
+                        }
+
+                        33%,
+                        95% {
+                            opacity: 0;
+                        }
+
+                        100% {
+                            opacity: 1;
+                        }
                     }
+
                     @keyframes medhaFade2 {
-                        0%, 28% { opacity: 0; }
-                        33%, 61% { opacity: 1; }
-                        66%, 100% { opacity: 0; }
+
+                        0%,
+                        28% {
+                            opacity: 0;
+                        }
+
+                        33%,
+                        61% {
+                            opacity: 1;
+                        }
+
+                        66%,
+                        100% {
+                            opacity: 0;
+                        }
                     }
+
                     @keyframes medhaFade3 {
-                        0%, 61% { opacity: 0; }
-                        66%, 95% { opacity: 1; }
-                        100% { opacity: 0; }
+
+                        0%,
+                        61% {
+                            opacity: 0;
+                        }
+
+                        66%,
+                        95% {
+                            opacity: 1;
+                        }
+
+                        100% {
+                            opacity: 0;
+                        }
                     }
                 </style>
 
                 <!-- SHIVA PATH (Hero Flagship Project) -->
                 <div style="grid-column: span 12;">
-                    <div class="card-brutalist" style="background: var(--volt); padding: 0; display: flex; flex-direction: row; overflow: hidden; min-height: 420px; border: 4px solid var(--ink);">
-                        <div style="flex: 1; padding: 3rem; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div class="card-brutalist"
+                        style="background: var(--volt); padding: 0; display: flex; flex-direction: row; overflow: hidden; min-height: 420px; border: 4px solid var(--ink);">
+                        <div
+                            style="flex: 1; padding: 3rem; display: flex; flex-direction: column; justify-content: space-between;">
                             <div>
                                 <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem;">
-                                    <span class="font-mono" style="background: var(--ink); color: var(--white); padding: 0.25rem 0.75rem; font-size: 0.85rem; font-weight: bold;">FLAGSHIP_PROJECT</span>
-                                    <span class="font-mono" style="background: var(--white); color: var(--ink); padding: 0.25rem 0.75rem; font-size: 0.85rem; font-weight: bold; border: 1px solid var(--ink);">UNREAL_ENGINE_5.5</span>
+                                    <span class="font-mono"
+                                        style="background: var(--ink); color: var(--white); padding: 0.25rem 0.75rem; font-size: 0.85rem; font-weight: bold;">FLAGSHIP_PROJECT</span>
+                                    <span class="font-mono"
+                                        style="background: var(--white); color: var(--ink); padding: 0.25rem 0.75rem; font-size: 0.85rem; font-weight: bold; border: 1px solid var(--ink);">UNREAL_ENGINE_5.5</span>
                                 </div>
-                                <h3 style="font-size: 4rem; font-weight: 900; margin: 0 0 1rem; line-height: 1;">THE PATH OF SHIVA</h3>
-                                <p style="font-size: 1.25rem; font-weight: 500; margin-bottom: 2rem; color: var(--ink); max-width: 90%;">
-                                    Mathematical precision meets mythological architecture. A technical open-world game showcase featuring virtualized micropolygon geometry (Nanite), global illumination (Lumen), and C++ finite state machines governing gameplay logic.
+                                <h3 style="font-size: 4rem; font-weight: 900; margin: 0 0 1rem; line-height: 1;">THE
+                                    PATH OF SHIVA</h3>
+                                <p
+                                    style="font-size: 1.25rem; font-weight: 500; margin-bottom: 2rem; color: var(--ink); max-width: 90%;">
+                                    Mathematical precision meets mythological architecture. A technical open-world game
+                                    showcase featuring virtualized micropolygon geometry (Nanite), global illumination
+                                    (Lumen), and C++ finite state machines governing gameplay logic.
                                 </p>
                             </div>
                             <div style="display: flex; gap: 1.5rem; align-items: center;">
-                                <a href="https://www.youtube.com/watch?v=OQeS5noefQk" target="_blank" class="btn-brutalist" style="background: var(--ink); color: var(--white); font-size: 1.1rem; padding: 0.75rem 2rem;">WATCH_TRAILER</a>
-                                <a href="gamedev-details.html" class="btn-brutalist" style="background: var(--white); color: var(--ink); font-size: 1.1rem; padding: 0.75rem 2rem;">EXPLORE_JOURNEY</a>
+                                <a href="https://www.youtube.com/watch?v=OQeS5noefQk" target="_blank"
+                                    class="btn-brutalist"
+                                    style="background: var(--ink); color: var(--white); font-size: 1.1rem; padding: 0.75rem 2rem;">WATCH_TRAILER</a>
+                                <a href="gamedev-details.html" class="btn-brutalist"
+                                    style="background: var(--white); color: var(--ink); font-size: 1.1rem; padding: 0.75rem 2rem;">EXPLORE_JOURNEY</a>
                             </div>
                         </div>
-                        <div style="width: 35%; min-width: 320px; border-left: 4px solid var(--ink); background: var(--ink); overflow: hidden; position: relative;">
-                            <iframe style="width: 100%; height: 100%; min-height: 420px; border: none;" src="https://www.youtube.com/embed/OQeS5noefQk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div
+                            style="width: 35%; min-width: 320px; border-left: 4px solid var(--ink); background: var(--ink); overflow: hidden; position: relative;">
+                            <iframe style="width: 100%; height: 100%; min-height: 420px; border: none;"
+                                src="https://www.youtube.com/embed/OQeS5noefQk?si=BznV1anF1da6dnfc&amp;controls=0"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
 
                 <!-- GITLAB SECTION DIVIDER -->
-                <div style="grid-column: span 12; margin-top: 3rem; margin-bottom: 1.5rem; border-bottom: 4px solid var(--ink); padding-bottom: 1rem;">
-                    <h3 class="font-mono" style="font-size: 2rem; text-transform: uppercase;">[ GITLAB_REPOSITORIES ]</h3>
+                <div
+                    style="grid-column: span 12; margin-top: 3rem; margin-bottom: 1.5rem; border-bottom: 4px solid var(--ink); padding-bottom: 1rem;">
+                    <h3 class="font-mono" style="font-size: 2rem; text-transform: uppercase;">[ GITLAB_REPOSITORIES ]
+                    </h3>
                 </div>
 
                 <!-- CRISIS WATCH (GitLab) - IMAGE: src/CRISISWATCH.jpg -->
                 <div style="grid-column: span 6;">
-                    <div class="card-brutalist" style="height: 100%; padding: 0; display: flex; flex-direction: row; overflow: hidden; border: 4px solid var(--ink); background: var(--white);">
-                        <div style="flex: 1; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div class="card-brutalist"
+                        style="height: 100%; padding: 0; display: flex; flex-direction: row; overflow: hidden; border: 4px solid var(--ink); background: var(--white);">
+                        <div
+                            style="flex: 1; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
                             <div>
                                 <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 1rem;">
-                                    <span class="font-mono" style="background: var(--dark-grey); color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">GITLAB</span>
-                                    <span class="font-mono" style="background: #3178C6; color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">React / TS</span>
+                                    <span class="font-mono"
+                                        style="background: var(--dark-grey); color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">GITLAB</span>
+                                    <span class="font-mono"
+                                        style="background: #3178C6; color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">React
+                                        / TS</span>
                                 </div>
                                 <h3 style="font-size: 2.25rem; font-weight: 800; margin: 0 0 0.5rem;">CRISIS WATCH</h3>
-                                <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
-                                    Catastrophic Real-time Intelligence Synthesis for Inter-Service Welfare & Tactical Civilian Help. A map-first global intelligence platform aggregating social feeds and tracking grids with Gemini AI.
+                                <p
+                                    style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
+                                    Catastrophic Real-time Intelligence Synthesis for Inter-Service Welfare & Tactical
+                                    Civilian Help. A map-first global intelligence platform aggregating social feeds and
+                                    tracking grids with Gemini AI.
                                 </p>
                             </div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                                <a href="https://gitlab.com/krishnakoushik9/crisis-reality" target="_blank" class="btn-brutalist" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">PULL_REQUEST</a>
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                                <a href="https://gitlab.com/krishnakoushik9/crisis-reality" target="_blank"
+                                    class="btn-brutalist"
+                                    style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">PULL_REQUEST</a>
                             </div>
                         </div>
-                        <div style="width: 30%; min-width: 130px; border-left: 4px solid var(--ink); overflow: hidden; background: #e5e7eb;">
-                            <img src="src/CRISISWATCH.jpg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                        <div
+                            style="width: 30%; min-width: 130px; border-left: 4px solid var(--ink); overflow: hidden; background: #e5e7eb;">
+                            <img src="src/CRISISWATCH.jpg" style="width: 100%; height: 100%; object-fit: cover;"
+                                loading="lazy">
                         </div>
                     </div>
                 </div>
 
                 <!-- MEDHA AI (GitLab) - IMAGES: src/Win1.jpeg, src/Win2.jpeg, src/Win3.jpeg -->
                 <div style="grid-column: span 6;">
-                    <div class="card-brutalist" style="height: 100%; padding: 0; display: flex; flex-direction: row; overflow: hidden; border: 4px solid var(--ink); background: var(--white);">
-                        <div style="flex: 1; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div class="card-brutalist"
+                        style="height: 100%; padding: 0; display: flex; flex-direction: row; overflow: hidden; border: 4px solid var(--ink); background: var(--white);">
+                        <div
+                            style="flex: 1; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
                             <div>
                                 <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 1rem;">
-                                    <span class="font-mono" style="background: var(--dark-grey); color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">GITLAB</span>
-                                    <span class="font-mono" style="background: #02569B; color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">Flutter / Dart</span>
+                                    <span class="font-mono"
+                                        style="background: var(--dark-grey); color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">GITLAB</span>
+                                    <span class="font-mono"
+                                        style="background: #02569B; color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">Flutter
+                                        / Dart</span>
                                 </div>
-                                <h3 style="font-size: 2.25rem; font-weight: 800; margin: 0 0 0.5rem;">MEDHA AI</h3>
-                                <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
-                                    An accessibility-first educational ecosystem with offline Gemma 3, online Gemini 2.0 Flash, real-time Imagen 4 diagrams, Netra AI vision, and Morse code haptics. 1st Prize - IIT Bombay Techfest.
+                                <h3 style="font-size: 2.25rem; font-weight: 800; margin: 0 0 0.5rem;">MEDHA AI or
+                                    SuvyAIkth</h3>
+                                <p
+                                    style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
+                                    An accessibility-first educational ecosystem with offline Gemma 3, online Gemini 2.0
+                                    Flash, real-time Imagen 4 diagrams, Netra AI vision, and Morse code haptics. 1st
+                                    Prize - IIT Bombay Techfest.
                                 </p>
                             </div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                                <a href="https://gitlab.com/krishnakoushik9/suvyaikth-modified" target="_blank" class="btn-brutalist" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">PULL_REQUEST</a>
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                                <a href="https://gitlab.com/krishnakoushik9/suvyaikth-modified" target="_blank"
+                                    class="btn-brutalist"
+                                    style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">PULL_REQUEST</a>
                             </div>
                         </div>
-                        <div style="width: 30%; min-width: 130px; border-left: 4px solid var(--ink); overflow: hidden; position: relative; background: #e5e7eb;">
-                            <img src="src/Win1.jpeg" style="position: absolute; width: 100%; height: 100%; object-fit: cover; animation: medhaFade1 9s infinite;" loading="lazy">
-                            <img src="src/Win2.jpeg" style="position: absolute; width: 100%; height: 100%; object-fit: cover; animation: medhaFade2 9s infinite;" loading="lazy">
-                            <img src="src/Win3.jpeg" style="position: absolute; width: 100%; height: 100%; object-fit: cover; animation: medhaFade3 9s infinite;" loading="lazy">
+                        <div
+                            style="width: 30%; min-width: 130px; border-left: 4px solid var(--ink); overflow: hidden; position: relative; background: #e5e7eb;">
+                            <img src="src/Win1.jpeg"
+                                style="position: absolute; width: 100%; height: 100%; object-fit: cover; animation: medhaFade1 9s infinite;"
+                                loading="lazy">
+                            <img src="src/Win2.jpeg"
+                                style="position: absolute; width: 100%; height: 100%; object-fit: cover; animation: medhaFade2 9s infinite;"
+                                loading="lazy">
+                            <img src="src/Win3.jpeg"
+                                style="position: absolute; width: 100%; height: 100%; object-fit: cover; animation: medhaFade3 9s infinite;"
+                                loading="lazy">
                         </div>
                     </div>
                 </div>
 
                 <!-- SYNTARA (GitLab) - NO IMAGE -->
                 <div style="grid-column: span 6;">
-                    <div class="card-brutalist" style="height: 100%; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
+                    <div class="card-brutalist"
+                        style="height: 100%; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
                         <div>
                             <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 1rem;">
-                                <span class="font-mono" style="background: var(--dark-grey); color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">GITLAB</span>
-                                <span class="font-mono" style="background: #02569B; color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">Flutter / Dart</span>
+                                <span class="font-mono"
+                                    style="background: var(--dark-grey); color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">GITLAB</span>
+                                <span class="font-mono"
+                                    style="background: #02569B; color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">Flutter
+                                    / Dart</span>
                             </div>
                             <h3 style="font-size: 2.25rem; font-weight: 800; margin: 0 0 0.5rem;">SYNTARA</h3>
-                            <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
-                                Next-generation music streaming app with location-based Vibe Discovery, anonymous Souls chat, interactive party games (Truth or Dare), and biometric Hidden Vault.
+                            <p
+                                style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
+                                Next-generation music streaming app with location-based Vibe Discovery, anonymous Souls
+                                chat, interactive party games (Truth or Dare), and biometric Hidden Vault.
                             </p>
                         </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                            <a href="https://gitlab.com/krishnakoushik9/syntara-dev" target="_blank" class="btn-brutalist" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">PULL_REQUEST</a>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                            <a href="https://gitlab.com/krishnakoushik9/syntara-dev" target="_blank"
+                                class="btn-brutalist"
+                                style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">PULL_REQUEST</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- BOI PLATFORM (GitLab) - NO IMAGE -->
                 <div style="grid-column: span 6;">
-                    <div class="card-brutalist" style="height: 100%; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
+                    <div class="card-brutalist"
+                        style="height: 100%; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
                         <div>
                             <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 1rem;">
-                                <span class="font-mono" style="background: #ef4444; color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">LOCKED</span>
-                                <span class="font-mono" style="background: #ef820a; color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">GnuCOBOL / C</span>
+                                <span class="font-mono"
+                                    style="background: #ef4444; color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">LOCKED</span>
+                                <span class="font-mono"
+                                    style="background: #ef820a; color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">GnuCOBOL
+                                    / C</span>
                             </div>
-                            <h3 style="font-size: 2.25rem; font-weight: 800; margin: 0 0 0.5rem; word-break: break-all;">BOI FRAUD INTEL</h3>
-                            <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
-                                Garuda Sentinel - Fraud Detection & Mule Account Platform bridging CBS GnuCOBOL with FastAPI, Graph analytics, and compliance SLA. [Warning: Currently Locked for Public]
+                            <h3
+                                style="font-size: 2.25rem; font-weight: 800; margin: 0 0 0.5rem; word-break: break-all;">
+                                BOI FRAUD INTEL</h3>
+                            <p
+                                style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
+                                Garuda Sentinel - Fraud Detection & Mule Account Platform bridging CBS GnuCOBOL with
+                                FastAPI, Graph analytics, and compliance SLA. [Warning: Currently Locked for Public]
                             </p>
                         </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                            <a href="https://gitlab.com/krishnakoushik9/bank-of-india-iith-hackathon" target="_blank" class="btn-brutalist" style="padding: 0.5rem 1.25rem; font-size: 0.85rem; border-color: #ef4444;">GITLAB_LINK</a>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                            <a href="https://gitlab.com/krishnakoushik9/bank-of-india-iith-hackathon" target="_blank"
+                                class="btn-brutalist"
+                                style="padding: 0.5rem 1.25rem; font-size: 0.85rem; border-color: #ef4444;">GITLAB_LINK</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- GITHUB SECTION DIVIDER -->
-                <div style="grid-column: span 12; margin-top: 3rem; margin-bottom: 1.5rem; border-bottom: 4px solid var(--ink); padding-bottom: 1rem;">
-                    <h3 class="font-mono" style="font-size: 2rem; text-transform: uppercase;">[ GITHUB_REPOSITORIES ]</h3>
+                <div
+                    style="grid-column: span 12; margin-top: 3rem; margin-bottom: 1.5rem; border-bottom: 4px solid var(--ink); padding-bottom: 1rem;">
+                    <h3 class="font-mono" style="font-size: 2rem; text-transform: uppercase;">[ GITHUB_REPOSITORIES ]
+                    </h3>
                 </div>
 
                 <!-- DSA SITE - NO IMAGE -->
                 <div style="grid-column: span 6;">
-                    <div class="card-brutalist" style="height: 100%; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
+                    <div class="card-brutalist"
+                        style="height: 100%; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
                         <div>
                             <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 1rem;">
-                                <span class="font-mono" style="background: var(--dark-grey); color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">GITHUB</span>
-                                <span class="font-mono" style="background: #3178C6; color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">React / CSS</span>
+                                <span class="font-mono"
+                                    style="background: var(--dark-grey); color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">GITHUB</span>
+                                <span class="font-mono"
+                                    style="background: #3178C6; color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">React
+                                    / CSS</span>
                             </div>
                             <h3 style="font-size: 2.25rem; font-weight: 800; margin: 0 0 0.5rem;">DSA-SITE</h3>
-                            <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
-                                A comprehensive Data Structures & Algorithms tracker site containing 700+ curated questions and coding solutions.
+                            <p
+                                style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
+                                A comprehensive Data Structures & Algorithms tracker site containing 700+ curated
+                                questions and coding solutions.
                             </p>
                         </div>
                         <div style="display: flex; gap: 1rem; align-items: center; margin-top: auto;">
-                            <a href="https://github.com/krishnakoushik9/DSA-Site" target="_blank" class="btn-brutalist" style="padding: 0.5rem 1rem; font-size: 0.8rem;">PULL_REQUEST</a>
-                            <a href="https://dsa-tracker-xi-dun.vercel.app/" target="_blank" class="btn-brutalist" style="padding: 0.5rem 1rem; font-size: 0.8rem; background: var(--volt);">LIVE_DEMO</a>
+                            <a href="https://github.com/krishnakoushik9/DSA-Site" target="_blank" class="btn-brutalist"
+                                style="padding: 0.5rem 1rem; font-size: 0.8rem;">PULL_REQUEST</a>
+                            <a href="https://dsa-tracker-xi-dun.vercel.app/" target="_blank" class="btn-brutalist"
+                                style="padding: 0.5rem 1rem; font-size: 0.8rem; background: var(--volt);">LIVE_DEMO</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- INTELLICREDIT - IMAGE: image-src/HydIITWin2.jpeg -->
                 <div style="grid-column: span 6;">
-                    <div class="card-brutalist" style="height: 100%; padding: 0; display: flex; flex-direction: row; overflow: hidden; border: 4px solid var(--ink); background: var(--white);">
-                        <div style="flex: 1; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div class="card-brutalist"
+                        style="height: 100%; padding: 0; display: flex; flex-direction: row; overflow: hidden; border: 4px solid var(--ink); background: var(--white);">
+                        <div
+                            style="flex: 1; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
                             <div>
                                 <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 1rem;">
-                                    <span class="font-mono" style="background: var(--dark-grey); color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">GITHUB</span>
-                                    <span class="font-mono" style="background: #b91c1c; color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">Spring Boot / Python</span>
+                                    <span class="font-mono"
+                                        style="background: var(--dark-grey); color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">GITHUB</span>
+                                    <span class="font-mono"
+                                        style="background: #b91c1c; color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">Spring
+                                        Boot / Python</span>
                                 </div>
                                 <h3 style="font-size: 2.25rem; font-weight: 800; margin: 0 0 0.5rem;">INTELLICREDIT</h3>
-                                <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
-                                    Hybrid Credit Decision Intelligence Engine. Automated Spring Boot policy orchestration, FastAPI ML workers, and a Next.js dashboard. 3rd Prize – IITH Vivriti Hackathon.
+                                <p
+                                    style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
+                                    Hybrid Credit Decision Intelligence Engine. Automated Spring Boot policy
+                                    orchestration, FastAPI ML workers, and a Next.js dashboard. 3rd Prize – IITH Vivriti
+                                    Hackathon.
                                 </p>
                             </div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                                <a href="https://github.com/krishnakoushik9/Vivriti" target="_blank" class="btn-brutalist" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">PULL_REQUEST</a>
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                                <a href="https://github.com/krishnakoushik9/Vivriti" target="_blank"
+                                    class="btn-brutalist"
+                                    style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">PULL_REQUEST</a>
                             </div>
                         </div>
-                        <div style="width: 30%; min-width: 130px; border-left: 4px solid var(--ink); overflow: hidden; background: #e5e7eb;">
-                            <img src="image-src/HydIITWin2.jpeg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                        <div
+                            style="width: 30%; min-width: 130px; border-left: 4px solid var(--ink); overflow: hidden; background: #e5e7eb;">
+                            <img src="image-src/HydIITWin2.jpeg" style="width: 100%; height: 100%; object-fit: cover;"
+                                loading="lazy">
                         </div>
                     </div>
                 </div>
 
                 <!-- AYUR-VERSE - NO IMAGE -->
                 <div style="grid-column: span 4;">
-                    <div class="card-brutalist" style="height: 100%; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
+                    <div class="card-brutalist"
+                        style="height: 100%; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
                         <div>
                             <h4 style="font-size: 1.5rem; font-weight: 800; margin: 0 0 0.5rem;">AYUR-VERSE</h4>
-                            <p style="font-size: 0.85rem; line-height: 1.4; color: var(--color-muted); margin-bottom: 1rem;">
+                            <p
+                                style="font-size: 0.85rem; line-height: 1.4; color: var(--color-muted); margin-bottom: 1rem;">
                                 Immersive 3D exploration of sacred trees combining ancient knowledge with modern tech.
                             </p>
                         </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                            <a href="https://github.com/krishnakoushik9/AyurVerse" target="_blank" class="btn-brutalist" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">PULL_REQUEST</a>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                            <a href="https://github.com/krishnakoushik9/AyurVerse" target="_blank" class="btn-brutalist"
+                                style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">PULL_REQUEST</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- EMO-CARE - NO IMAGE -->
                 <div style="grid-column: span 4;">
-                    <div class="card-brutalist" style="height: 100%; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
+                    <div class="card-brutalist"
+                        style="height: 100%; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
                         <div>
                             <h4 style="font-size: 1.5rem; font-weight: 800; margin: 0 0 0.5rem;">EMO-CARE</h4>
-                            <p style="font-size: 0.85rem; line-height: 1.4; color: var(--color-muted); margin-bottom: 1rem;">
+                            <p
+                                style="font-size: 0.85rem; line-height: 1.4; color: var(--color-muted); margin-bottom: 1rem;">
                                 Real-time emotion and voice response system using facial recognition and AI.
                             </p>
                         </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                            <a href="https://github.com/krishnakoushik9/EMO-CARE-KAVVY" target="_blank" class="btn-brutalist" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">PULL_REQUEST</a>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                            <a href="https://github.com/krishnakoushik9/EMO-CARE-KAVVY" target="_blank"
+                                class="btn-brutalist"
+                                style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">PULL_REQUEST</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- E-SUMMIT - NO IMAGE -->
                 <div style="grid-column: span 4;">
-                    <div class="card-brutalist" style="height: 100%; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
+                    <div class="card-brutalist"
+                        style="height: 100%; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
                         <div>
                             <h4 style="font-size: 1.5rem; font-weight: 800; margin: 0 0 0.5rem;">E-SUMMIT</h4>
-                            <p style="font-size: 0.85rem; line-height: 1.4; color: var(--color-muted); margin-bottom: 1rem;">
+                            <p
+                                style="font-size: 0.85rem; line-height: 1.4; color: var(--color-muted); margin-bottom: 1rem;">
                                 Modern landing page with Three.js animations and event scheduling.
                             </p>
                         </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                            <a href="https://github.com/krishnakoushik9/E-SUMMIT" target="_blank" class="btn-brutalist" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">PULL_REQUEST</a>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                            <a href="https://github.com/krishnakoushik9/E-SUMMIT" target="_blank" class="btn-brutalist"
+                                style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">PULL_REQUEST</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- ASHBORN RAG - IMAGE: src/ASHBORNRAG.jpg -->
                 <div style="grid-column: span 6; margin-top: 1rem;">
-                    <div class="card-brutalist" style="height: 100%; padding: 0; display: flex; flex-direction: row; overflow: hidden; border: 4px solid var(--ink); background: var(--white);">
-                        <div style="flex: 1; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div class="card-brutalist"
+                        style="height: 100%; padding: 0; display: flex; flex-direction: row; overflow: hidden; border: 4px solid var(--ink); background: var(--white);">
+                        <div
+                            style="flex: 1; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
                             <div>
                                 <h3 style="font-size: 2.25rem; font-weight: 800; margin: 0 0 0.5rem;">ASHBORN RAG</h3>
-                                <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
-                                    24/7 document-based RAG AI bot designed for local execution and offline knowledge retrieval.
+                                <p
+                                    style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
+                                    24/7 document-based RAG AI bot designed for local execution and offline knowledge
+                                    retrieval.
                                 </p>
                             </div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                                <a href="https://github.com/krishnakoushik9/HackIndia-Spark-4-2025-ASHBORN-SRCS" target="_blank" class="btn-brutalist" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">PULL_REQUEST</a>
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                                <a href="https://github.com/krishnakoushik9/HackIndia-Spark-4-2025-ASHBORN-SRCS"
+                                    target="_blank" class="btn-brutalist"
+                                    style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">PULL_REQUEST</a>
                             </div>
                         </div>
-                        <div style="width: 30%; min-width: 130px; border-left: 4px solid var(--ink); overflow: hidden; background: #e5e7eb;">
-                            <img src="src/ASHBORNRAG.jpg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                        <div
+                            style="width: 30%; min-width: 130px; border-left: 4px solid var(--ink); overflow: hidden; background: #e5e7eb;">
+                            <img src="src/ASHBORNRAG.jpg" style="width: 100%; height: 100%; object-fit: cover;"
+                                loading="lazy">
                         </div>
                     </div>
                 </div>
 
                 <!-- LEGION SURF - NO IMAGE -->
                 <div style="grid-column: span 6; margin-top: 1rem;">
-                    <div class="card-brutalist" style="height: 100%; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
+                    <div class="card-brutalist"
+                        style="height: 100%; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
                         <div>
                             <h3 style="font-size: 2.25rem; font-weight: 800; margin: 0 0 0.5rem;">LEGION SURF</h3>
-                            <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
-                                Full-stack AI chatbot for discovering and planning local events and community activities.
+                            <p
+                                style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
+                                Full-stack AI chatbot for discovering and planning local events and community
+                                activities.
                             </p>
                         </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                            <a href="https://github.com/krishnakoushik9/legion-surf-mate/tree/main/eventmate" target="_blank" class="btn-brutalist" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">PULL_REQUEST</a>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                            <a href="https://github.com/krishnakoushik9/legion-surf-mate/tree/main/eventmate"
+                                target="_blank" class="btn-brutalist"
+                                style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">PULL_REQUEST</a>
                         </div>
                     </div>
                 </div>
@@ -665,34 +879,40 @@
         <div class="container-brutalist">
             <h2 style="font-size: 4rem; margin-bottom: 4rem;">NEURAL_NETS</h2>
             <div class="card-brutalist" style="background: var(--white); margin-bottom: 2rem;">
-                <div style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem; border-bottom: 2px solid var(--ink); padding-bottom: 2rem;">
-                    <img src="https://huggingface.co/front/assets/huggingface_logo.svg" style="width: 80px; height: 80px;">
+                <div
+                    style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem; border-bottom: 2px solid var(--ink); padding-bottom: 2rem;">
+                    <img src="https://huggingface.co/front/assets/huggingface_logo.svg"
+                        style="width: 80px; height: 80px;">
                     <div>
                         <h3 style="font-size: 3rem;">LOHAMEIT</h3>
                         <p class="font-mono">STATUS: TRAINING LLMS / PRIVACY-FIRST AI</p>
                     </div>
-                    <a href="https://huggingface.co/LOHAMEIT" class="btn-brutalist" style="margin-left: auto;">FOLLOW_MODEL</a>
+                    <a href="https://huggingface.co/LOHAMEIT" class="btn-brutalist"
+                        style="margin-left: auto;">FOLLOW_MODEL</a>
                 </div>
                 <div class="grid-bento">
                     <div style="grid-column: span 4;">
                         <div class="card-brutalist" style="background: var(--bg-paper);">
                             <h4>BITShyd</h4>
                             <p>Text2Text Generation • AI-Enhanced Mental Health Counseling.</p>
-                            <a href="https://huggingface.co/LOHAMEIT/BITShyd" class="font-mono" style="color: var(--ink);">INSPECT →</a>
+                            <a href="https://huggingface.co/LOHAMEIT/BITShyd" class="font-mono"
+                                style="color: var(--ink);">INSPECT →</a>
                         </div>
                     </div>
                     <div style="grid-column: span 4;">
                         <div class="card-brutalist" style="background: var(--bg-paper);">
                             <h4>snehal-tirupati</h4>
                             <p>Fine-tuned domain-specific language model.</p>
-                            <a href="https://huggingface.co/LOHAMEIT/snehal-tirupati" class="font-mono" style="color: var(--ink);">INSPECT →</a>
+                            <a href="https://huggingface.co/LOHAMEIT/snehal-tirupati" class="font-mono"
+                                style="color: var(--ink);">INSPECT →</a>
                         </div>
                     </div>
                     <div style="grid-column: span 4;">
                         <div class="card-brutalist" style="background: var(--bg-paper);">
                             <h4>lohameit-3.2</h4>
                             <p>Optimized model for performance and efficiency.</p>
-                            <a href="https://huggingface.co/LOHAMEIT/lohameit-3.2" class="font-mono" style="color: var(--ink);">INSPECT →</a>
+                            <a href="https://huggingface.co/LOHAMEIT/lohameit-3.2" class="font-mono"
+                                style="color: var(--ink);">INSPECT →</a>
                         </div>
                     </div>
                 </div>
@@ -706,21 +926,25 @@
             <h2 style="font-size: 4rem; margin-bottom: 4rem;">VALIDATION_LOG</h2>
             <div class="grid-bento">
                 <div style="grid-column: span 6;">
-                    <div class="card-brutalist" style="display: flex; justify-content: space-between; align-items: center;">
+                    <div class="card-brutalist"
+                        style="display: flex; justify-content: space-between; align-items: center;">
                         <div>
                             <h3>AWS ML FOUNDATIONS</h3>
                             <p class="font-mono">#AWS #MACHINE_LEARNING</p>
                         </div>
-                        <a href="https://www.credly.com/badges/f4ec610c-bb79-4b95-83d2-f5e006af7800/public_url" class="btn-brutalist" style="padding: 0.5rem 1rem;">VERIFY</a>
+                        <a href="https://www.credly.com/badges/f4ec610c-bb79-4b95-83d2-f5e006af7800/public_url"
+                            class="btn-brutalist" style="padding: 0.5rem 1rem;">VERIFY</a>
                     </div>
                 </div>
                 <div style="grid-column: span 6;">
-                    <div class="card-brutalist" style="display: flex; justify-content: space-between; align-items: center;">
+                    <div class="card-brutalist"
+                        style="display: flex; justify-content: space-between; align-items: center;">
                         <div>
                             <h3>GEN-AI INTRODUCTION</h3>
                             <p class="font-mono">#AWS #GENERATIVE_AI</p>
                         </div>
-                        <a href="https://www.credly.com/badges/1d6dcaec-321f-47d0-9984-5d2a89407032/linked_in_profile" class="btn-brutalist" style="padding: 0.5rem 1rem;">VERIFY</a>
+                        <a href="https://www.credly.com/badges/1d6dcaec-321f-47d0-9984-5d2a89407032/linked_in_profile"
+                            class="btn-brutalist" style="padding: 0.5rem 1rem;">VERIFY</a>
                     </div>
                 </div>
                 <div style="grid-column: span 6;">
@@ -734,7 +958,8 @@
                     <div class="card-brutalist">
                         <h3>WELLS FARGO SWE</h3>
                         <p class="font-mono">#SWE #SIMULATION</p>
-                        <a href="https://www.linkedin.com/posts/legionkrsna_softwareengineering-java-erdiagrams-activity-7329512684578578432-xzgh" class="font-mono" style="color: var(--ink);">VIEW PROOF →</a>
+                        <a href="https://www.linkedin.com/posts/legionkrsna_softwareengineering-java-erdiagrams-activity-7329512684578578432-xzgh"
+                            class="font-mono" style="color: var(--ink);">VIEW PROOF →</a>
                     </div>
                 </div>
             </div>
@@ -742,7 +967,8 @@
     </section>
 
     <!-- Game Dev / Unreal -->
-    <section id="gamedev" class="section-brutalist" style="background: var(--ink); color: var(--white); overflow: hidden;">
+    <section id="gamedev" class="section-brutalist"
+        style="background: var(--ink); color: var(--white); overflow: hidden;">
         <div class="container-brutalist">
             <h2 style="font-size: 8vw; color: var(--acid);">UNREAL_JOURNEY</h2>
             <div class="grid-bento" style="margin-top: 4rem;">
@@ -752,17 +978,20 @@
                         <div style="padding: 2rem;">
                             <h3 style="color: var(--white);">MAP 01</h3>
                             <p style="color: #94a3b8; margin-bottom: 1.5rem;">CORE MECHANICS & LEVEL DESIGN</p>
-                            <a href="gamedev-details.html" class="btn-brutalist" style="padding: 0.5rem 1rem; font-size: 0.875rem;">DEEP_DIVE</a>
+                            <a href="gamedev-details.html" class="btn-brutalist"
+                                style="padding: 0.5rem 1rem; font-size: 0.875rem;">DEEP_DIVE</a>
                         </div>
                     </div>
                 </div>
                 <div style="grid-column: span 8;">
                     <div class="card-brutalist" style="padding: 0; background: var(--dark-grey); height: 100%;">
-                        <iframe style="width: 100%; height: 400px; border: none;" src="https://www.youtube.com/embed/4fidA5pWAg0?si=OZ4Ekt1Jsijsrj8T"></iframe>
+                        <iframe style="width: 100%; height: 400px; border: none;"
+                            src="https://www.youtube.com/embed/4fidA5pWAg0?si=OZ4Ekt1Jsijsrj8T"></iframe>
                         <div style="padding: 2rem;">
                             <h3 style="color: var(--white);">MAP 02: SHADOW APE KING</h3>
                             <p style="color: #94a3b8; margin-bottom: 1.5rem;">BOSS BATTLE & PATTERN RECOGNITION</p>
-                            <a href="gamedev-details.html" class="btn-brutalist" style="padding: 0.5rem 1rem; font-size: 0.875rem;">EXPLORE_JOURNEY</a>
+                            <a href="gamedev-details.html" class="btn-brutalist"
+                                style="padding: 0.5rem 1rem; font-size: 0.875rem;">EXPLORE_JOURNEY</a>
                         </div>
                     </div>
                 </div>
@@ -789,16 +1018,23 @@
     </section>
 
     <!-- Book Popup -->
-    <div id="book-popup" style="position: fixed; inset: 0; background: rgba(9, 9, 11, 0.95); z-index: 10000; display: none; align-items: center; justify-content: center; padding: 2rem;">
+    <div id="book-popup"
+        style="position: fixed; inset: 0; background: rgba(9, 9, 11, 0.95); z-index: 10000; display: none; align-items: center; justify-content: center; padding: 2rem;">
         <div class="card-brutalist" style="max-width: 800px; background: var(--bg-paper);">
-            <button id="close-popup" style="position: absolute; top: 1rem; right: 1rem; background: var(--ink); color: var(--white); border: none; padding: 0.5rem 1rem; cursor: pointer;">CLOSE</button>
+            <button id="close-popup"
+                style="position: absolute; top: 1rem; right: 1rem; background: var(--ink); color: var(--white); border: none; padding: 0.5rem 1rem; cursor: pointer;">CLOSE</button>
             <h2 style="font-size: 3rem; margin-bottom: 2rem;">PROJECT_NIGHTMARE</h2>
-            <p style="font-size: 1.25rem; margin-bottom: 1.5rem;">Since February 2023 (<span id="years-writing" class="font-mono"></span> years ago), I've been documenting the deepest subconscious fears through a compilation of nightmares.</p>
-            <p style="font-size: 1.25rem; margin-bottom: 1.5rem;">This manuscript explores the architecture of human terror, inspired by actual dream experiences. Think of American Psycho or Blood Meridian, but forged in the forge of the subconscious.</p>
+            <p style="font-size: 1.25rem; margin-bottom: 1.5rem;">Since February 2023 (<span id="years-writing"
+                    class="font-mono"></span> years ago), I've been documenting the deepest subconscious fears through a
+                compilation of nightmares.</p>
+            <p style="font-size: 1.25rem; margin-bottom: 1.5rem;">This manuscript explores the architecture of human
+                terror, inspired by actual dream experiences. Think of American Psycho or Blood Meridian, but forged in
+                the forge of the subconscious.</p>
             <div class="card-brutalist" style="background: var(--volt); text-align: center; margin: 2rem 0;">
                 <p style="font-weight: 800;">REMAINING DOC TIME: <span id="years-until"></span> YEARS (EST. 2030)</p>
             </div>
-            <p style="font-size: 0.8rem; text-transform: uppercase;" class="font-mono">* THIS PROJECT CONTAINS GRAPHIC CONTENT. RESTRICTED ACCESS.</p>
+            <p style="font-size: 0.8rem; text-transform: uppercase;" class="font-mono">* THIS PROJECT CONTAINS GRAPHIC
+                CONTENT. RESTRICTED ACCESS.</p>
         </div>
     </div>
 
@@ -809,19 +1045,29 @@
                 <div style="grid-column: span 12; text-align: center;">
                     <h2 style="font-size: 5rem; color: var(--acid); margin-bottom: 2rem;">LET'S CONNECT</h2>
                     <div style="display: flex; justify-content: center; gap: 3rem; margin-bottom: 3rem;">
-                        <a href="https://www.linkedin.com/in/legionkrsna" target="_blank" class="font-mono" style="color: var(--white); font-size: 2rem; text-decoration: none;"><i class="fab fa-linkedin"></i> LINKEDIN</a>
-                        <a href="https://github.com/krishnakoushik9" target="_blank" class="font-mono" style="color: var(--white); font-size: 2rem; text-decoration: none;"><i class="fab fa-github"></i> GITHUB</a>
-                        <a href="https://x.com/Koushik1156" target="_blank" class="font-mono" style="color: var(--white); font-size: 2rem; text-decoration: none;"><i class="fab fa-twitter"></i> TWITTER</a>
+                        <a href="https://www.linkedin.com/in/legionkrsna" target="_blank" class="font-mono"
+                            style="color: var(--white); font-size: 2rem; text-decoration: none;"><i
+                                class="fab fa-linkedin"></i> LINKEDIN</a>
+                        <a href="https://github.com/krishnakoushik9" target="_blank" class="font-mono"
+                            style="color: var(--white); font-size: 2rem; text-decoration: none;"><i
+                                class="fab fa-github"></i> GITHUB</a>
+                        <a href="https://x.com/Koushik1156" target="_blank" class="font-mono"
+                            style="color: var(--white); font-size: 2rem; text-decoration: none;"><i
+                                class="fab fa-twitter"></i> TWITTER</a>
                     </div>
-                    <a href="https://www.linkedin.com/in/legionkrsna" target="_blank" class="btn-brutalist" style="background: var(--acid); color: var(--ink); font-size: 1.5rem; padding: 1rem 3rem;">REACH OUT</a>
-                    
+                    <a href="https://www.linkedin.com/in/legionkrsna" target="_blank" class="btn-brutalist"
+                        style="background: var(--acid); color: var(--ink); font-size: 1.5rem; padding: 1rem 3rem;">REACH
+                        OUT</a>
+
                     <p class="footer-quote">
                         "It ain't who wins the most fights, just who wins the last one!"<br>
-                        <span style="font-size: 1rem; opacity: 0.7;">— Thunderhoof, Transformers: Robots in Disguise</span>
+                        <span style="font-size: 1rem; opacity: 0.7;">— Thunderhoof, Transformers: Robots in
+                            Disguise</span>
                     </p>
                 </div>
             </div>
-            <div style="margin-top: 4rem; border-top: 2px solid #333; padding-top: 2rem; display: flex; justify-content: space-between;" class="font-mono">
+            <div style="margin-top: 4rem; border-top: 2px solid #333; padding-top: 2rem; display: flex; justify-content: space-between;"
+                class="font-mono">
                 <div>© 2026 KRISHNA KOUSHIK</div>
                 <div>DESIGNED FOR DISRUPTION</div>
             </div>
@@ -830,7 +1076,9 @@
 
     <script type="module" src="./js/githubMain.js"></script>
     <script src="./js/neo-brutalist.js"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7515728727059624" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7515728727059624"
+        crossorigin="anonymous"></script>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </body>
+
 </html>
