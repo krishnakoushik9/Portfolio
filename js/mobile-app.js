@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Interactive FAQ Accordion
     initFAQAccordion();
 
-    // 5. GitHub API Integration & Dynamic Projects List
-    initMobileProjects();
+    // 5. GitHub API Integration & Dynamic Projects List (Disabled for hardcoded codebase)
+    // initMobileProjects();
 
     // 6. Book Project Secrets Log Popup
     initBookPopup();

@@ -391,9 +391,270 @@
                 <button id="view-contributions-btn" class="btn-brutalist" style="font-size: 1rem; padding: 0.5rem 1rem;">VIEW_CONTRIBUTIONS</button>
             </div>
             <div class="grid-bento" id="github-projects-container">
-                <!-- Dynamically populated by githubMain.js -->
-                <div style="grid-column: span 12; text-align: center; padding: 4rem;">
-                    <p class="font-mono" style="font-size: 1.5rem;">[INITIALIZING_SYNC_SYSTEM...]</p>
+                <!-- Inline Styles for Medha AI Slideshow -->
+                <style>
+                    @keyframes medhaFade1 {
+                        0%, 28% { opacity: 1; }
+                        33%, 95% { opacity: 0; }
+                        100% { opacity: 1; }
+                    }
+                    @keyframes medhaFade2 {
+                        0%, 28% { opacity: 0; }
+                        33%, 61% { opacity: 1; }
+                        66%, 100% { opacity: 0; }
+                    }
+                    @keyframes medhaFade3 {
+                        0%, 61% { opacity: 0; }
+                        66%, 95% { opacity: 1; }
+                        100% { opacity: 0; }
+                    }
+                </style>
+
+                <!-- SHIVA PATH (Hero Flagship Project) -->
+                <div style="grid-column: span 12;">
+                    <div class="card-brutalist" style="background: var(--volt); padding: 0; display: flex; flex-direction: row; overflow: hidden; min-height: 420px; border: 4px solid var(--ink);">
+                        <div style="flex: 1; padding: 3rem; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem;">
+                                    <span class="font-mono" style="background: var(--ink); color: var(--white); padding: 0.25rem 0.75rem; font-size: 0.85rem; font-weight: bold;">FLAGSHIP_PROJECT</span>
+                                    <span class="font-mono" style="background: var(--white); color: var(--ink); padding: 0.25rem 0.75rem; font-size: 0.85rem; font-weight: bold; border: 1px solid var(--ink);">UNREAL_ENGINE_5.5</span>
+                                </div>
+                                <h3 style="font-size: 4rem; font-weight: 900; margin: 0 0 1rem; line-height: 1;">THE PATH OF SHIVA</h3>
+                                <p style="font-size: 1.25rem; font-weight: 500; margin-bottom: 2rem; color: var(--ink); max-width: 90%;">
+                                    Mathematical precision meets mythological architecture. A technical open-world game showcase featuring virtualized micropolygon geometry (Nanite), global illumination (Lumen), and C++ finite state machines governing gameplay logic.
+                                </p>
+                            </div>
+                            <div style="display: flex; gap: 1.5rem; align-items: center;">
+                                <a href="https://www.youtube.com/watch?v=OQeS5noefQk" target="_blank" class="btn-brutalist" style="background: var(--ink); color: var(--white); font-size: 1.1rem; padding: 0.75rem 2rem;">WATCH_TRAILER</a>
+                                <a href="gamedev-details.html" class="btn-brutalist" style="background: var(--white); color: var(--ink); font-size: 1.1rem; padding: 0.75rem 2rem;">EXPLORE_JOURNEY</a>
+                            </div>
+                        </div>
+                        <div style="width: 35%; min-width: 320px; border-left: 4px solid var(--ink); background: var(--ink); overflow: hidden; position: relative;">
+                            <iframe style="width: 100%; height: 100%; min-height: 420px; border: none;" src="https://www.youtube.com/embed/OQeS5noefQk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GITLAB SECTION DIVIDER -->
+                <div style="grid-column: span 12; margin-top: 3rem; margin-bottom: 1.5rem; border-bottom: 4px solid var(--ink); padding-bottom: 1rem;">
+                    <h3 class="font-mono" style="font-size: 2rem; text-transform: uppercase;">[ GITLAB_REPOSITORIES ]</h3>
+                </div>
+
+                <!-- CRISIS WATCH (GitLab) - IMAGE: src/CRISISWATCH.jpg -->
+                <div style="grid-column: span 6;">
+                    <div class="card-brutalist" style="height: 100%; padding: 0; display: flex; flex-direction: row; overflow: hidden; border: 4px solid var(--ink); background: var(--white);">
+                        <div style="flex: 1; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 1rem;">
+                                    <span class="font-mono" style="background: var(--dark-grey); color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">GITLAB</span>
+                                    <span class="font-mono" style="background: #3178C6; color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">React / TS</span>
+                                </div>
+                                <h3 style="font-size: 2.25rem; font-weight: 800; margin: 0 0 0.5rem;">CRISIS WATCH</h3>
+                                <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
+                                    Catastrophic Real-time Intelligence Synthesis for Inter-Service Welfare & Tactical Civilian Help. A map-first global intelligence platform aggregating social feeds and tracking grids with Gemini AI.
+                                </p>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                                <a href="https://gitlab.com/krishnakoushik9/crisis-reality" target="_blank" class="btn-brutalist" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">PULL_REQUEST</a>
+                            </div>
+                        </div>
+                        <div style="width: 30%; min-width: 130px; border-left: 4px solid var(--ink); overflow: hidden; background: #e5e7eb;">
+                            <img src="src/CRISISWATCH.jpg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MEDHA AI (GitLab) - IMAGES: src/Win1.jpeg, src/Win2.jpeg, src/Win3.jpeg -->
+                <div style="grid-column: span 6;">
+                    <div class="card-brutalist" style="height: 100%; padding: 0; display: flex; flex-direction: row; overflow: hidden; border: 4px solid var(--ink); background: var(--white);">
+                        <div style="flex: 1; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 1rem;">
+                                    <span class="font-mono" style="background: var(--dark-grey); color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">GITLAB</span>
+                                    <span class="font-mono" style="background: #02569B; color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">Flutter / Dart</span>
+                                </div>
+                                <h3 style="font-size: 2.25rem; font-weight: 800; margin: 0 0 0.5rem;">MEDHA AI</h3>
+                                <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
+                                    An accessibility-first educational ecosystem with offline Gemma 3, online Gemini 2.0 Flash, real-time Imagen 4 diagrams, Netra AI vision, and Morse code haptics. 1st Prize - IIT Bombay Techfest.
+                                </p>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                                <a href="https://gitlab.com/krishnakoushik9/suvyaikth-modified" target="_blank" class="btn-brutalist" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">PULL_REQUEST</a>
+                            </div>
+                        </div>
+                        <div style="width: 30%; min-width: 130px; border-left: 4px solid var(--ink); overflow: hidden; position: relative; background: #e5e7eb;">
+                            <img src="src/Win1.jpeg" style="position: absolute; width: 100%; height: 100%; object-fit: cover; animation: medhaFade1 9s infinite;" loading="lazy">
+                            <img src="src/Win2.jpeg" style="position: absolute; width: 100%; height: 100%; object-fit: cover; animation: medhaFade2 9s infinite;" loading="lazy">
+                            <img src="src/Win3.jpeg" style="position: absolute; width: 100%; height: 100%; object-fit: cover; animation: medhaFade3 9s infinite;" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SYNTARA (GitLab) - NO IMAGE -->
+                <div style="grid-column: span 6;">
+                    <div class="card-brutalist" style="height: 100%; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
+                        <div>
+                            <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 1rem;">
+                                <span class="font-mono" style="background: var(--dark-grey); color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">GITLAB</span>
+                                <span class="font-mono" style="background: #02569B; color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">Flutter / Dart</span>
+                            </div>
+                            <h3 style="font-size: 2.25rem; font-weight: 800; margin: 0 0 0.5rem;">SYNTARA</h3>
+                            <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
+                                Next-generation music streaming app with location-based Vibe Discovery, anonymous Souls chat, interactive party games (Truth or Dare), and biometric Hidden Vault.
+                            </p>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                            <a href="https://gitlab.com/krishnakoushik9/syntara-dev" target="_blank" class="btn-brutalist" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">PULL_REQUEST</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BOI PLATFORM (GitLab) - NO IMAGE -->
+                <div style="grid-column: span 6;">
+                    <div class="card-brutalist" style="height: 100%; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
+                        <div>
+                            <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 1rem;">
+                                <span class="font-mono" style="background: #ef4444; color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">LOCKED</span>
+                                <span class="font-mono" style="background: #ef820a; color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">GnuCOBOL / C</span>
+                            </div>
+                            <h3 style="font-size: 2.25rem; font-weight: 800; margin: 0 0 0.5rem; word-break: break-all;">BOI FRAUD INTEL</h3>
+                            <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
+                                Garuda Sentinel - Fraud Detection & Mule Account Platform bridging CBS GnuCOBOL with FastAPI, Graph analytics, and compliance SLA. [Warning: Currently Locked for Public]
+                            </p>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                            <a href="https://gitlab.com/krishnakoushik9/bank-of-india-iith-hackathon" target="_blank" class="btn-brutalist" style="padding: 0.5rem 1.25rem; font-size: 0.85rem; border-color: #ef4444;">GITLAB_LINK</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GITHUB SECTION DIVIDER -->
+                <div style="grid-column: span 12; margin-top: 3rem; margin-bottom: 1.5rem; border-bottom: 4px solid var(--ink); padding-bottom: 1rem;">
+                    <h3 class="font-mono" style="font-size: 2rem; text-transform: uppercase;">[ GITHUB_REPOSITORIES ]</h3>
+                </div>
+
+                <!-- DSA SITE - NO IMAGE -->
+                <div style="grid-column: span 6;">
+                    <div class="card-brutalist" style="height: 100%; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
+                        <div>
+                            <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 1rem;">
+                                <span class="font-mono" style="background: var(--dark-grey); color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">GITHUB</span>
+                                <span class="font-mono" style="background: #3178C6; color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">React / CSS</span>
+                            </div>
+                            <h3 style="font-size: 2.25rem; font-weight: 800; margin: 0 0 0.5rem;">DSA-SITE</h3>
+                            <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
+                                A comprehensive Data Structures & Algorithms tracker site containing 700+ curated questions and coding solutions.
+                            </p>
+                        </div>
+                        <div style="display: flex; gap: 1rem; align-items: center; margin-top: auto;">
+                            <a href="https://github.com/krishnakoushik9/DSA-Site" target="_blank" class="btn-brutalist" style="padding: 0.5rem 1rem; font-size: 0.8rem;">PULL_REQUEST</a>
+                            <a href="https://dsa-tracker-xi-dun.vercel.app/" target="_blank" class="btn-brutalist" style="padding: 0.5rem 1rem; font-size: 0.8rem; background: var(--volt);">LIVE_DEMO</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- INTELLICREDIT - IMAGE: image-src/HydIITWin2.jpeg -->
+                <div style="grid-column: span 6;">
+                    <div class="card-brutalist" style="height: 100%; padding: 0; display: flex; flex-direction: row; overflow: hidden; border: 4px solid var(--ink); background: var(--white);">
+                        <div style="flex: 1; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 1rem;">
+                                    <span class="font-mono" style="background: var(--dark-grey); color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">GITHUB</span>
+                                    <span class="font-mono" style="background: #b91c1c; color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">Spring Boot / Python</span>
+                                </div>
+                                <h3 style="font-size: 2.25rem; font-weight: 800; margin: 0 0 0.5rem;">INTELLICREDIT</h3>
+                                <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
+                                    Hybrid Credit Decision Intelligence Engine. Automated Spring Boot policy orchestration, FastAPI ML workers, and a Next.js dashboard. 3rd Prize – IITH Vivriti Hackathon.
+                                </p>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                                <a href="https://github.com/krishnakoushik9/Vivriti" target="_blank" class="btn-brutalist" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">PULL_REQUEST</a>
+                            </div>
+                        </div>
+                        <div style="width: 30%; min-width: 130px; border-left: 4px solid var(--ink); overflow: hidden; background: #e5e7eb;">
+                            <img src="image-src/HydIITWin2.jpeg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AYUR-VERSE - NO IMAGE -->
+                <div style="grid-column: span 4;">
+                    <div class="card-brutalist" style="height: 100%; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
+                        <div>
+                            <h4 style="font-size: 1.5rem; font-weight: 800; margin: 0 0 0.5rem;">AYUR-VERSE</h4>
+                            <p style="font-size: 0.85rem; line-height: 1.4; color: var(--color-muted); margin-bottom: 1rem;">
+                                Immersive 3D exploration of sacred trees combining ancient knowledge with modern tech.
+                            </p>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                            <a href="https://github.com/krishnakoushik9/AyurVerse" target="_blank" class="btn-brutalist" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">PULL_REQUEST</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EMO-CARE - NO IMAGE -->
+                <div style="grid-column: span 4;">
+                    <div class="card-brutalist" style="height: 100%; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
+                        <div>
+                            <h4 style="font-size: 1.5rem; font-weight: 800; margin: 0 0 0.5rem;">EMO-CARE</h4>
+                            <p style="font-size: 0.85rem; line-height: 1.4; color: var(--color-muted); margin-bottom: 1rem;">
+                                Real-time emotion and voice response system using facial recognition and AI.
+                            </p>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                            <a href="https://github.com/krishnakoushik9/EMO-CARE-KAVVY" target="_blank" class="btn-brutalist" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">PULL_REQUEST</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-SUMMIT - NO IMAGE -->
+                <div style="grid-column: span 4;">
+                    <div class="card-brutalist" style="height: 100%; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
+                        <div>
+                            <h4 style="font-size: 1.5rem; font-weight: 800; margin: 0 0 0.5rem;">E-SUMMIT</h4>
+                            <p style="font-size: 0.85rem; line-height: 1.4; color: var(--color-muted); margin-bottom: 1rem;">
+                                Modern landing page with Three.js animations and event scheduling.
+                            </p>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                            <a href="https://github.com/krishnakoushik9/E-SUMMIT" target="_blank" class="btn-brutalist" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">PULL_REQUEST</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ASHBORN RAG - IMAGE: src/ASHBORNRAG.jpg -->
+                <div style="grid-column: span 6; margin-top: 1rem;">
+                    <div class="card-brutalist" style="height: 100%; padding: 0; display: flex; flex-direction: row; overflow: hidden; border: 4px solid var(--ink); background: var(--white);">
+                        <div style="flex: 1; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <h3 style="font-size: 2.25rem; font-weight: 800; margin: 0 0 0.5rem;">ASHBORN RAG</h3>
+                                <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
+                                    24/7 document-based RAG AI bot designed for local execution and offline knowledge retrieval.
+                                </p>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                                <a href="https://github.com/krishnakoushik9/HackIndia-Spark-4-2025-ASHBORN-SRCS" target="_blank" class="btn-brutalist" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">PULL_REQUEST</a>
+                            </div>
+                        </div>
+                        <div style="width: 30%; min-width: 130px; border-left: 4px solid var(--ink); overflow: hidden; background: #e5e7eb;">
+                            <img src="src/ASHBORNRAG.jpg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LEGION SURF - NO IMAGE -->
+                <div style="grid-column: span 6; margin-top: 1rem;">
+                    <div class="card-brutalist" style="height: 100%; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
+                        <div>
+                            <h3 style="font-size: 2.25rem; font-weight: 800; margin: 0 0 0.5rem;">LEGION SURF</h3>
+                            <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
+                                Full-stack AI chatbot for discovering and planning local events and community activities.
+                            </p>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                            <a href="https://github.com/krishnakoushik9/legion-surf-mate/tree/main/eventmate" target="_blank" class="btn-brutalist" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">PULL_REQUEST</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

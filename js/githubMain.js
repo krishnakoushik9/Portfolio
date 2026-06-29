@@ -8,13 +8,11 @@ import { uiRenderer } from './uiRenderer.js';
 import { githubModal } from './githubModal.js';
 
 async function initGitHubSync() {
-    // Initial Render with Fallback (Instant UI)
-    uiRenderer.renderProjects(null);
-
     // Initial Modal setup
     githubModal.init();
 
-    // Fetch and Sync
+    // Disabled dynamic API rendering to allow hardcoded GitLab & GitHub portfolio cards
+    /*
     try {
         const repos = await githubService.getRepos();
         if (repos) {
@@ -23,6 +21,7 @@ async function initGitHubSync() {
     } catch (err) {
         console.error('Main Sync Exception:', err);
     }
+    */
 }
 
 // Lazy load after Hero render / DOM Load
