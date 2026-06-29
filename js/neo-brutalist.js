@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Generate Normal Map for Sphere Lens (Magnifies and refracts inward)
+    // Generate Normal Map for Sphere Lens (Apple style: edge-only heavy refraction)
     function generateLensMap() {
         const canvas = document.createElement('canvas');
         canvas.width = 128;
@@ -18,12 +18,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 let g = 128;
                 let b = 255;
                 
-                if (r2 <= 1.0) {
-                    // Refractive bubble/lens calculation
-                    // We pull pixels inward towards the center to achieve magnifying glass effect
-                    const factor = Math.sin(Math.PI * (1.0 - Math.sqrt(r2)));
-                    const nx = -dx * factor * 0.45;
-                    const ny = -dy * factor * 0.45;
+                const d = Math.sqrt(r2);
+                if (d <= 1.0) {
+                    let factor = 0;
+                    if (d < 0.7) {
+                        // Center is clear with very slight magnification
+                        factor = 0.08 * d;
+                    } else {
+                        // Edges refract heavily (Apple Liquid Glass design)
+                        const t = (d - 0.7) / 0.3; // 0 to 1
+                        const edgeRefract = Math.sin(Math.PI * t) * 0.95;
+                        factor = (0.08 * d) + edgeRefract;
+                    }
+                    const nx = -dx * factor;
+                    const ny = -dy * factor;
                     
                     r = Math.floor((nx + 1.0) * 127.5);
                     g = Math.floor((ny + 1.0) * 127.5);
@@ -40,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return canvas.toDataURL();
     }
 
-    // Generate Normal Map for Cube Lens (Flat magnification in middle, edge refraction)
+    // Generate Normal Map for Cube Lens (Apple style: edge-only heavy refraction)
     function generateCubeMap() {
         const canvas = document.createElement('canvas');
         canvas.width = 128;
@@ -62,10 +70,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 let b = 255;
                 
                 if (max <= 1.0) {
-                    // Flat zoom in center, slope down at boundaries
-                    let factor = 0.28;
-                    if (max > 0.8) {
-                        factor = 0.28 * (1.0 - (max - 0.8) / 0.2);
+                    let factor = 0;
+                    if (max < 0.75) {
+                        // Flat magnification in the middle
+                        factor = 0.12;
+                    } else {
+                        // High refraction distortion near the square boundary
+                        const t = (max - 0.75) / 0.25; // 0 to 1
+                        const edgeRefract = Math.sin(Math.PI * t) * 1.05;
+                        factor = 0.12 + edgeRefract;
                     }
                     const nx = -dx * factor;
                     const ny = -dy * factor;
@@ -134,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const feDisplacementMap = document.createElementNS(svgNS, "feDisplacementMap");
     feDisplacementMap.setAttribute("in", "SourceGraphic");
     feDisplacementMap.setAttribute("in2", "map");
-    feDisplacementMap.setAttribute("scale", "35"); // Refraction scale factor
+    feDisplacementMap.setAttribute("scale", "52"); // Increased displacement scale for prominent refraction
     feDisplacementMap.setAttribute("xChannelSelector", "R");
     feDisplacementMap.setAttribute("yChannelSelector", "G");
     
@@ -185,8 +198,8 @@ document.addEventListener('DOMContentLoaded', () => {
             blend.setAttribute('k3', morphCurrent.toFixed(4));
         }
         
-        // Centered translation based on default 56px cursor size
-        cursor.style.transform = `translate(${cursorX - 28}px, ${cursorY - 28}px) scale(${cursorScaleCurrent})`;
+        // Centered translation based on default 72px cursor size (offset = -36px)
+        cursor.style.transform = `translate(${cursorX - 36}px, ${cursorY - 36}px) scale(${cursorScaleCurrent})`;
         
         requestAnimationFrame(animateCursor);
     }
@@ -195,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const interactiveElements = document.querySelectorAll('a, button, .btn-brutalist, .card-brutalist, input, [role="button"]');
     interactiveElements.forEach(el => {
         el.addEventListener('mouseenter', () => {
-            cursorScaleTarget = 1.6;
+            cursorScaleTarget = 1.8;
             morphTarget = 1;
             cursor.classList.add('cube-mode');
         });

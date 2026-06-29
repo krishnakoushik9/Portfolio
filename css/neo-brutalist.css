@@ -171,8 +171,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Custom Glass Cursor (FluidGlass effect) */
 .custom-cursor {
-    width: 56px;
-    height: 56px;
+    width: 72px;
+    height: 72px;
     background: rgba(255, 255, 255, 0.02); /* Crystal clear background */
     border-radius: 50%; /* Lens mode by default */
     position: fixed;
