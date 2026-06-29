@@ -117,65 +117,87 @@ document.addEventListener('DOMContentLoaded', () => {
     const defs = document.createElementNS(svgNS, "defs");
     const filter = document.createElementNS(svgNS, "filter");
     filter.setAttribute("id", "glass-refraction-filter");
-    filter.setAttribute("x", "-20%");
-    filter.setAttribute("y", "-20%");
-    filter.setAttribute("width", "140%");
-    filter.setAttribute("height", "140%");
+    filter.setAttribute("x", "0%");
+    filter.setAttribute("y", "0%");
+    filter.setAttribute("width", "100%");
+    filter.setAttribute("height", "100%");
+    
+    // Flood filter with neutral grey (#808080) for 0 default displacement
+    const feFlood = document.createElementNS(svgNS, "feFlood");
+    feFlood.setAttribute("flood-color", "#808080");
+    feFlood.setAttribute("flood-opacity", "1");
+    feFlood.setAttribute("result", "neutral");
     
     const feImageLens = document.createElementNS(svgNS, "feImage");
+    feImageLens.setAttribute("id", "refraction-map-lens");
     feImageLens.setAttribute("result", "lensMap");
-    feImageLens.setAttribute("width", "100%");
-    feImageLens.setAttribute("height", "100%");
+    feImageLens.setAttribute("width", "72");
+    feImageLens.setAttribute("height", "72");
     feImageLens.setAttribute("preserveAspectRatio", "none");
     feImageLens.setAttribute("href", lensMap);
     feImageLens.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", lensMap);
 
     const feImageCube = document.createElementNS(svgNS, "feImage");
+    feImageCube.setAttribute("id", "refraction-map-cube");
     feImageCube.setAttribute("result", "cubeMap");
-    feImageCube.setAttribute("width", "100%");
-    feImageCube.setAttribute("height", "100%");
+    feImageCube.setAttribute("width", "72");
+    feImageCube.setAttribute("height", "72");
     feImageCube.setAttribute("preserveAspectRatio", "none");
     feImageCube.setAttribute("href", cubeMap);
     feImageCube.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", cubeMap);
     
-    const feComposite = document.createElementNS(svgNS, "feComposite");
-    feComposite.setAttribute("id", "refraction-blend");
-    feComposite.setAttribute("operator", "arithmetic");
-    feComposite.setAttribute("in", "lensMap");
-    feComposite.setAttribute("in2", "cubeMap");
-    feComposite.setAttribute("k1", "0");
-    feComposite.setAttribute("k2", "1");
-    feComposite.setAttribute("k3", "0");
-    feComposite.setAttribute("k4", "0");
-    feComposite.setAttribute("result", "map");
+    const feCompositeBlend = document.createElementNS(svgNS, "feComposite");
+    feCompositeBlend.setAttribute("id", "refraction-blend");
+    feCompositeBlend.setAttribute("operator", "arithmetic");
+    feCompositeBlend.setAttribute("in", "lensMap");
+    feCompositeBlend.setAttribute("in2", "cubeMap");
+    feCompositeBlend.setAttribute("k1", "0");
+    feCompositeBlend.setAttribute("k2", "1");
+    feCompositeBlend.setAttribute("k3", "0");
+    feCompositeBlend.setAttribute("k4", "0");
+    feCompositeBlend.setAttribute("result", "cursorMap");
+
+    // Composite dynamic cursor map on top of full-screen neutral grey background
+    const feCompositeOverlay = document.createElementNS(svgNS, "feComposite");
+    feCompositeOverlay.setAttribute("operator", "over");
+    feCompositeOverlay.setAttribute("in", "cursorMap");
+    feCompositeOverlay.setAttribute("in2", "neutral");
+    feCompositeOverlay.setAttribute("result", "displacementMap");
     
     const feDisplacementMap = document.createElementNS(svgNS, "feDisplacementMap");
     feDisplacementMap.setAttribute("in", "SourceGraphic");
-    feDisplacementMap.setAttribute("in2", "map");
-    feDisplacementMap.setAttribute("scale", "52"); // Increased displacement scale for prominent refraction
+    feDisplacementMap.setAttribute("in2", "displacementMap");
+    feDisplacementMap.setAttribute("scale", "52"); // Displacement scale for refraction
     feDisplacementMap.setAttribute("xChannelSelector", "R");
     feDisplacementMap.setAttribute("yChannelSelector", "G");
     
+    filter.appendChild(feFlood);
     filter.appendChild(feImageLens);
     filter.appendChild(feImageCube);
-    filter.appendChild(feComposite);
+    filter.appendChild(feCompositeBlend);
+    filter.appendChild(feCompositeOverlay);
     filter.appendChild(feDisplacementMap);
     defs.appendChild(filter);
     svg.appendChild(defs);
     document.body.appendChild(svg);
 
+    // Apply the displacement filter to the main content container wrapper
+    const appWrap = document.getElementById('app-wrap');
+    if (appWrap) {
+        appWrap.style.filter = "url(#glass-refraction-filter)";
+        appWrap.style.webkitFilter = "url(#glass-refraction-filter)";
+    }
+
     // Create Custom Cursor DOM Element
     const cursor = document.createElement('div');
     cursor.classList.add('custom-cursor');
-    // Set backdrop filter styling dynamically in JS to bypass external stylesheet path resolution bugs
-    cursor.style.backdropFilter = "url(#glass-refraction-filter)";
-    cursor.style.webkitBackdropFilter = "url(#glass-refraction-filter)";
     document.body.appendChild(cursor);
 
-    let mouseX = 0;
-    let mouseY = 0;
-    let cursorX = 0;
-    let cursorY = 0;
+    let viewportX = 0, viewportY = 0; // viewport coordinates (for cursor translation)
+    let documentX = 0, documentY = 0; // document coordinates (for filter map overlay positioning)
+    
+    let cursorX = 0, cursorY = 0;
+    let filterX = 0, filterY = 0;
 
     let cursorScaleTarget = 1;
     let cursorScaleCurrent = 1;
@@ -183,14 +205,19 @@ document.addEventListener('DOMContentLoaded', () => {
     let morphCurrent = 0;
 
     document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
+        viewportX = e.clientX;
+        viewportY = e.clientY;
+        documentX = e.pageX;
+        documentY = e.pageY;
     });
 
     function animateCursor() {
         const lerp = 0.12; // smooth tracker inertia
-        cursorX += (mouseX - cursorX) * lerp;
-        cursorY += (mouseY - cursorY) * lerp;
+        cursorX += (viewportX - cursorX) * lerp;
+        cursorY += (viewportY - cursorY) * lerp;
+        
+        filterX += (documentX - filterX) * lerp;
+        filterY += (documentY - filterY) * lerp;
         
         // Slower transition rates for prominent, heavy-feeling physical glass animation
         const morphLerp = 0.035; // Morph is slower, taking ~1s to feel the blend
@@ -204,6 +231,25 @@ document.addEventListener('DOMContentLoaded', () => {
         if (blend) {
             blend.setAttribute('k2', (1 - morphCurrent).toFixed(4));
             blend.setAttribute('k3', morphCurrent.toFixed(4));
+        }
+
+        // Update the SVG filter images position to center exactly on filterX, filterY
+        const lensImg = document.getElementById('refraction-map-lens');
+        const cubeImg = document.getElementById('refraction-map-cube');
+        const currentSize = 72 * cursorScaleCurrent;
+        const halfSize = currentSize / 2;
+        
+        if (lensImg) {
+            lensImg.setAttribute('x', (filterX - halfSize).toFixed(1));
+            lensImg.setAttribute('y', (filterY - halfSize).toFixed(1));
+            lensImg.setAttribute('width', currentSize.toFixed(1));
+            lensImg.setAttribute('height', currentSize.toFixed(1));
+        }
+        if (cubeImg) {
+            cubeImg.setAttribute('x', (filterX - halfSize).toFixed(1));
+            cubeImg.setAttribute('y', (filterY - halfSize).toFixed(1));
+            cubeImg.setAttribute('width', currentSize.toFixed(1));
+            cubeImg.setAttribute('height', currentSize.toFixed(1));
         }
         
         // Centered translation based on default 72px cursor size (offset = -36px)
