@@ -104,14 +104,32 @@ document.addEventListener('DOMContentLoaded', () => {
     filter.setAttribute("width", "140%");
     filter.setAttribute("height", "140%");
     
-    const feImage = document.createElementNS(svgNS, "feImage");
-    feImage.setAttribute("id", "refraction-map-image");
-    feImage.setAttribute("result", "map");
-    feImage.setAttribute("width", "100%");
-    feImage.setAttribute("height", "100%");
-    feImage.setAttribute("preserveAspectRatio", "none");
-    feImage.setAttribute("href", lensMap);
-    feImage.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", lensMap);
+    const feImageLens = document.createElementNS(svgNS, "feImage");
+    feImageLens.setAttribute("result", "lensMap");
+    feImageLens.setAttribute("width", "100%");
+    feImageLens.setAttribute("height", "100%");
+    feImageLens.setAttribute("preserveAspectRatio", "none");
+    feImageLens.setAttribute("href", lensMap);
+    feImageLens.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", lensMap);
+
+    const feImageCube = document.createElementNS(svgNS, "feImage");
+    feImageCube.setAttribute("result", "cubeMap");
+    feImageCube.setAttribute("width", "100%");
+    feImageCube.setAttribute("height", "100%");
+    feImageCube.setAttribute("preserveAspectRatio", "none");
+    feImageCube.setAttribute("href", cubeMap);
+    feImageCube.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", cubeMap);
+    
+    const feComposite = document.createElementNS(svgNS, "feComposite");
+    feComposite.setAttribute("id", "refraction-blend");
+    feComposite.setAttribute("operator", "arithmetic");
+    feComposite.setAttribute("in", "lensMap");
+    feComposite.setAttribute("in2", "cubeMap");
+    feComposite.setAttribute("k1", "0");
+    feComposite.setAttribute("k2", "1");
+    feComposite.setAttribute("k3", "0");
+    feComposite.setAttribute("k4", "0");
+    feComposite.setAttribute("result", "map");
     
     const feDisplacementMap = document.createElementNS(svgNS, "feDisplacementMap");
     feDisplacementMap.setAttribute("in", "SourceGraphic");
@@ -120,7 +138,9 @@ document.addEventListener('DOMContentLoaded', () => {
     feDisplacementMap.setAttribute("xChannelSelector", "R");
     feDisplacementMap.setAttribute("yChannelSelector", "G");
     
-    filter.appendChild(feImage);
+    filter.appendChild(feImageLens);
+    filter.appendChild(feImageCube);
+    filter.appendChild(feComposite);
     filter.appendChild(feDisplacementMap);
     defs.appendChild(filter);
     svg.appendChild(defs);
@@ -136,20 +156,37 @@ document.addEventListener('DOMContentLoaded', () => {
     let cursorX = 0;
     let cursorY = 0;
 
+    let cursorScaleTarget = 1;
+    let cursorScaleCurrent = 1;
+    let morphTarget = 0; // 0 = lens, 1 = cube
+    let morphCurrent = 0;
+
     document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
     });
 
-    let cursorScale = 1;
-
     function animateCursor() {
-        const lerp = 0.15;
+        const lerp = 0.12; // smooth tracker inertia
         cursorX += (mouseX - cursorX) * lerp;
         cursorY += (mouseY - cursorY) * lerp;
         
+        // Slower transition rates for prominent, heavy-feeling physical glass animation
+        const morphLerp = 0.035; // Morph is slower, taking ~1s to feel the blend
+        morphCurrent += (morphTarget - morphCurrent) * morphLerp;
+        
+        const scaleLerp = 0.045; // Scale is also slower
+        cursorScaleCurrent += (cursorScaleTarget - cursorScaleCurrent) * scaleLerp;
+        
+        // Update SVG arithmetic composite channels dynamically
+        const blend = document.getElementById('refraction-blend');
+        if (blend) {
+            blend.setAttribute('k2', (1 - morphCurrent).toFixed(4));
+            blend.setAttribute('k3', morphCurrent.toFixed(4));
+        }
+        
         // Centered translation based on default 56px cursor size
-        cursor.style.transform = `translate(${cursorX - 28}px, ${cursorY - 28}px) scale(${cursorScale})`;
+        cursor.style.transform = `translate(${cursorX - 28}px, ${cursorY - 28}px) scale(${cursorScaleCurrent})`;
         
         requestAnimationFrame(animateCursor);
     }
@@ -158,22 +195,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const interactiveElements = document.querySelectorAll('a, button, .btn-brutalist, .card-brutalist, input, [role="button"]');
     interactiveElements.forEach(el => {
         el.addEventListener('mouseenter', () => {
-            cursorScale = 1.6;
+            cursorScaleTarget = 1.6;
+            morphTarget = 1;
             cursor.classList.add('cube-mode');
-            const img = document.getElementById('refraction-map-image');
-            if (img) {
-                img.setAttribute('href', cubeMap);
-                img.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", cubeMap);
-            }
         });
         el.addEventListener('mouseleave', () => {
-            cursorScale = 1;
+            cursorScaleTarget = 1;
+            morphTarget = 0;
             cursor.classList.remove('cube-mode');
-            const img = document.getElementById('refraction-map-image');
-            if (img) {
-                img.setAttribute('href', lensMap);
-                img.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", lensMap);
-            }
         });
     });
 
