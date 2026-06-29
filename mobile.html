@@ -250,18 +250,78 @@
 
     <!-- Achievements Section (IIT BOMBAY) -->
     <section id="achievements" class="section-mobile reveal-mobile">
-        <div class="container-soft dark-bg">
-            <span
-                style="font-size: 11px; color: var(--color-coral); font-weight: 600; display: block; margin-bottom: 8px;">HIGH
-                IMPACT</span>
-            <h2 style="font-size: 28px; margin-bottom: 12px; color: var(--color-white);">1ST PRIZE IIT BOMBAY</h2>
-            <p style="font-size: 14px; opacity: 0.8; margin-bottom: 20px;">
-                Developed an innovative solution at the IIT Bombay Hackathon by Co-grad. Secured the top spot among
-                nationwide talent.
+        <style>
+            .gold-highlight-card {
+                position: relative;
+                background: linear-gradient(145deg, #1e1b18, #2a2421);
+                border: 2px solid #D4AF37; /* Gold border */
+                box-shadow: 0 12px 35px rgba(212, 175, 55, 0.25), 0 0 25px rgba(212, 175, 55, 0.1);
+                border-radius: 2rem;
+                padding: 24px;
+                overflow: hidden;
+            }
+            .gold-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                background: linear-gradient(90deg, #F39C12, #D4AF37);
+                color: #1e1b18;
+                padding: 4px 10px;
+                border-radius: 20px;
+                font-size: 10px;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                margin-bottom: 12px;
+                box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+            }
+            .gold-pulse {
+                width: 8px;
+                height: 8px;
+                background-color: #1e1b18;
+                border-radius: 50%;
+                display: inline-block;
+                animation: goldPulseKey 2s infinite;
+            }
+            @keyframes goldPulseKey {
+                0% { transform: scale(0.95); opacity: 0.5; }
+                50% { transform: scale(1.1); opacity: 1; }
+                100% { transform: scale(0.95); opacity: 0.5; }
+            }
+            .gold-title {
+                font-size: 28px; 
+                margin-bottom: 12px; 
+                color: #FFFFFF;
+                background: linear-gradient(90deg, #FFFFFF, #FFEAA7);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-weight: 800;
+            }
+            .gold-slider-container {
+                border: 2px solid rgba(212, 175, 55, 0.4);
+                border-radius: 1.8rem;
+                overflow: hidden;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            }
+            .gold-slider-container .slide-img-mobile {
+                border-radius: 1.8rem;
+            }
+            #achievement-dots-mobile .slider-dot-mobile.active {
+                background-color: #D4AF37 !important;
+            }
+        </style>
+        <div class="gold-highlight-card">
+            <div class="gold-badge">
+                <span class="gold-pulse"></span>
+                <span>🏆 1ST PLACE — CHAMPION</span>
+            </div>
+            <h2 class="gold-title">1ST PRIZE IIT BOMBAY</h2>
+            <p style="font-size: 14px; opacity: 0.9; margin-bottom: 20px; color: #fdfcf8; line-height: 1.5;">
+                Developed an innovative educational ecosystem at the IIT Bombay Hackathon. Secured the top spot among nationwide talent.
             </p>
 
             <!-- Mobile Slideshow Slider -->
-            <div class="slider-container-mobile">
+            <div class="slider-container-mobile gold-slider-container">
                 <div class="slides-wrapper-mobile" id="achievement-wrapper-mobile">
                     <div class="slide-mobile">
                         <img src="./images/win1.jpg" class="slide-img-mobile" alt="IIT Bombay Win Image 1">
@@ -275,11 +335,11 @@
                 </div>
             </div>
 
-            <div class="slider-controls-mobile">
-                <button class="slider-btn-mobile" id="achievement-prev-mobile" style="color: var(--color-white);"><i
+            <div class="slider-controls-mobile" style="margin-top: 16px;">
+                <button class="slider-btn-mobile" id="achievement-prev-mobile" style="color: #D4AF37;"><i
                         class="fas fa-chevron-left"></i></button>
                 <div class="slider-dot-container-mobile" id="achievement-dots-mobile"></div>
-                <button class="slider-btn-mobile" id="achievement-next-mobile" style="color: var(--color-white);"><i
+                <button class="slider-btn-mobile" id="achievement-next-mobile" style="color: #D4AF37;"><i
                         class="fas fa-chevron-right"></i></button>
             </div>
         </div>
