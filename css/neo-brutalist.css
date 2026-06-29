@@ -179,8 +179,7 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
     left: 0;
     pointer-events: none;
-    backdrop-filter: url(#glass-refraction-filter);
-    -webkit-backdrop-filter: url(#glass-refraction-filter);
+    /* backdrop-filter is applied dynamically via JavaScript to ensure correct ID resolution relative to the HTML document */
     border: 2.5px solid rgba(255, 255, 255, 0.7);
     box-shadow: 0 12px 35px 0 rgba(0, 0, 0, 0.25), inset 0 0 12px rgba(255, 255, 255, 0.45);
     z-index: 10000;

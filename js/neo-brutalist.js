@@ -101,12 +101,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const lensMap = generateLensMap();
     const cubeMap = generateCubeMap();
 
-    // Create and append SVG filter for refraction to body dynamically
+    // Create and append SVG filter for refraction to body dynamically.
+    // SVG is rendered with non-zero dimensions off-screen to avoid browser clipping bugs.
     const svgNS = "http://www.w3.org/2000/svg";
     const svg = document.createElementNS(svgNS, "svg");
-    svg.setAttribute("width", "0");
-    svg.setAttribute("height", "0");
-    svg.style.position = "absolute";
+    svg.setAttribute("width", "128");
+    svg.setAttribute("height", "128");
+    svg.style.position = "fixed";
+    svg.style.top = "-9999px";
+    svg.style.left = "-9999px";
+    svg.style.width = "128px";
+    svg.style.height = "128px";
     svg.style.pointerEvents = "none";
     
     const defs = document.createElementNS(svgNS, "defs");
@@ -162,6 +167,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create Custom Cursor DOM Element
     const cursor = document.createElement('div');
     cursor.classList.add('custom-cursor');
+    // Set backdrop filter styling dynamically in JS to bypass external stylesheet path resolution bugs
+    cursor.style.backdropFilter = "url(#glass-refraction-filter)";
+    cursor.style.webkitBackdropFilter = "url(#glass-refraction-filter)";
     document.body.appendChild(cursor);
 
     let mouseX = 0;
