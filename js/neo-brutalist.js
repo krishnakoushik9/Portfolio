@@ -16,23 +16,25 @@ document.addEventListener('DOMContentLoaded', () => {
     let cursorScale = 1;
 
     function animateCursor() {
-        const lerp = 0.2;
+        const lerp = 0.15;
         cursorX += (mouseX - cursorX) * lerp;
         cursorY += (mouseY - cursorY) * lerp;
         
-        cursor.style.transform = `translate(${cursorX - 16}px, ${cursorY - 16}px) scale(${cursorScale})`;
+        cursor.style.transform = `translate(${cursorX - 24}px, ${cursorY - 24}px) scale(${cursorScale})`;
         
         requestAnimationFrame(animateCursor);
     }
     animateCursor();
 
-    const interactiveElements = document.querySelectorAll('a, button, .btn-brutalist, .card-brutalist, input');
+    const interactiveElements = document.querySelectorAll('a, button, .btn-brutalist, .card-brutalist, input, [role="button"]');
     interactiveElements.forEach(el => {
         el.addEventListener('mouseenter', () => {
-            cursorScale = 2.5;
+            cursorScale = 1.8;
+            cursor.classList.add('cube-mode');
         });
         el.addEventListener('mouseleave', () => {
             cursorScale = 1;
+            cursor.classList.remove('cube-mode');
         });
     });
 

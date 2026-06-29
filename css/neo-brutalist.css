@@ -169,19 +169,40 @@ h1, h2, h3, h4, h5, h6 {
     100% { transform: translateX(-50%); }
 }
 
-/* Custom Cursor */
+/* Custom Glass Cursor (FluidGlass effect) */
 .custom-cursor {
-    width: 32px;
-    height: 32px;
-    background: var(--white);
-    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%; /* Lens mode by default */
     position: fixed;
     top: 0;
     left: 0;
     pointer-events: none;
-    mix-blend-mode: difference;
+    backdrop-filter: blur(8px) saturate(180%) contrast(1.15) brightness(1.2);
+    -webkit-backdrop-filter: blur(8px) saturate(180%) contrast(1.15) brightness(1.2);
+    border: 2px solid rgba(255, 255, 255, 0.65);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25), inset 0 0 10px rgba(255, 255, 255, 0.4);
     z-index: 10000;
-    transition: transform 0.2s ease-out;
+    transition: border-radius 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                background 0.3s ease, 
+                border-color 0.3s ease, 
+                box-shadow 0.3s ease;
+    transform-origin: center center;
+}
+
+/* Cube form on interactive hovers */
+.custom-cursor.cube-mode {
+    border-radius: 12px; /* Cube mode */
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.35), inset 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+@media (hover: none) {
+    .custom-cursor {
+        display: none !important;
+    }
 }
 
 /* Sticky Nav */
