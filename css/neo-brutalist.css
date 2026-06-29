@@ -171,18 +171,18 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Custom Glass Cursor (FluidGlass effect) */
 .custom-cursor {
-    width: 48px;
-    height: 48px;
-    background: rgba(255, 255, 255, 0.08);
+    width: 56px;
+    height: 56px;
+    background: rgba(255, 255, 255, 0.02); /* Crystal clear background */
     border-radius: 50%; /* Lens mode by default */
     position: fixed;
     top: 0;
     left: 0;
     pointer-events: none;
-    backdrop-filter: blur(8px) saturate(180%) contrast(1.15) brightness(1.2);
-    -webkit-backdrop-filter: blur(8px) saturate(180%) contrast(1.15) brightness(1.2);
-    border: 2px solid rgba(255, 255, 255, 0.65);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25), inset 0 0 10px rgba(255, 255, 255, 0.4);
+    backdrop-filter: url(#glass-refraction-filter);
+    -webkit-backdrop-filter: url(#glass-refraction-filter);
+    border: 2.5px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 12px 35px 0 rgba(0, 0, 0, 0.25), inset 0 0 12px rgba(255, 255, 255, 0.45);
     z-index: 10000;
     transition: border-radius 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
                 background 0.3s ease, 
@@ -194,9 +194,9 @@ h1, h2, h3, h4, h5, h6 {
 /* Cube form on interactive hovers */
 .custom-cursor.cube-mode {
     border-radius: 12px; /* Cube mode */
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.01); /* Crystal clear background */
     border-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.35), inset 0 0 15px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 16px 45px 0 rgba(0, 0, 0, 0.35), inset 0 0 18px rgba(255, 255, 255, 0.55);
 }
 
 @media (hover: none) {
