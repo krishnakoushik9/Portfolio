@@ -23,9 +23,6 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/neo-brutalist.css">
 
-    <!-- Preload Apple startup chime for iPad/Mac users -->
-    <link rel="preload" href="./src/mac_startup.mp3" as="fetch" crossorigin>
-
     <style>
         /* Additional inline styles for specific layout needs */
         .hero-title {
@@ -1058,13 +1055,11 @@
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
     <!-- Apple Startup Chime (iPad landscape + MacBook only) -->
-    <audio id="apple-startup-chime" preload="auto" src="./src/mac_startup.mp3"></audio>
+    <audio id="apple-startup-chime" preload="none"></audio>
     <script>
     (function() {
         var device = window.__DEVICE_CLASS || '';
-        // Only play for iPad in landscape or desktop (MacBook)
         if (device !== 'ipad-landscape' && device !== 'desktop') return;
-        // Only play for Apple devices
         var ua = navigator.userAgent || '';
         var isApple = /Macintosh|Mac OS|iPad/i.test(ua);
         if (!isApple) return;
@@ -1073,14 +1068,13 @@
         if (!chime) return;
 
         function playChime() {
-            chime.currentTime = 0;
+            chime.src = './src/mac_startup.mp3';
             chime.volume = 0.5;
+            chime.load();
             var p = chime.play();
             if (p && typeof p.catch === 'function') {
                 p.catch(function() {
-                    // Autoplay blocked — play on first user interaction
                     function playOnce() {
-                        chime.currentTime = 0;
                         chime.play();
                         document.removeEventListener('click', playOnce);
                         document.removeEventListener('touchstart', playOnce);
@@ -1093,11 +1087,10 @@
             }
         }
 
-        // Play after page settles
         if (document.readyState === 'complete') {
-            playChime();
+            setTimeout(playChime, 300);
         } else {
-            window.addEventListener('load', playChime);
+            window.addEventListener('load', function() { setTimeout(playChime, 300); });
         }
     })();
     </script>
