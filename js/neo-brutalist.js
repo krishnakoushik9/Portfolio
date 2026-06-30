@@ -11,16 +11,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const isFirefox = userAgentLower.includes('firefox');
     const isChromium = (!!window.chrome || userAgentLower.includes('chrome')) && !isFirefox && !isSafari;
 
-    // Disable full-page SVG displacement maps for Firefox too to guarantee stable 60+ FPS on Firefox laptops
-    const shouldApplyRefraction = !isTouchDevice && !isSafari && !isIOS && !isFirefox;
+    // Fetch GPU Details using WebGL Debugger
+    let gpuRenderer = '';
+    let gpuVendor = '';
+    try {
+        const canvas = document.createElement('canvas');
+        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        if (gl) {
+            const ext = gl.getExtension('WEBGL_debug_renderer_info');
+            if (ext) {
+                gpuVendor = (gl.getParameter(ext.UNMASKED_VENDOR_WEBGL) || '').toLowerCase();
+                gpuRenderer = (gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) || '').toLowerCase();
+            }
+        }
+    } catch (e) {
+        console.warn('[GPU Detect] WebGL info query blocked or failed.', e);
+    }
+
+    // Identify low-power GPUs (integrated Intel, basic AMD, software SwiftShader)
+    const isLowPowerGpu = gpuRenderer.includes('intel') || 
+                         (gpuRenderer.includes('amd') && gpuRenderer.includes('graphics')) || 
+                         gpuRenderer.includes('swiftshader') || 
+                         gpuRenderer.includes('software');
+
+    // Identify NVIDIA + Chromium combo to forcefully pressure shaders on these setups
+    const isNvidiaChromium = isChromium && gpuRenderer.includes('nvidia');
+
+    // Disable full-page SVG displacement maps for Firefox, Safari, iOS, and detected low-power GPUs for butter-smooth 60+ FPS fallbacks
+    const shouldApplyRefraction = !isTouchDevice && !isSafari && !isIOS && !isFirefox && !isLowPowerGpu;
     
     // Custom cursor visibility: only show on desktop (non-touch devices)
     const showCursor = !isTouchDevice;
 
-    // Browser-specific visual settings to stress Chromium GPUs
-    const normalMapSize = (isWindows && isChromium) ? 256 : 128;
-    const edgeRefractIntensity = (isWindows && isChromium) ? 1.45 : 1.05; // Increased distortion intensity
-    const refractionScale = (isWindows && isChromium) ? 95 : 60; // Increased scale for more refraction
+    // GPU capability-based visual settings
+    // 512 for Nvidia Chromium to stress the GPU; 128 for others
+    const normalMapSize = isNvidiaChromium ? 512 : 128;
+    const edgeRefractIntensity = isNvidiaChromium ? 1.65 : 1.05; 
+    const refractionScale = isNvidiaChromium ? 110 : 60;
 
     if (showCursor) {
         // Generate Normal Map for Sphere Lens (soft-faded at edges, active in middle)
@@ -46,8 +73,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     let b = 255;
                     
                     if (d <= 1.0) {
+                        // High-frequency micro-wave overlay for Nvidia + Chromium to stress shader units
+                        let microWarp = 0;
+                        if (isNvidiaChromium) {
+                            microWarp = Math.sin(dx * 60) * Math.cos(dy * 60) * 0.08;
+                        }
+
                         // Continuous profile: active in center, peaking in mid-area, fading smoothly to 0 at edge
-                        const baseFactor = Math.sin(Math.PI * d) * 0.75 + (1.0 - d) * 0.45;
+                        const baseFactor = Math.sin(Math.PI * d) * 0.75 + (1.0 - d) * 0.45 + microWarp;
                         const factor = baseFactor * edgeRefractIntensity;
                         
                         const nx = -dx * factor;
@@ -92,8 +125,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     let b = 255;
                     
                     if (d <= 1.0) {
+                        // High-frequency micro-wave overlay for Nvidia + Chromium to stress shader units
+                        let microWarp = 0;
+                        if (isNvidiaChromium) {
+                            microWarp = Math.sin(dx * 60) * Math.cos(dy * 60) * 0.08;
+                        }
+
                         // Continuous profile: active in center, peaking in mid-area, fading smoothly to 0 at edge
-                        const baseFactor = Math.sin(Math.PI * d) * 0.8 + (1.0 - d) * 0.45;
+                        const baseFactor = Math.sin(Math.PI * d) * 0.8 + (1.0 - d) * 0.45 + microWarp;
                         const factor = baseFactor * edgeRefractIntensity;
                         
                         const nx = -dx * factor;
@@ -198,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Apply displacement filter to the main wrapper
             const appWrap = document.getElementById('app-wrap');
             if (appWrap) {
-                // Hint Windows Chromium browsers to forcefully run rendering and filters on primary GPU layers
+                // Hint Windows/Chromium/Nvidia browsers to forcefully run rendering and filters on primary GPU layers
                 if (isWindows && isChromium) {
                     appWrap.style.willChange = "transform, filter";
                     appWrap.style.transform = "translate3d(0, 0, 0)";
@@ -215,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Force GPU translation layering and will-change on the cursor
         cursor.style.willChange = "transform";
         
-        // If SVG refraction is NOT supported/applied (e.g. Firefox, Safari), apply native CSS glass fallback
+        // If SVG refraction is NOT supported/applied (e.g. Firefox, Safari, Low-power GPU), apply native CSS glass fallback
         if (!shouldApplyRefraction) {
             cursor.style.backdropFilter = "blur(12px) saturate(140%)";
             cursor.style.webkitBackdropFilter = "blur(12px) saturate(140%)";
