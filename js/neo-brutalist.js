@@ -28,23 +28,18 @@ document.addEventListener('DOMContentLoaded', () => {
         console.warn('[GPU Detect] WebGL info query blocked or failed.', e);
     }
 
-    // Identify low-power GPUs (integrated Intel, basic AMD, software SwiftShader)
-    const isLowPowerGpu = gpuRenderer.includes('intel') || 
-                         (gpuRenderer.includes('amd') && gpuRenderer.includes('graphics')) || 
-                         gpuRenderer.includes('swiftshader') || 
-                         gpuRenderer.includes('software');
-
     // Identify NVIDIA + Chromium combo to forcefully pressure shaders on these setups
     const isNvidiaChromium = isChromium && gpuRenderer.includes('nvidia');
 
-    // Disable full-page SVG displacement maps for Firefox, Safari, iOS, and detected low-power GPUs for butter-smooth 60+ FPS fallbacks
-    const shouldApplyRefraction = !isTouchDevice && !isSafari && !isIOS && !isFirefox && !isLowPowerGpu;
+    // Enable SVG displacement map on all Chromium browsers (including Chrome + Intel).
+    // Safari, iOS, and Firefox users use native CSS fallback for best compatibility and performance.
+    const shouldApplyRefraction = !isTouchDevice && !isSafari && !isIOS && !isFirefox;
     
     // Custom cursor visibility: only show on desktop (non-touch devices)
     const showCursor = !isTouchDevice;
 
     // GPU capability-based visual settings
-    // 512 for Nvidia Chromium to stress the GPU; 128 for others
+    // 512 & scale 110 for Nvidia Chromium; 128 & scale 60 for Intel/other Chromium
     const normalMapSize = isNvidiaChromium ? 512 : 128;
     const edgeRefractIntensity = isNvidiaChromium ? 1.65 : 1.05; 
     const refractionScale = isNvidiaChromium ? 110 : 60;
@@ -73,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     let b = 255;
                     
                     if (d <= 1.0) {
-                        // High-frequency micro-wave overlay for Nvidia + Chromium to stress shader units
+                        // High-frequency micro-wave overlay ONLY for Nvidia + Chromium to stress shaders
                         let microWarp = 0;
                         if (isNvidiaChromium) {
                             microWarp = Math.sin(dx * 60) * Math.cos(dy * 60) * 0.08;
@@ -125,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     let b = 255;
                     
                     if (d <= 1.0) {
-                        // High-frequency micro-wave overlay for Nvidia + Chromium to stress shader units
+                        // High-frequency micro-wave overlay ONLY for Nvidia + Chromium to stress shaders
                         let microWarp = 0;
                         if (isNvidiaChromium) {
                             microWarp = Math.sin(dx * 60) * Math.cos(dy * 60) * 0.08;
@@ -254,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Force GPU translation layering and will-change on the cursor
         cursor.style.willChange = "transform";
         
-        // If SVG refraction is NOT supported/applied (e.g. Firefox, Safari, Low-power GPU), apply native CSS glass fallback
+        // If SVG refraction is NOT supported/applied (e.g. Firefox, Safari), apply native CSS glass fallback
         if (!shouldApplyRefraction) {
             cursor.style.backdropFilter = "blur(12px) saturate(140%)";
             cursor.style.webkitBackdropFilter = "blur(12px) saturate(140%)";
