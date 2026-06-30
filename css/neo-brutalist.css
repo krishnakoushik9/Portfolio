@@ -283,3 +283,29 @@ h1, h2, h3, h4, h5, h6 {
         display: none;
     }
 }
+
+/* Tablet & Smaller Laptop Optimizations (iPads/Macs/Laptops) */
+@media (max-width: 1024px) {
+    #github-projects-container > div {
+        grid-column: span 12 !important;
+        margin-top: 1rem;
+    }
+    .flagship-card {
+        flex-direction: column !important;
+        height: auto !important;
+        min-height: auto !important;
+    }
+    .flagship-card > div:first-child {
+        width: 100% !important;
+        padding: 2rem !important;
+    }
+    .flagship-card > div:last-child {
+        width: 100% !important;
+        min-width: 100% !important;
+        border-left: none !important;
+        border-top: 4px solid var(--ink) !important;
+    }
+    .flagship-card iframe {
+        min-height: 300px !important;
+    }
+}
