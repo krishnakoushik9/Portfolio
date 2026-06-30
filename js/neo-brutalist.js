@@ -171,6 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
             filter.setAttribute("y", "0%");
             filter.setAttribute("width", "100%");
             filter.setAttribute("height", "100%");
+            filter.setAttribute("color-interpolation-filters", "sRGB");
             
             const feFlood = document.createElementNS(svgNS, "feFlood");
             feFlood.setAttribute("flood-color", "#808080");
