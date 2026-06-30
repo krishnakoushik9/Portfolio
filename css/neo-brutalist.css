@@ -296,18 +296,35 @@ h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
 }
 
-/* Dynamic Bento Grid Column Span Classes */
-.col-span-featured {
-    grid-column: span 8;
+/* ============================================
+   MASONRY LAYOUT for Codebase Section
+   Uses CSS Columns — each card sizes to its own
+   content. No equal-height rows.
+   ============================================ */
+
+#github-projects-container {
+    display: block !important; /* Override grid-bento's display: grid */
+    column-count: 2;
+    column-gap: 2rem;
 }
-.col-span-standard {
-    grid-column: span 4;
+
+#github-projects-container > div {
+    break-inside: avoid;
+    margin-bottom: 2rem;
 }
-.col-span-half {
-    grid-column: span 6;
+
+/* Section dividers (GITLAB / GITHUB headers) span all columns */
+.section-divider {
+    column-span: all;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 4px solid var(--ink);
+    padding-bottom: 1rem;
 }
-.col-span-full {
-    grid-column: span 12;
+
+/* Flagship project spans all columns */
+.flagship-span {
+    column-span: all;
 }
 
 /* Featured Card Layout — Image on top, text below (vertical stack) */
@@ -315,7 +332,6 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    height: 100%;
 }
 .card-featured-layout .image-wrapper {
     width: 100%;
@@ -331,18 +347,10 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
 }
 
-/* Tablet & Smaller Laptop Optimizations (iPads/Macs/Laptops) */
+/* Tablet & Smaller Screens */
 @media (max-width: 1024px) {
-    #github-projects-container > div,
-    .col-span-featured,
-    .col-span-standard,
-    .col-span-half,
-    .col-span-full {
-        grid-column: span 12 !important;
-    }
-
-    .card-featured-layout .image-wrapper {
-        aspect-ratio: 16 / 9;
+    #github-projects-container {
+        column-count: 1 !important;
     }
 
     .flagship-card {
@@ -364,3 +372,4 @@ h1, h2, h3, h4, h5, h6 {
         min-height: 300px !important;
     }
 }
+
