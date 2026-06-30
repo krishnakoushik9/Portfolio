@@ -310,19 +310,25 @@ h1, h2, h3, h4, h5, h6 {
     grid-column: span 12;
 }
 
-/* Featured Dynamic Row Layout (Text Left, Image Right) */
+/* Featured Card Layout — Image on top, text below (vertical stack) */
 .card-featured-layout {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     overflow: hidden;
     height: 100%;
 }
 .card-featured-layout .image-wrapper {
-    width: 30%;
-    min-width: 180px;
+    width: 100%;
+    aspect-ratio: 16 / 9;
     flex-shrink: 0;
-    border-left: 4px solid var(--ink);
-    border-bottom: none !important;
+    border-bottom: 4px solid var(--ink);
+    order: -1; /* Image always on top */
+}
+.card-featured-layout .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 /* Tablet & Smaller Laptop Optimizations (iPads/Macs/Laptops) */
@@ -334,17 +340,9 @@ h1, h2, h3, h4, h5, h6 {
     .col-span-full {
         grid-column: span 12 !important;
     }
-    
-    .card-featured-layout {
-        flex-direction: column !important;
-    }
+
     .card-featured-layout .image-wrapper {
-        width: 100% !important;
-        min-width: 100% !important;
-        height: 260px !important;
-        border-left: none !important;
-        border-bottom: 4px solid var(--ink) !important;
-        order: -1;
+        aspect-ratio: 16 / 9;
     }
 
     .flagship-card {
