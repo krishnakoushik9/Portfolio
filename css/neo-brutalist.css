@@ -318,8 +318,9 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
 }
 .card-featured-layout .image-wrapper {
-    width: 35%;
-    min-width: 260px;
+    height: 100%;
+    aspect-ratio: var(--image-aspect, 1.5);
+    flex-shrink: 0;
     border-left: 4px solid var(--ink);
     border-bottom: none !important;
 }
@@ -339,9 +340,11 @@ h1, h2, h3, h4, h5, h6 {
     }
     .card-featured-layout .image-wrapper {
         width: 100% !important;
-        height: 240px !important;
+        height: auto !important;
+        aspect-ratio: var(--image-aspect, 1.5) !important;
         border-left: none !important;
         border-bottom: 4px solid var(--ink) !important;
+        order: -1; /* Place image on top on mobile/tablet */
     }
 
     .flagship-card {
