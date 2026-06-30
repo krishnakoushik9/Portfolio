@@ -318,8 +318,8 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
 }
 .card-featured-layout .image-wrapper {
-    height: 100%;
-    aspect-ratio: var(--image-aspect, 1.5);
+    width: 30%;
+    min-width: 180px;
     flex-shrink: 0;
     border-left: 4px solid var(--ink);
     border-bottom: none !important;
@@ -340,11 +340,11 @@ h1, h2, h3, h4, h5, h6 {
     }
     .card-featured-layout .image-wrapper {
         width: 100% !important;
-        height: auto !important;
-        aspect-ratio: var(--image-aspect, 1.5) !important;
+        min-width: 100% !important;
+        height: 260px !important;
         border-left: none !important;
         border-bottom: 4px solid var(--ink) !important;
-        order: -1; /* Place image on top on mobile/tablet */
+        order: -1;
     }
 
     .flagship-card {
