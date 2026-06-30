@@ -22,6 +22,9 @@
 
     <!-- Custom Softly Mobile CSS -->
     <link rel="stylesheet" href="./css/mobile-softly.css">
+
+    <!-- Preload iPhone startup chime -->
+    <link rel="preload" href="./src/macintosh_lc.mp3" as="fetch" crossorigin>
 </head>
 
 <body>
@@ -1095,6 +1098,43 @@
 
     <!-- Custom Mobile JS -->
     <script src="./js/mobile-app.js"></script>
+
+    <!-- iPhone Startup Chime -->
+    <audio id="iphone-startup-chime" preload="auto" src="./src/macintosh_lc.mp3"></audio>
+    <script>
+    (function() {
+        // Only play for iPhone users
+        var ua = navigator.userAgent || '';
+        if (!/iPhone/i.test(ua)) return;
+
+        var chime = document.getElementById('iphone-startup-chime');
+        if (!chime) return;
+
+        function playChime() {
+            chime.currentTime = 0;
+            chime.volume = 0.45;
+            var p = chime.play();
+            if (p && typeof p.catch === 'function') {
+                p.catch(function() {
+                    function playOnce() {
+                        chime.currentTime = 0;
+                        chime.play();
+                        document.removeEventListener('click', playOnce);
+                        document.removeEventListener('touchstart', playOnce);
+                    }
+                    document.addEventListener('click', playOnce, { once: true });
+                    document.addEventListener('touchstart', playOnce, { once: true });
+                });
+            }
+        }
+
+        if (document.readyState === 'complete') {
+            playChime();
+        } else {
+            window.addEventListener('load', playChime);
+        }
+    })();
+    </script>
 
 </body>
 
