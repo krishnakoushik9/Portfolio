@@ -1,9 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Device & Browser Capability Detection
+    // Device, Platform & Browser Capability Detection
     const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
     const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
                   (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    
+    const userAgentLower = navigator.userAgent.toLowerCase();
+    const platformLower = (navigator.platform || '').toLowerCase();
+    const isWindows = platformLower.includes('win') || userAgentLower.includes('windows');
+    const isFirefox = userAgentLower.includes('firefox');
+    const isChromium = (!!window.chrome || userAgentLower.includes('chrome')) && !isFirefox && !isSafari;
 
     // Apply refraction SVG displacement map ONLY on desktop Chrome/Firefox/Edge (non-Safari, non-touch)
     const shouldApplyRefraction = !isTouchDevice && !isSafari && !isIOS;
@@ -11,20 +17,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // Custom cursor visibility: only show on desktop (non-touch devices)
     const showCursor = !isTouchDevice;
 
+    // Browser-specific visual settings to optimize Firefox or stress Windows Chromium GPUs
+    const normalMapSize = (isWindows && isChromium) ? 256 : (isFirefox ? 64 : 128);
+    const edgeRefractIntensity = (isWindows && isChromium) ? 1.25 : (isFirefox ? 0.45 : 0.95);
+    const refractionScale = (isWindows && isChromium) ? 85 : (isFirefox ? 22 : 52);
+
     if (showCursor) {
-        // Generate Normal Map for Sphere Lens (Apple style: edge-only heavy refraction)
+        // Generate Normal Map for Sphere Lens
         function generateLensMap() {
             const canvas = document.createElement('canvas');
-            canvas.width = 128;
-            canvas.height = 128;
+            canvas.width = normalMapSize;
+            canvas.height = normalMapSize;
             const ctx = canvas.getContext('2d');
-            const imgData = ctx.createImageData(128, 128);
+            const imgData = ctx.createImageData(normalMapSize, normalMapSize);
             const data = imgData.data;
+            const size = normalMapSize;
+            const half = size / 2;
             
-            for (let y = 0; y < 128; y++) {
-                for (let x = 0; x < 128; x++) {
-                    const dx = (x - 64) / 64;
-                    const dy = (y - 64) / 64;
+            for (let y = 0; y < size; y++) {
+                for (let x = 0; x < size; x++) {
+                    const dx = (x - half) / half;
+                    const dy = (y - half) / half;
                     const r2 = dx*dx + dy*dy;
                     
                     let r = 128;
@@ -35,12 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (d <= 1.0) {
                         let factor = 0;
                         if (d < 0.7) {
-                            // Center is clear with very slight magnification
                             factor = 0.08 * d;
                         } else {
-                            // Edges refract heavily (Apple Liquid Glass design)
-                            const t = (d - 0.7) / 0.3; // 0 to 1
-                            const edgeRefract = Math.sin(Math.PI * t) * 0.95;
+                            const t = (d - 0.7) / 0.3;
+                            const edgeRefract = Math.sin(Math.PI * t) * edgeRefractIntensity;
                             factor = (0.08 * d) + edgeRefract;
                         }
                         const nx = -dx * factor;
@@ -50,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         g = Math.floor((ny + 1.0) * 127.5);
                     }
                     
-                    const idx = (y * 128 + x) * 4;
+                    const idx = (y * size + x) * 4;
                     data[idx] = r;
                     data[idx + 1] = g;
                     data[idx + 2] = b;
@@ -61,19 +72,21 @@ document.addEventListener('DOMContentLoaded', () => {
             return canvas.toDataURL();
         }
 
-        // Generate Normal Map for Cube Lens (Apple style: edge-only heavy refraction)
+        // Generate Normal Map for Cube Lens
         function generateCubeMap() {
             const canvas = document.createElement('canvas');
-            canvas.width = 128;
-            canvas.height = 128;
+            canvas.width = normalMapSize;
+            canvas.height = normalMapSize;
             const ctx = canvas.getContext('2d');
-            const imgData = ctx.createImageData(128, 128);
+            const imgData = ctx.createImageData(normalMapSize, normalMapSize);
             const data = imgData.data;
+            const size = normalMapSize;
+            const half = size / 2;
             
-            for (let y = 0; y < 128; y++) {
-                for (let x = 0; x < 128; x++) {
-                    const dx = (x - 64) / 64;
-                    const dy = (y - 64) / 64;
+            for (let y = 0; y < size; y++) {
+                for (let x = 0; x < size; x++) {
+                    const dx = (x - half) / half;
+                    const dy = (y - half) / half;
                     const ax = Math.abs(dx);
                     const ay = Math.abs(dy);
                     const max = Math.max(ax, ay);
@@ -85,12 +98,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (max <= 1.0) {
                         let factor = 0;
                         if (max < 0.75) {
-                            // Flat magnification in the middle
                             factor = 0.12;
                         } else {
-                            // High refraction distortion near the square boundary
-                            const t = (max - 0.75) / 0.25; // 0 to 1
-                            const edgeRefract = Math.sin(Math.PI * t) * 1.05;
+                            const t = (max - 0.75) / 0.25;
+                            const edgeRefract = Math.sin(Math.PI * t) * (edgeRefractIntensity * 1.1);
                             factor = 0.12 + edgeRefract;
                         }
                         const nx = -dx * factor;
@@ -100,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         g = Math.floor((ny + 1.0) * 127.5);
                     }
                     
-                    const idx = (y * 128 + x) * 4;
+                    const idx = (y * size + x) * 4;
                     data[idx] = r;
                     data[idx + 1] = g;
                     data[idx + 2] = b;
@@ -111,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return canvas.toDataURL();
         }
 
-        // Only build and inject SVG filter if displacement-map refraction is supported and performant (Desktop Chrome/Firefox/Edge)
+        // Only build and inject SVG filter if displacement-map refraction is supported
         if (shouldApplyRefraction) {
             const lensMap = generateLensMap();
             const cubeMap = generateCubeMap();
@@ -135,7 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
             filter.setAttribute("width", "100%");
             filter.setAttribute("height", "100%");
             
-            // Flood filter with neutral grey (#808080) for 0 default displacement
             const feFlood = document.createElementNS(svgNS, "feFlood");
             feFlood.setAttribute("flood-color", "#808080");
             feFlood.setAttribute("flood-opacity", "1");
@@ -170,7 +180,6 @@ document.addEventListener('DOMContentLoaded', () => {
             feCompositeBlend.setAttribute("k4", "0");
             feCompositeBlend.setAttribute("result", "cursorMap");
 
-            // Composite dynamic cursor map on top of full-screen neutral grey background
             const feCompositeOverlay = document.createElementNS(svgNS, "feComposite");
             feCompositeOverlay.setAttribute("operator", "over");
             feCompositeOverlay.setAttribute("in", "cursorMap");
@@ -180,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const feDisplacementMap = document.createElementNS(svgNS, "feDisplacementMap");
             feDisplacementMap.setAttribute("in", "SourceGraphic");
             feDisplacementMap.setAttribute("in2", "displacementMap");
-            feDisplacementMap.setAttribute("scale", "52");
+            feDisplacementMap.setAttribute("scale", refractionScale.toString());
             feDisplacementMap.setAttribute("xChannelSelector", "R");
             feDisplacementMap.setAttribute("yChannelSelector", "G");
             
@@ -194,9 +203,14 @@ document.addEventListener('DOMContentLoaded', () => {
             svg.appendChild(defs);
             document.body.appendChild(svg);
 
-            // Apply the displacement filter to the main content container wrapper
+            // Apply displacement filter to the main wrapper
             const appWrap = document.getElementById('app-wrap');
             if (appWrap) {
+                // Hint Windows Chromium browsers to forcefully run rendering and filters on primary GPU layers
+                if (isWindows && isChromium) {
+                    appWrap.style.willChange = "transform, filter";
+                    appWrap.style.transform = "translate3d(0, 0, 0)";
+                }
                 appWrap.style.filter = "url(#glass-refraction-filter)";
                 appWrap.style.webkitFilter = "url(#glass-refraction-filter)";
             }
@@ -206,7 +220,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const cursor = document.createElement('div');
         cursor.classList.add('custom-cursor');
         
-        // If SVG refraction is NOT supported/applied (e.g., macOS Safari), apply native CSS glass fallback
+        // Force GPU translation layering and will-change on the cursor
+        cursor.style.willChange = "transform";
+        
         if (!shouldApplyRefraction) {
             cursor.style.backdropFilter = "blur(12px) saturate(140%)";
             cursor.style.webkitBackdropFilter = "blur(12px) saturate(140%)";
@@ -228,6 +244,50 @@ document.addEventListener('DOMContentLoaded', () => {
         let morphTarget = 0; // 0 = lens, 1 = cube
         let morphCurrent = 0;
 
+        // FPS Monitoring States
+        let fpsHistory = [];
+        let lastFrameTime = performance.now();
+        let hasShownFpsPopup = false;
+        const pageStartTime = performance.now();
+
+        // Notification function
+        function showFirefoxToast() {
+            const toast = document.createElement('div');
+            toast.style.position = 'fixed';
+            toast.style.top = '20px';
+            toast.style.right = '20px';
+            toast.style.background = '#000000';
+            toast.style.color = '#ffffff';
+            toast.style.border = '3px solid #000000';
+            toast.style.boxShadow = '4px 4px 0px #000000';
+            toast.style.padding = '12px 20px';
+            toast.style.fontFamily = 'monospace';
+            toast.style.fontWeight = 'bold';
+            toast.style.fontSize = '14px';
+            toast.style.zIndex = '1000000';
+            toast.style.transition = 'all 0.5s cubic-bezier(0.25, 1, 0.33, 1)';
+            toast.style.transform = 'translateY(-100px)';
+            toast.style.opacity = '0';
+            toast.textContent = 'Download Firefox for better experience';
+            
+            document.body.appendChild(toast);
+            
+            // Slide in
+            setTimeout(() => {
+                toast.style.transform = 'translateY(0)';
+                toast.style.opacity = '1';
+            }, 50);
+            
+            // Slide out and remove after 5 seconds
+            setTimeout(() => {
+                toast.style.transform = 'translateY(-100px)';
+                toast.style.opacity = '0';
+                setTimeout(() => {
+                    toast.remove();
+                }, 500);
+            }, 5050);
+        }
+
         document.addEventListener('mousemove', (e) => {
             viewportX = e.clientX;
             viewportY = e.clientY;
@@ -236,6 +296,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         function animateCursor() {
+            const now = performance.now();
+            const deltaFrame = now - lastFrameTime;
+            lastFrameTime = now;
+
+            // Track FPS & show warning if it drops below 30FPS (after 2s stabilization buffer)
+            if (now - pageStartTime > 2000 && !hasShownFpsPopup) {
+                const currentFps = 1000 / deltaFrame;
+                fpsHistory.push(currentFps);
+                if (fpsHistory.length > 30) {
+                    fpsHistory.shift();
+                }
+                const avgFps = fpsHistory.reduce((a, b) => a + b, 0) / fpsHistory.length;
+                if (fpsHistory.length >= 30 && avgFps < 30) {
+                    showFirefoxToast();
+                    hasShownFpsPopup = true;
+                }
+            }
+
             const lerp = 0.12;
             cursorX += (viewportX - cursorX) * lerp;
             cursorY += (viewportY - cursorY) * lerp;
@@ -277,7 +355,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
             
-            cursor.style.transform = `translate(${cursorX - 36}px, ${cursorY - 36}px) scale(${cursorScaleCurrent})`;
+            // hardware-accelerated translate3d translation to bypass CPU thread bottlenecks
+            cursor.style.transform = `translate3d(${(cursorX - 36).toFixed(1)}px, ${(cursorY - 36).toFixed(1)}px, 0) scale(${cursorScaleCurrent.toFixed(3)})`;
             
             requestAnimationFrame(animateCursor);
         }
@@ -298,7 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Book Popup Logic (Unconditionally active for all screen sizes and devices)
+    // Book Popup Logic
     const bookBtn = document.getElementById('book-btn');
     const bookPopup = document.getElementById('book-popup');
     const closePopup = document.getElementById('close-popup');
