@@ -190,9 +190,8 @@ h1, h2, h3, h4, h5, h6 {
     transform-origin: center center;
 }
 
-/* Cube form on interactive hovers */
 .custom-cursor.cube-mode {
-    border-radius: 12px; /* Cube mode */
+    border-radius: 28px; /* Soft-cornered organic squircle */
     background: rgba(255, 255, 255, 0.01); /* Crystal clear background */
     border-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 16px 45px 0 rgba(0, 0, 0, 0.35), inset 0 0 18px rgba(255, 255, 255, 0.55);

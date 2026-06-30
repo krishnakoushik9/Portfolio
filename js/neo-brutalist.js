@@ -11,19 +11,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const isFirefox = userAgentLower.includes('firefox');
     const isChromium = (!!window.chrome || userAgentLower.includes('chrome')) && !isFirefox && !isSafari;
 
-    // Apply refraction SVG displacement map ONLY on desktop Chrome/Firefox/Edge (non-Safari, non-touch)
-    const shouldApplyRefraction = !isTouchDevice && !isSafari && !isIOS;
+    // Disable full-page SVG displacement maps for Firefox too to guarantee stable 60+ FPS on Firefox laptops
+    const shouldApplyRefraction = !isTouchDevice && !isSafari && !isIOS && !isFirefox;
     
     // Custom cursor visibility: only show on desktop (non-touch devices)
     const showCursor = !isTouchDevice;
 
-    // Browser-specific visual settings to optimize Firefox or stress Windows Chromium GPUs
-    const normalMapSize = (isWindows && isChromium) ? 256 : (isFirefox ? 64 : 128);
-    const edgeRefractIntensity = (isWindows && isChromium) ? 1.25 : (isFirefox ? 0.45 : 0.95);
-    const refractionScale = (isWindows && isChromium) ? 85 : (isFirefox ? 22 : 52);
+    // Browser-specific visual settings to stress Chromium GPUs
+    const normalMapSize = (isWindows && isChromium) ? 256 : 128;
+    const edgeRefractIntensity = (isWindows && isChromium) ? 1.45 : 1.05; // Increased distortion intensity
+    const refractionScale = (isWindows && isChromium) ? 95 : 60; // Increased scale for more refraction
 
     if (showCursor) {
-        // Generate Normal Map for Sphere Lens
+        // Generate Normal Map for Sphere Lens (soft-faded at edges, active in middle)
         function generateLensMap() {
             const canvas = document.createElement('canvas');
             canvas.width = normalMapSize;
@@ -38,22 +38,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 for (let x = 0; x < size; x++) {
                     const dx = (x - half) / half;
                     const dy = (y - half) / half;
-                    const r2 = dx*dx + dy*dy;
+                    
+                    const d = Math.sqrt(dx*dx + dy*dy);
                     
                     let r = 128;
                     let g = 128;
                     let b = 255;
                     
-                    const d = Math.sqrt(r2);
                     if (d <= 1.0) {
-                        let factor = 0;
-                        if (d < 0.7) {
-                            factor = 0.08 * d;
-                        } else {
-                            const t = (d - 0.7) / 0.3;
-                            const edgeRefract = Math.sin(Math.PI * t) * edgeRefractIntensity;
-                            factor = (0.08 * d) + edgeRefract;
-                        }
+                        // Continuous profile: active in center, peaking in mid-area, fading smoothly to 0 at edge
+                        const baseFactor = Math.sin(Math.PI * d) * 0.75 + (1.0 - d) * 0.45;
+                        const factor = baseFactor * edgeRefractIntensity;
+                        
                         const nx = -dx * factor;
                         const ny = -dy * factor;
                         
@@ -72,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return canvas.toDataURL();
         }
 
-        // Generate Normal Map for Cube Lens
+        // Generate Normal Map for Squircle Lens (L_4 norm boundary, soft-faded, active in middle)
         function generateCubeMap() {
             const canvas = document.createElement('canvas');
             canvas.width = normalMapSize;
@@ -87,23 +83,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 for (let x = 0; x < size; x++) {
                     const dx = (x - half) / half;
                     const dy = (y - half) / half;
-                    const ax = Math.abs(dx);
-                    const ay = Math.abs(dy);
-                    const max = Math.max(ax, ay);
+                    
+                    // L_4 norm distance defines a perfect organic squircle (soft rounded corners)
+                    const d = Math.pow(Math.pow(dx, 4) + Math.pow(dy, 4), 0.25);
                     
                     let r = 128;
                     let g = 128;
                     let b = 255;
                     
-                    if (max <= 1.0) {
-                        let factor = 0;
-                        if (max < 0.75) {
-                            factor = 0.12;
-                        } else {
-                            const t = (max - 0.75) / 0.25;
-                            const edgeRefract = Math.sin(Math.PI * t) * (edgeRefractIntensity * 1.1);
-                            factor = 0.12 + edgeRefract;
-                        }
+                    if (d <= 1.0) {
+                        // Continuous profile: active in center, peaking in mid-area, fading smoothly to 0 at edge
+                        const baseFactor = Math.sin(Math.PI * d) * 0.8 + (1.0 - d) * 0.45;
+                        const factor = baseFactor * edgeRefractIntensity;
+                        
                         const nx = -dx * factor;
                         const ny = -dy * factor;
                         
@@ -223,10 +215,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Force GPU translation layering and will-change on the cursor
         cursor.style.willChange = "transform";
         
+        // If SVG refraction is NOT supported/applied (e.g. Firefox, Safari), apply native CSS glass fallback
         if (!shouldApplyRefraction) {
             cursor.style.backdropFilter = "blur(12px) saturate(140%)";
             cursor.style.webkitBackdropFilter = "blur(12px) saturate(140%)";
-            cursor.style.background = "rgba(255, 255, 255, 0.1)";
+            cursor.style.background = "rgba(255, 255, 255, 0.08)";
             cursor.style.border = "1.5px solid rgba(255, 255, 255, 0.45)";
             cursor.style.boxShadow = "0 12px 35px 0 rgba(0, 0, 0, 0.35), inset 0 0 8px rgba(255, 255, 255, 0.25)";
         }
