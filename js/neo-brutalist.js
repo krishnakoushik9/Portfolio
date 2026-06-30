@@ -213,6 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
             feCompositeOverlay.setAttribute("result", "displacementMap");
             
             const feDisplacementMap = document.createElementNS(svgNS, "feDisplacementMap");
+            feDisplacementMap.setAttribute("id", "refraction-displacement-map");
             feDisplacementMap.setAttribute("in", "SourceGraphic");
             feDisplacementMap.setAttribute("in2", "displacementMap");
             feDisplacementMap.setAttribute("scale", refractionScale.toString());
@@ -270,6 +271,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let cursorScaleCurrent = 1;
         let morphTarget = 0; // 0 = lens, 1 = cube
         let morphCurrent = 0;
+
+        // Excluded image state (Krishna face image)
+        let isOverExcludedImage = false;
 
         // FPS Monitoring States
         let fpsHistory = [];
@@ -353,8 +357,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const morphLerp = 0.035;
             morphCurrent += (morphTarget - morphCurrent) * morphLerp;
             
-            const scaleLerp = 0.045;
-            cursorScaleCurrent += (cursorScaleTarget - cursorScaleCurrent) * scaleLerp;
+            // Speed up cursor scaling/hiding when entering the excluded image
+            const scaleLerp = isOverExcludedImage ? 0.18 : 0.045;
+            const currentScaleTarget = isOverExcludedImage ? 0 : cursorScaleTarget;
+            cursorScaleCurrent += (currentScaleTarget - cursorScaleCurrent) * scaleLerp;
             
             if (shouldApplyRefraction) {
                 const blend = document.getElementById('refraction-blend');
@@ -380,6 +386,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     cubeImg.setAttribute('width', currentSize.toFixed(1));
                     cubeImg.setAttribute('height', currentSize.toFixed(1));
                 }
+
+                // Dynamically zero the displacement map scale to disable any SVG distortion on the page
+                const dispMap = document.getElementById('refraction-displacement-map');
+                if (dispMap) {
+                    const activeScale = isOverExcludedImage ? 0 : refractionScale;
+                    dispMap.setAttribute("scale", (activeScale * cursorScaleCurrent).toFixed(1));
+                }
             }
             
             // hardware-accelerated translate3d translation to bypass CPU thread bottlenecks
@@ -389,8 +402,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         animateCursor();
 
+        // Listen for hovers on the face image to hide the custom cursor and stop refraction
+        const faceImg = document.getElementById('hero-face-img');
+        if (faceImg) {
+            faceImg.addEventListener('mouseenter', () => {
+                isOverExcludedImage = true;
+                cursor.style.opacity = '0';
+            });
+            faceImg.addEventListener('mouseleave', () => {
+                isOverExcludedImage = false;
+                cursor.style.opacity = '1';
+            });
+        }
+
         const interactiveElements = document.querySelectorAll('a, button, .btn-brutalist, .card-brutalist, input, [role="button"]');
         interactiveElements.forEach(el => {
+            // Skip the excluded image container wrapper if it has been marked as a card-brutalist
+            if (el.contains(faceImg) || el === faceImg) return;
+            
             el.addEventListener('mouseenter', () => {
                 cursorScaleTarget = 1.8;
                 morphTarget = 1;
