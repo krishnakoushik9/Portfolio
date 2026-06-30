@@ -284,12 +284,66 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Fluid Typography for Card Headings to prevent overflow/clipping */
+.card-brutalist h3 {
+    font-size: clamp(1.6rem, 3.5vw, 2.25rem) !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+.card-brutalist h4 {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem) !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Dynamic Bento Grid Column Span Classes */
+.col-span-featured {
+    grid-column: span 8;
+}
+.col-span-standard {
+    grid-column: span 4;
+}
+.col-span-half {
+    grid-column: span 6;
+}
+.col-span-full {
+    grid-column: span 12;
+}
+
+/* Featured Dynamic Row Layout (Text Left, Image Right) */
+.card-featured-layout {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    height: 100%;
+}
+.card-featured-layout .image-wrapper {
+    width: 35%;
+    min-width: 260px;
+    border-left: 4px solid var(--ink);
+    border-bottom: none !important;
+}
+
 /* Tablet & Smaller Laptop Optimizations (iPads/Macs/Laptops) */
 @media (max-width: 1024px) {
-    #github-projects-container > div {
+    #github-projects-container > div,
+    .col-span-featured,
+    .col-span-standard,
+    .col-span-half,
+    .col-span-full {
         grid-column: span 12 !important;
-        margin-top: 1rem;
     }
+    
+    .card-featured-layout {
+        flex-direction: column !important;
+    }
+    .card-featured-layout .image-wrapper {
+        width: 100% !important;
+        height: 240px !important;
+        border-left: none !important;
+        border-bottom: 4px solid var(--ink) !important;
+    }
+
     .flagship-card {
         flex-direction: column !important;
         height: auto !important;

@@ -553,14 +553,9 @@
                 </div>
 
                 <!-- CRISIS WATCH (GitLab) - IMAGE: src/CRISISWATCH.jpg -->
-                <div style="grid-column: span 6;">
-                    <div class="card-brutalist"
-                        style="height: 100%; padding: 0; display: flex; flex-direction: column; overflow: hidden; border: 4px solid var(--ink); background: var(--white);">
-                        <div
-                            style="width: 100%; height: 240px; border-bottom: 4px solid var(--ink); overflow: hidden; background: #e5e7eb;">
-                            <img src="src/CRISISWATCH.jpg" style="width: 100%; height: 100%; object-fit: cover;"
-                                loading="lazy">
-                        </div>
+                <div class="col-span-featured">
+                    <div class="card-brutalist card-featured-layout"
+                        style="border: 4px solid var(--ink); background: var(--white);">
                         <div
                             style="flex: 1; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
                             <div>
@@ -586,56 +581,15 @@
                                     style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">PULL_REQUEST</a>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- MEDHA AI (GitLab) - IMAGES: src/Win1.jpeg, src/Win2.jpeg, src/Win3.jpeg -->
-                <div style="grid-column: span 6;">
-                    <div class="card-brutalist"
-                        style="height: 100%; padding: 0; display: flex; flex-direction: column; overflow: hidden; border: 4px solid var(--ink); background: var(--white);">
-                        <div
-                            style="width: 100%; height: 240px; border-bottom: 4px solid var(--ink); overflow: hidden; position: relative; background: #e5e7eb;">
-                            <img src="src/Win1.jpeg"
-                                style="position: absolute; width: 100%; height: 100%; object-fit: cover; animation: medhaFade1 9s infinite;"
+                        <div class="image-wrapper" style="background: #e5e7eb; overflow: hidden;">
+                            <img src="src/CRISISWATCH.jpg" style="width: 100%; height: 100%; object-fit: cover;"
                                 loading="lazy">
-                            <img src="src/Win2.jpeg"
-                                style="position: absolute; width: 100%; height: 100%; object-fit: cover; animation: medhaFade2 9s infinite;"
-                                loading="lazy">
-                            <img src="src/Win3.jpeg"
-                                style="position: absolute; width: 100%; height: 100%; object-fit: cover; animation: medhaFade3 9s infinite;"
-                                loading="lazy">
-                        </div>
-                        <div
-                            style="flex: 1; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
-                            <div>
-                                <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 1rem;">
-                                    <span class="font-mono"
-                                        style="background: var(--dark-grey); color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">GITLAB</span>
-                                    <span class="font-mono"
-                                        style="background: #02569B; color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">Flutter
-                                        / Dart</span>
-                                </div>
-                                <h3 style="font-size: 2.25rem; font-weight: 800; margin: 0 0 0.5rem;">MEDHA AI or
-                                    SuvyAIkth</h3>
-                                <p
-                                    style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
-                                    An accessibility-first educational ecosystem with offline Gemma 3, online Gemini 2.0
-                                    Flash, real-time Imagen 4 diagrams, Netra AI vision, and Morse code haptics. 1st
-                                    Prize - IIT Bombay Techfest.
-                                </p>
-                            </div>
-                            <div
-                                style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                                <a href="https://gitlab.com/krishnakoushik9/suvyaikth-modified" target="_blank"
-                                    class="btn-brutalist"
-                                    style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">PULL_REQUEST</a>
-                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- SYNTARA (GitLab) - NO IMAGE -->
-                <div style="grid-column: span 6;">
+                <div class="col-span-standard">
                     <div class="card-brutalist"
                         style="height: 100%; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
                         <div>
@@ -662,8 +616,52 @@
                     </div>
                 </div>
 
+                <!-- MEDHA AI (GitLab) - IMAGES: src/Win1.jpeg, src/Win2.jpeg, src/Win3.jpeg -->
+                <div class="col-span-featured">
+                    <div class="card-brutalist card-featured-layout"
+                        style="border: 4px solid var(--ink); background: var(--white);">
+                        <div
+                            style="flex: 1; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 1rem;">
+                                    <span class="font-mono"
+                                        style="background: var(--dark-grey); color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">GITLAB</span>
+                                    <span class="font-mono"
+                                        style="background: #02569B; color: var(--white); padding: 0.15rem 0.5rem; font-size: 0.75rem;">Flutter
+                                        / Dart</span>
+                                </div>
+                                <h3 style="font-size: 2.25rem; font-weight: 800; margin: 0 0 0.5rem;">MEDHA AI or
+                                    SuvyAIkth</h3>
+                                <p
+                                    style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
+                                    An accessibility-first educational ecosystem with offline Gemma 3, online Gemini 2.0
+                                    Flash, real-time Imagen 4 diagrams, Netra AI vision, and Morse code haptics. 1st
+                                    Prize - IIT Bombay Techfest.
+                                </p>
+                            </div>
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                                <a href="https://gitlab.com/krishnakoushik9/suvyaikth-modified" target="_blank"
+                                    class="btn-brutalist"
+                                    style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">PULL_REQUEST</a>
+                            </div>
+                        </div>
+                        <div class="image-wrapper" style="position: relative; background: #e5e7eb; overflow: hidden;">
+                            <img src="src/Win1.jpeg"
+                                style="position: absolute; width: 100%; height: 100%; object-fit: cover; animation: medhaFade1 9s infinite;"
+                                loading="lazy">
+                            <img src="src/Win2.jpeg"
+                                style="position: absolute; width: 100%; height: 100%; object-fit: cover; animation: medhaFade2 9s infinite;"
+                                loading="lazy">
+                            <img src="src/Win3.jpeg"
+                                style="position: absolute; width: 100%; height: 100%; object-fit: cover; animation: medhaFade3 9s infinite;"
+                                loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
                 <!-- BOI PLATFORM (GitLab) - NO IMAGE -->
-                <div style="grid-column: span 6;">
+                <div class="col-span-standard">
                     <div class="card-brutalist"
                         style="height: 100%; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
                         <div>
@@ -680,7 +678,7 @@
                             <p
                                 style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--color-muted);">
                                 Garuda Sentinel - Fraud Detection & Mule Account Platform bridging CBS GnuCOBOL with
-                                FastAPI, Graph analytics, and compliance SLA. [Warning: Currently Locked for Public]
+                                FastAPI, Graph analytics, and compliance SLA. [Warning: Locked for Public]
                             </p>
                         </div>
                         <div
@@ -700,7 +698,7 @@
                 </div>
 
                 <!-- DSA SITE - NO IMAGE -->
-                <div style="grid-column: span 4;">
+                <div class="col-span-standard">
                     <div class="card-brutalist"
                         style="height: 100%; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
                         <div>
@@ -728,14 +726,9 @@
                 </div>
 
                 <!-- INTELLICREDIT - IMAGE: image-src/HydIITWin2.jpeg -->
-                <div style="grid-column: span 4;">
-                    <div class="card-brutalist"
-                        style="height: 100%; padding: 0; display: flex; flex-direction: column; overflow: hidden; border: 4px solid var(--ink); background: var(--white);">
-                        <div
-                            style="width: 100%; height: 240px; border-bottom: 4px solid var(--ink); overflow: hidden; background: #e5e7eb;">
-                            <img src="image-src/HydIITWin2.jpeg" style="width: 100%; height: 100%; object-fit: cover;"
-                                loading="lazy">
-                        </div>
+                <div class="col-span-featured">
+                    <div class="card-brutalist card-featured-layout"
+                        style="border: 4px solid var(--ink); background: var(--white);">
                         <div
                             style="flex: 1; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
                             <div>
@@ -761,11 +754,15 @@
                                     style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">PULL_REQUEST</a>
                             </div>
                         </div>
+                        <div class="image-wrapper" style="background: #e5e7eb; overflow: hidden;">
+                            <img src="image-src/HydIITWin2.jpeg" style="width: 100%; height: 100%; object-fit: cover;"
+                                loading="lazy">
+                        </div>
                     </div>
                 </div>
 
                 <!-- LEGION SURF - NO IMAGE -->
-                <div style="grid-column: span 4;">
+                <div class="col-span-half">
                     <div class="card-brutalist"
                         style="height: 100%; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
                         <div>
@@ -792,7 +789,7 @@
                 </div>
 
                 <!-- AYUR-VERSE - NO IMAGE -->
-                <div style="grid-column: span 4;">
+                <div class="col-span-half">
                     <div class="card-brutalist"
                         style="height: 100%; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
                         <div>
@@ -811,7 +808,7 @@
                 </div>
 
                 <!-- EMO-CARE - NO IMAGE -->
-                <div style="grid-column: span 4;">
+                <div class="col-span-half">
                     <div class="card-brutalist"
                         style="height: 100%; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
                         <div>
@@ -831,7 +828,7 @@
                 </div>
 
                 <!-- E-SUMMIT - NO IMAGE -->
-                <div style="grid-column: span 4;">
+                <div class="col-span-half">
                     <div class="card-brutalist"
                         style="height: 100%; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); background: var(--white);">
                         <div>
