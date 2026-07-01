@@ -31,18 +31,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Identify NVIDIA + Chromium combo to forcefully pressure shaders on these setups
     const isNvidiaChromium = isChromium && gpuRenderer.includes('nvidia');
 
-    // Enable SVG displacement map on all Chromium browsers (including Chrome + Intel).
-    // Safari, iOS, and Firefox users use native CSS fallback for best compatibility and performance.
-    const shouldApplyRefraction = !isTouchDevice && !isSafari && !isIOS && !isFirefox;
+    // Enable SVG displacement map on all desktop browsers (including Chrome + Intel).
+    // Blocked only for touch devices (like iPad) and Firefox.
+    const shouldApplyRefraction = !isTouchDevice && !isFirefox;
     
     // Custom cursor visibility: only show on desktop (non-touch devices)
     const showCursor = !isTouchDevice;
 
     // GPU capability-based visual settings
-    // 512 & scale 110 for Nvidia Chromium; 128 & scale 60 for Intel/other Chromium
-    const normalMapSize = isNvidiaChromium ? 512 : 128;
-    const edgeRefractIntensity = isNvidiaChromium ? 1.65 : 1.05; 
-    const refractionScale = isNvidiaChromium ? 110 : 60;
+    // 512 & scale 110 for Nvidia Chromium; 256 & scale 85 for Intel/other Chromium (highly visible!)
+    const normalMapSize = isNvidiaChromium ? 512 : 256;
+    const edgeRefractIntensity = isNvidiaChromium ? 1.65 : 1.35; 
+    const refractionScale = isNvidiaChromium ? 110 : 85;
 
     if (showCursor) {
         // Generate Normal Map for Sphere Lens (soft-faded at edges, active in middle)
@@ -155,14 +155,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const svgNS = "http://www.w3.org/2000/svg";
             const svg = document.createElementNS(svgNS, "svg");
-            svg.setAttribute("width", "128");
-            svg.setAttribute("height", "128");
+            svg.setAttribute("width", "1");
+            svg.setAttribute("height", "1");
             svg.style.position = "fixed";
-            svg.style.top = "-9999px";
-            svg.style.left = "-9999px";
-            svg.style.width = "128px";
-            svg.style.height = "128px";
+            svg.style.top = "0";
+            svg.style.left = "0";
+            svg.style.width = "1px";
+            svg.style.height = "1px";
             svg.style.pointerEvents = "none";
+            svg.style.opacity = "0.001";
+            svg.style.overflow = "hidden";
             
             const defs = document.createElementNS(svgNS, "defs");
             const filter = document.createElementNS(svgNS, "filter");
@@ -234,8 +236,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Apply displacement filter to the main wrapper
             const appWrap = document.getElementById('app-wrap');
             if (appWrap) {
-                // Hint Windows/Chromium/Nvidia browsers to forcefully run rendering and filters on primary GPU layers
-                if (isWindows && isChromium) {
+                // Hint Chromium browsers to forcefully run rendering and filters on primary GPU layers
+                if (isChromium) {
                     appWrap.style.willChange = "transform, filter";
                     appWrap.style.transform = "translate3d(0, 0, 0)";
                 }
@@ -251,14 +253,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Force GPU translation layering and will-change on the cursor
         cursor.style.willChange = "transform";
         
-        // If SVG refraction is NOT supported/applied (e.g. Firefox, Safari), apply native CSS glass fallback
-        if (!shouldApplyRefraction) {
-            cursor.style.backdropFilter = "blur(12px) saturate(140%)";
-            cursor.style.webkitBackdropFilter = "blur(12px) saturate(140%)";
-            cursor.style.background = "rgba(255, 255, 255, 0.08)";
-            cursor.style.border = "1.5px solid rgba(255, 255, 255, 0.45)";
-            cursor.style.boxShadow = "0 12px 35px 0 rgba(0, 0, 0, 0.35), inset 0 0 8px rgba(255, 255, 255, 0.25)";
-        }
+        // Apply premium CSS backdrop glass effect unconditionally so there is always a visual glass follower
+        cursor.style.backdropFilter = "blur(12px) saturate(140%)";
+        cursor.style.webkitBackdropFilter = "blur(12px) saturate(140%)";
+        cursor.style.background = "rgba(255, 255, 255, 0.06)";
+        cursor.style.border = "1.5px solid rgba(255, 255, 255, 0.5)";
+        cursor.style.boxShadow = "0 12px 35px 0 rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.3)";
         
         document.body.appendChild(cursor);
 
