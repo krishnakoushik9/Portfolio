@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Device, Platform & Browser Capability Detection
-    const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    // A true touch-only device (like iPad/mobile) has touch capabilities but NO fine pointer (mouse/trackpad)
+    const isTouchDevice = (('ontouchstart' in window) || (navigator.maxTouchPoints > 0)) && 
+                          !window.matchMedia('(any-pointer: fine)').matches;
     const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
                   (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
