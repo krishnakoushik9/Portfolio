@@ -253,12 +253,21 @@ document.addEventListener('DOMContentLoaded', () => {
         // Force GPU translation layering and will-change on the cursor
         cursor.style.willChange = "transform";
         
-        // Apply premium CSS backdrop glass effect unconditionally so there is always a visual glass follower
-        cursor.style.backdropFilter = "blur(12px) saturate(140%)";
-        cursor.style.webkitBackdropFilter = "blur(12px) saturate(140%)";
-        cursor.style.background = "rgba(255, 255, 255, 0.06)";
-        cursor.style.border = "1.5px solid rgba(255, 255, 255, 0.5)";
-        cursor.style.boxShadow = "0 12px 35px 0 rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.3)";
+        // If SVG refraction is NOT supported/applied (e.g. Firefox, Safari), apply native CSS glass fallback.
+        // Otherwise, keep the cursor completely transparent (no blur/frost overlay) so the SVG refraction is crystal clear.
+        if (!shouldApplyRefraction) {
+            cursor.style.backdropFilter = "blur(12px) saturate(140%)";
+            cursor.style.webkitBackdropFilter = "blur(12px) saturate(140%)";
+            cursor.style.background = "rgba(255, 255, 255, 0.08)";
+            cursor.style.border = "1.5px solid rgba(255, 255, 255, 0.45)";
+            cursor.style.boxShadow = "0 12px 35px 0 rgba(0, 0, 0, 0.35), inset 0 0 8px rgba(255, 255, 255, 0.25)";
+        } else {
+            cursor.style.backdropFilter = "none";
+            cursor.style.webkitBackdropFilter = "none";
+            cursor.style.background = "rgba(255, 255, 255, 0.02)";
+            cursor.style.border = "2px solid rgba(255, 255, 255, 0.75)";
+            cursor.style.boxShadow = "0 12px 35px 0 rgba(0, 0, 0, 0.25), inset 0 0 12px rgba(255, 255, 255, 0.45)";
+        }
         
         document.body.appendChild(cursor);
 
@@ -323,8 +332,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('mousemove', (e) => {
             viewportX = e.clientX;
             viewportY = e.clientY;
-            documentX = e.pageX;
-            documentY = e.pageY;
         });
 
         function animateCursor() {
@@ -351,8 +358,10 @@ document.addEventListener('DOMContentLoaded', () => {
             cursorY += (viewportY - cursorY) * lerp;
             
             if (shouldApplyRefraction) {
-                filterX += (documentX - filterX) * lerp;
-                filterY += (documentY - filterY) * lerp;
+                const currentDocX = viewportX + (window.pageXOffset || window.scrollX || 0);
+                const currentDocY = viewportY + (window.pageYOffset || window.scrollY || 0);
+                filterX += (currentDocX - filterX) * lerp;
+                filterY += (currentDocY - filterY) * lerp;
             }
             
             const morphLerp = 0.035;
